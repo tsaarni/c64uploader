@@ -42,6 +42,10 @@ var (
 	errorStyle = lipgloss.NewStyle().
 			Foreground(lipgloss.Color("196")).
 			Bold(true)
+
+	cursorStyle = lipgloss.NewStyle().
+			Bold(true).
+			Reverse(true)
 )
 
 // Model represents the TUI application state.
@@ -231,7 +235,7 @@ func (m Model) renderHeader() string {
 		b.WriteString(dimStyle.Render("(type to search)"))
 	} else {
 		b.WriteString(m.searchQuery)
-		b.WriteString("_")
+		b.WriteString(cursorStyle.Render(" "))
 	}
 	b.WriteString("\n\n")
 

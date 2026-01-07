@@ -38,8 +38,8 @@ func detectFileType(filename string) string {
 	}
 }
 
-// uploadAndRunGame uploads a game file and runs it based on file type.
-func uploadAndRunGame(client *APIClient, filename string) error {
+// uploadAndRunFile uploads a file and runs it based on file type.
+func uploadAndRunFile(client *APIClient, filename string) error {
 	// Read file.
 	fileData, err := os.ReadFile(filename)
 	if err != nil {
@@ -131,7 +131,7 @@ func handlePokeCommand(client *APIClient, args []string) {
 		os.Exit(1)
 	}
 
-	fmt.Printf("POKE %s,%d OK\n", strings.ToUpper(addressHex), value)
+	fmt.Printf("POKE %s,%d OK\n", addressStr, value)
 }
 
 func main() {
@@ -163,12 +163,12 @@ func main() {
 		slog.Info("Connecting to C64 Ultimate", "host", *host)
 		slog.Info("Uploading file", "path", filename)
 
-		if err := uploadAndRunGame(client, filename); err != nil {
-			slog.Error("Failed to upload and run game", "error", err)
+		if err := uploadAndRunFile(client, filename); err != nil {
+			slog.Error("Failed to upload and run file", "error", err)
 			os.Exit(1)
 		}
 
-		slog.Info("Success! Game uploaded and running")
+		slog.Info("Success! Program uploaded and running")
 	} else {
 		// TUI mode: launch interactive browser.
 		// Disable slog output in TUI mode to avoid interfering with the display.
