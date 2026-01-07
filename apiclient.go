@@ -76,8 +76,8 @@ func (c *APIClient) uploadAndRun(endpoint string, fileData []byte) error {
 	return c.doRequest("POST", endpoint, bytes.NewReader(fileData))
 }
 
-// writeMemory writes data to C64 memory via DMA.
-func (c *APIClient) writeMemory(address string, data []byte) error {
+// WriteMemory writes data to C64 memory via DMA.
+func (c *APIClient) WriteMemory(address string, data []byte) error {
 	path := fmt.Sprintf("/v1/machine:writemem?address=%s", address)
 	return c.doRequest("POST", path, bytes.NewReader(data))
 }
@@ -150,13 +150,13 @@ func (c *APIClient) injectKeyboardCommand(command string) error {
 	petscii := []byte(strings.ToUpper(command))
 
 	// Write command to keyboard buffer.
-	if err := c.writeMemory("0277", petscii); err != nil {
+	if err := c.WriteMemory("0277", petscii); err != nil {
 		return fmt.Errorf("writing keyboard buffer: %w", err)
 	}
 
 	// Set buffer length.
 	bufferLen := []byte{byte(len(petscii))}
-	if err := c.writeMemory("00C6", bufferLen); err != nil {
+	if err := c.WriteMemory("00C6", bufferLen); err != nil {
 		return fmt.Errorf("writing buffer length: %w", err)
 	}
 

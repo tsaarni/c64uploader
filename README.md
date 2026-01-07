@@ -24,13 +24,36 @@ go build
 
 ## Usage
 
+### TUI Mode
+
+By default, running the program without file argument launches the Terminal User Interface (TUI). This allows you to interactively browse and upload files from your Assembly64 collection.
+
 ```bash
-./c64uploader [options] <file>
+./c64uploader [options]
 ```
 
-If no `<file>` argument is provided, the program launches in TUI mode.
+### CLI Mode
+
+Alternatively, you can provide arguments to perform specific actions directly from the command line.
+
+**Upload and Run a Game:**
+```bash
+./c64uploader [options] <filename>
+```
+
+### Poke Mode
+
+Issue a POKE command
+
+```bash
+./c64uploader [options] poke <address>,<value>
+```
+
+**Argument Formats:**
+- **address**: Decimal (e.g., `53280`) or Hexadecimal (`0xD020`, `$D020`, `D020`).
+- **value**: Decimal (0-255) or Hexadecimal (`0xFF`, `$FF`, `FF`).
 
 ### Options
 
-- `-host string` - C64 Ultimate hostname or IP address (default: `c64u`)
-- `-assembly64 string` - Path to Assembly64 collection (default: `~/Downloads/assembly64`)
+- `-host string`: C64 Ultimate hostname or IP address (default: `c64u`).
+- `-assembly64 string`: Path to local Assembly64 collection (default: `~/Downloads/assembly64`).

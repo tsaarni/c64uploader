@@ -66,6 +66,74 @@ func uploadAndRunGame(client *APIClient, filename string) error {
 	}
 }
 
+// handlePokeCommand parses arguments and issues a POKE command.
+func handlePokeCommand(client *APIClient, args []string) {
+	// Join all remaining arguments to handle "poke address, value" vs "poke address,value" etc.
+	rawArgs := strings.Join(args, "")
+	parts := strings.Split(rawArgs, ",")
+
+	if len(parts) != 2 {
+		fmt.Fprintln(os.Stderr, "Usage: c64uploader poke <address>,<value>")
+		os.Exit(1)
+	}
+
+	addressStr := strings.TrimSpace(parts[0])
+	valueStr := strings.TrimSpace(parts[1])
+
+	// Parse address.
+	// C64 Ultimate API expects hex address without 0x or $.
+	// User might provide 53280, 0xD020, $D020.
+	var address int
+	var err error
+
+	// Handle $ prefix for hex.
+	if strings.HasPrefix(addressStr, "$") {
+		addressStr = "0x" + addressStr[1:]
+	}
+
+	// Try parsing. auto-detect base (0x for hex, else decimal).
+	_, err = fmt.Sscanf(addressStr, "%v", &address)
+	if err != nil {
+		// Re-attempt as hex if initial parse failed (e.g. "D020")
+		_, errHex := fmt.Sscanf(addressStr, "%x", &address)
+		if errHex != nil {
+			fmt.Fprintf(os.Stderr, "Invalid address '%s': %v\n", parts[0], err)
+			os.Exit(1)
+		}
+	}
+
+	// Format address as hex string for API (without 0x).
+	addressHex := fmt.Sprintf("%x", address)
+
+	// Parse value.
+	var value int
+	// Handle $ prefix
+	if strings.HasPrefix(valueStr, "$") {
+		valueStr = "0x" + valueStr[1:]
+	}
+	_, err = fmt.Sscanf(valueStr, "%v", &value)
+	if err != nil {
+		// Re-attempt as hex (e.g. "FF")
+		_, errHex := fmt.Sscanf(valueStr, "%x", &value)
+		if errHex != nil {
+			fmt.Fprintf(os.Stderr, "Invalid value '%s': %v\n", parts[1], err)
+			os.Exit(1)
+		}
+	}
+
+	if value < 0 || value > 255 {
+		fmt.Fprintf(os.Stderr, "Value must be 0-255 (byte), got %d\n", value)
+		os.Exit(1)
+	}
+
+	if err := client.WriteMemory(addressHex, []byte{byte(value)}); err != nil {
+		fmt.Fprintf(os.Stderr, "Failed to poke: %v\n", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("POKE %s,%d OK\n", strings.ToUpper(addressHex), value)
+}
+
 func main() {
 	// Parse command-line flags.
 	host := flag.String("host", "c64u", "C64 Ultimate hostname or IP address")
@@ -83,6 +151,13 @@ func main() {
 
 	// Check if we have a file argument (CLI mode) or should launch TUI.
 	if flag.NArg() > 0 {
+		// Check for "poke" command.
+		if flag.Arg(0) == "poke" {
+			// Pass arguments after "poke"
+			handlePokeCommand(client, flag.Args()[1:])
+			return
+		}
+
 		// CLI mode: run single file.
 		filename := flag.Arg(0)
 		slog.Info("Connecting to C64 Ultimate", "host", *host)
