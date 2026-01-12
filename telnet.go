@@ -13,17 +13,18 @@ import (
 	"time"
 )
 
-// ANSI escape codes for terminal rendering.
-const (
-	ansiReset   = "\033[0m"
-	ansiBold    = "\033[1m"
-	ansiReverse = "\033[7m"
-	ansiMagenta = "\033[35m"
-	ansiCyan    = "\033[36m"
-	ansiGray    = "\033[90m"
-	ansiRed     = "\033[31m"
-	ansiGreen   = "\033[32m"
-	ansiClear   = "\033[2J\033[H"
+// Plain text mode for C64 Ultimate compatibility (no ANSI codes).
+// For screen "clear", we output enough newlines to push old content off.
+var (
+	ansiReset   = ""
+	ansiBold    = ""
+	ansiReverse = ""
+	ansiMagenta = ""
+	ansiCyan    = ""
+	ansiGray    = ""
+	ansiRed     = ""
+	ansiGreen   = ""
+	ansiClear   = "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n----------------------------------------\r\n"
 )
 
 // Server limits.
@@ -49,6 +50,7 @@ type TelnetModel struct {
 }
 
 // NewTelnetModel creates a new telnet session model.
+// Defaults to C64 screen dimensions (40x25) for authentic experience.
 func NewTelnetModel(index *SearchIndex, apiClient *APIClient, assembly64Path string) *TelnetModel {
 	m := &TelnetModel{
 		index:            index,
@@ -57,8 +59,8 @@ func NewTelnetModel(index *SearchIndex, apiClient *APIClient, assembly64Path str
 		selectedCategory: "All",
 		searchQuery:      "",
 		filteredResults:  make([]int, 0),
-		width:            80,
-		height:           24,
+		width:            40,
+		height:           25,
 	}
 	m.applyFilters()
 	return m
@@ -270,13 +272,13 @@ func handleConnection(conn net.Conn, index *SearchIndex, c64Host string, assembl
 	model := NewTelnetModel(index, apiClient, assembly64Path)
 
 	// Main loop.
-	for {
-		// Render screen.
-		if err := renderScreen(conn, model); err != nil {
-			slog.Debug("Write error", "error", err)
-			return
-		}
+	// Initial render.
+	if err := renderScreen(conn, model); err != nil {
+		slog.Debug("Write error", "error", err)
+		return
+	}
 
+	for {
 		// Set read deadline.
 		conn.SetReadDeadline(time.Now().Add(readTimeout))
 
@@ -291,137 +293,164 @@ func handleConnection(conn net.Conn, index *SearchIndex, c64Host string, assembl
 			return
 		}
 
+		// Skip empty actions (IAC sequences, etc.) - don't redraw.
+		if action == "" {
+			continue
+		}
+
 		// Handle input.
 		if !handleInput(model, action, conn) {
 			return // quit
+		}
+
+		// Render screen after handling input.
+		if err := renderScreen(conn, model); err != nil {
+			slog.Debug("Write error", "error", err)
+			return
 		}
 	}
 }
 
 // renderScreen renders the full UI to the connection.
+// Adapts layout for 40-column (C64) vs 80-column terminals.
 func renderScreen(conn net.Conn, m *TelnetModel) error {
 	var b strings.Builder
 
 	// Clear screen and reset cursor to top-left.
 	b.WriteString(ansiClear)
 
-	// Title.
+	// Title (shorter for 40-col).
 	b.WriteString(ansiBold + ansiMagenta)
-	b.WriteString("C64 Ultimate - Assembly64 Browser")
+	if m.width <= 40 {
+		b.WriteString("Assembly64 Browser")
+	} else {
+		b.WriteString("C64 Ultimate - Assembly64 Browser")
+	}
 	b.WriteString(ansiReset)
-	b.WriteString("\r\n\r\n")
+	b.WriteString("\r\n")
 
-	// Category bar.
-	b.WriteString(ansiBold + ansiCyan + "Category: " + ansiReset)
-	for i, cat := range m.index.CategoryOrder {
-		if cat == m.selectedCategory {
-			b.WriteString(ansiReverse + ansiBold + "[" + cat + "]" + ansiReset)
-		} else {
-			b.WriteString(ansiCyan + cat + ansiReset)
-		}
-		if i < len(m.index.CategoryOrder)-1 {
-			b.WriteString(" ")
+	// Category (compact for 40-col).
+	if m.width <= 40 {
+		b.WriteString(ansiCyan + "[" + m.selectedCategory + "]" + ansiReset)
+	} else {
+		b.WriteString(ansiBold + ansiCyan + "Category: " + ansiReset)
+		for i, cat := range m.index.CategoryOrder {
+			if cat == m.selectedCategory {
+				b.WriteString(ansiReverse + ansiBold + "[" + cat + "]" + ansiReset)
+			} else {
+				b.WriteString(ansiCyan + cat + ansiReset)
+			}
+			if i < len(m.index.CategoryOrder)-1 {
+				b.WriteString(" ")
+			}
 		}
 	}
 	b.WriteString("\r\n")
 
 	// Search line.
-	b.WriteString(ansiBold + ansiCyan + "Search: " + ansiReset)
+	if m.width <= 40 {
+		b.WriteString(ansiCyan + ">" + ansiReset)
+	} else {
+		b.WriteString(ansiBold + ansiCyan + "Search: " + ansiReset)
+	}
 	if m.searchQuery == "" {
-		b.WriteString(ansiGray + "(type to search)" + ansiReset)
+		if m.width > 40 {
+			b.WriteString(ansiGray + "(type to search)" + ansiReset)
+		}
 	} else {
 		b.WriteString(m.searchQuery)
 		b.WriteString(ansiReverse + " " + ansiReset)
 	}
-	b.WriteString("\r\n\r\n")
+	b.WriteString("\r\n")
 
 	// Results list.
-	viewHeight := m.height - 10
+	viewHeight := m.height - 8
 	if viewHeight < 5 {
 		viewHeight = 5
 	}
 
 	if len(m.filteredResults) == 0 {
-		b.WriteString(ansiGray + "No results found" + ansiReset + "\r\n")
+		b.WriteString(ansiGray + "No results" + ansiReset + "\r\n")
 	} else {
 		start := m.scrollOffset
 		end := min(start+viewHeight, len(m.filteredResults))
 
 		for i := start; i < end; i++ {
 			entry := m.index.Entries[m.filteredResults[i]]
-			line := formatEntryTelnet(entry, i == m.cursor)
+			line := formatEntryTelnet(entry, i == m.cursor, m.width)
 			b.WriteString(line)
 			b.WriteString("\r\n")
 		}
 	}
 
 	// Result count.
-	b.WriteString("\r\n")
 	b.WriteString(ansiGray)
-	b.WriteString(fmt.Sprintf("[%d results]", len(m.filteredResults)))
+	b.WriteString(fmt.Sprintf("[%d]", len(m.filteredResults)))
 	b.WriteString(ansiReset)
-	b.WriteString("\r\n")
 
 	// Status/error message.
 	if m.err != nil {
-		b.WriteString(ansiBold + ansiRed)
-		b.WriteString(fmt.Sprintf("Error: %v", m.err))
+		b.WriteString(" " + ansiRed)
+		// Truncate error for narrow screens.
+		errStr := m.err.Error()
+		maxErr := m.width - 10
+		if maxErr > 0 && len(errStr) > maxErr {
+			errStr = errStr[:maxErr]
+		}
+		b.WriteString(errStr)
 		b.WriteString(ansiReset)
-		b.WriteString("\r\n")
 	} else if m.statusMessage != "" {
-		b.WriteString(ansiGreen)
-		b.WriteString(m.statusMessage)
-		b.WriteString(ansiReset)
-		b.WriteString("\r\n")
+		b.WriteString(" " + ansiGreen + m.statusMessage + ansiReset)
 	}
-
-	// Help line.
-	b.WriteString(ansiGray)
-	b.WriteString("Arrows:Nav  Tab:Category  Enter:Load  Ctrl+L:Refresh  Backspace  Q:Quit")
-	b.WriteString(ansiReset)
 	b.WriteString("\r\n")
 
-	// Selected file path.
-	if len(m.filteredResults) > 0 && m.cursor < len(m.filteredResults) {
-		entry := m.index.Entries[m.filteredResults[m.cursor]]
-		path := entry.FullPath
-		if m.width > 10 && len(path) > m.width-2 {
-			truncLen := m.width - 5
-			if truncLen > 0 && truncLen < len(path) {
-				path = "..." + path[len(path)-truncLen:]
-			}
-		}
-		b.WriteString(ansiGray + path + ansiReset)
+	// Help line (compact for 40-col).
+	b.WriteString(ansiGray)
+	if m.width <= 40 {
+		b.WriteString("Arr Tab Ent Q")
+	} else {
+		b.WriteString("Arrows Tab Enter Q:Quit")
 	}
+	b.WriteString(ansiReset)
 
 	_, err := conn.Write([]byte(b.String()))
 	return err
 }
 
 // formatEntryTelnet formats a single entry for telnet display.
-func formatEntryTelnet(entry ReleaseEntry, selected bool) string {
-	cursor := "  "
+// Adapts layout based on terminal width (40 for C64, 80+ for modern).
+func formatEntryTelnet(entry ReleaseEntry, selected bool, width int) string {
+	cursor := " "
 	if selected {
-		cursor = "> "
+		cursor = ">"
 	}
 
-	// Truncate name if too long.
-	name := entry.Name
-	maxNameLen := 30
-	if len(name) > maxNameLen {
-		name = name[:maxNameLen-3] + "..."
-	}
-
-	// Format group/year.
-	meta := ""
-	if entry.Group != "" || entry.Year != "" {
-		meta = fmt.Sprintf("(%s, %s)", entry.Group, entry.Year)
-	}
-
-	// Format extension.
 	ext := "." + entry.FileType
+	name := entry.Name
 
-	line := fmt.Sprintf("%s%-32s  %-25s  %s", cursor, name, meta, ext)
+	var line string
+	if width <= 40 {
+		// 40-col: ">Name.ext" - compact, no metadata.
+		maxNameLen := width - 2 - len(ext) // 1 cursor, 1 space
+		if maxNameLen < 8 {
+			maxNameLen = 8
+		}
+		if len(name) > maxNameLen {
+			name = name[:maxNameLen-2] + ".."
+		}
+		line = fmt.Sprintf("%s%s%s", cursor, name, ext)
+	} else {
+		// 80-col: "> Name                (Group, Year)  .ext"
+		maxNameLen := 30
+		if len(name) > maxNameLen {
+			name = name[:maxNameLen-3] + "..."
+		}
+		meta := ""
+		if entry.Group != "" || entry.Year != "" {
+			meta = fmt.Sprintf("(%s, %s)", entry.Group, entry.Year)
+		}
+		line = fmt.Sprintf("%s %-32s %-25s %s", cursor, name, meta, ext)
+	}
 
 	if selected {
 		return ansiBold + ansiMagenta + line + ansiReset
@@ -443,26 +472,53 @@ func readInput(conn net.Conn) (string, error) {
 
 	data := buf[:n]
 
-	// Skip telnet IAC sequences (commands starting with 255).
-	for len(data) > 0 && data[0] == 255 {
-		// IAC commands are at least 2 bytes, most are 3.
-		// IAC SB (subnegotiation) can be longer but we just skip what we have.
-		cmdLen := 2
-		if len(data) >= 2 {
-			// WILL/WONT/DO/DONT are 3 bytes, others vary.
-			cmd := data[1]
-			if cmd >= 251 && cmd <= 254 {
-				cmdLen = 3
-			}
+	// Debug: log raw bytes received.
+	slog.Debug("readInput: raw bytes", "count", n, "hex", fmt.Sprintf("%x", data), "ascii", string(data))
+
+	// Handle telnet IAC sequences.
+	// C64U sends bytes one at a time, so we need to handle partial sequences.
+	// IAC (255) starts a command sequence.
+	if data[0] == 255 {
+		// Read more bytes to complete the IAC sequence.
+		conn.SetReadDeadline(time.Now().Add(100 * time.Millisecond))
+		more := make([]byte, 8)
+		n2, _ := conn.Read(more)
+		conn.SetReadDeadline(time.Time{}) // Reset deadline.
+		if n2 > 0 {
+			data = append(data, more[:n2]...)
+			slog.Debug("readInput: IAC sequence", "hex", fmt.Sprintf("%x", data))
 		}
-		if len(data) >= cmdLen {
-			data = data[cmdLen:]
-		} else {
-			data = data[:0]
-		}
+		// Skip the entire IAC sequence (return empty to get next input).
+		return "", nil
 	}
 
-	if len(data) == 0 {
+	// Skip any stray IAC command bytes (251-254) that arrived separately.
+	// These are WILL/WONT/DO/DONT without the IAC prefix.
+	if data[0] >= 251 && data[0] <= 254 {
+		slog.Debug("readInput: skipping stray IAC command byte", "byte", data[0])
+		return "", nil
+	}
+
+	// Handle common control characters BEFORE IAC option check.
+	// These are valid user inputs, not IAC option bytes.
+	// Note: We don't handle Ctrl+C (3) here because it conflicts with
+	// telnet SGA option code. Use 'q' to quit instead.
+	switch data[0] {
+	case '\t': // Tab (9)
+		return "tab", nil
+	case '\r', '\n': // Enter (13, 10)
+		return "enter", nil
+	case 127, 8: // DEL or Backspace
+		return "backspace", nil
+	case 12: // Ctrl+L
+		return "refresh", nil
+	}
+
+	// Skip option codes (0-50 range) that follow WILL/WONT/DO/DONT.
+	// But exclude control chars we already handled above.
+	// Common: 1=ECHO, 3=SGA, 34=LINEMODE.
+	if len(data) == 1 && data[0] <= 50 {
+		slog.Debug("readInput: skipping IAC option byte", "byte", data[0])
 		return "", nil
 	}
 
@@ -518,18 +574,8 @@ func readInput(conn net.Conn) (string, error) {
 		return "", nil // Ignore unknown escape sequences
 	}
 
-	// Single character commands.
+	// Single character commands (for escape sequence fallthrough).
 	switch data[0] {
-	case '\t':
-		return "tab", nil
-	case '\r', '\n':
-		return "enter", nil
-	case 127, 8: // DEL or Backspace
-		return "backspace", nil
-	case 3: // Ctrl+C
-		return "quit", nil
-	case 12: // Ctrl+L
-		return "refresh", nil
 	case 'q', 'Q':
 		return "quit", nil
 	}
@@ -539,6 +585,8 @@ func readInput(conn net.Conn) (string, error) {
 		return string(data[0]), nil
 	}
 
+	// Debug: unrecognized input.
+	slog.Debug("readInput: unrecognized", "byte", data[0], "hex", fmt.Sprintf("%02x", data[0]))
 	return "", nil
 }
 
