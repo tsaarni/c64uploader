@@ -139,6 +139,8 @@ func main() {
 	host := flag.String("host", "c64u", "C64 Ultimate hostname or IP address")
 	verbose := flag.Bool("v", false, "Enable verbose debug logging")
 	assembly64Path := flag.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 database")
+	telnetMode := flag.Bool("telnet", false, "Start telnet server mode")
+	telnetPort := flag.Int("port", 6464, "Telnet server port")
 	flag.Parse()
 
 	// Set log level.
@@ -169,6 +171,12 @@ func main() {
 		}
 
 		slog.Info("Success! Program uploaded and running")
+	} else if *telnetMode {
+		// Telnet server mode.
+		if err := startTelnetServer(*host, *telnetPort, *assembly64Path); err != nil {
+			slog.Error("Telnet server error", "error", err)
+			os.Exit(1)
+		}
 	} else {
 		// TUI mode: launch interactive browser.
 		// Disable slog output in TUI mode to avoid interfering with the display.
