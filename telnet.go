@@ -15,15 +15,17 @@ import (
 
 // ANSI escape codes for terminal rendering.
 const (
-	ansiReset   = "\033[0m"
-	ansiBold    = "\033[1m"
-	ansiReverse = "\033[7m"
-	ansiMagenta = "\033[35m"
-	ansiCyan    = "\033[36m"
-	ansiGray    = "\033[90m"
-	ansiRed     = "\033[31m"
-	ansiGreen   = "\033[32m"
-	ansiClear   = "\033[2J\033[H"
+	ansiReset     = "\033[0m"
+	ansiBold      = "\033[1m"
+	ansiReverse   = "\033[7m"
+	ansiMagenta   = "\033[35m"
+	ansiCyan      = "\033[36m"
+	ansiGray      = "\033[90m"
+	ansiRed       = "\033[31m"
+	ansiGreen     = "\033[32m"
+	ansiHome      = "\033[H"        // Cursor to top-left
+	ansiClearLine = "\033[K"        // Clear from cursor to end of line
+	ansiClear     = "\033[2J\033[H" // Full clear (used only on initial render)
 )
 
 // Server limits.
@@ -271,7 +273,11 @@ func handleConnection(conn net.Conn, index *SearchIndex, c64Host string, assembl
 	model := NewTelnetModel(index, apiClient, assembly64Path)
 
 	// Main loop.
-	// Initial render.
+	// Initial render with full screen clear.
+	if _, err := conn.Write([]byte(ansiClear)); err != nil {
+		slog.Debug("Write error", "error", err)
+		return
+	}
 	if err := renderScreen(conn, model); err != nil {
 		slog.Debug("Write error", "error", err)
 		return
@@ -312,11 +318,12 @@ func handleConnection(conn net.Conn, index *SearchIndex, c64Host string, assembl
 
 // renderScreen renders the full UI to the connection.
 // Adapts layout for 40-column (C64) vs 80-column terminals.
+// Uses cursor home + line clearing for smoother updates (no full screen clear).
 func renderScreen(conn net.Conn, m *TelnetModel) error {
 	var b strings.Builder
 
-	// Clear screen and reset cursor to top-left.
-	b.WriteString(ansiClear)
+	// Move cursor to top-left (don't clear - overwrite in place).
+	b.WriteString(ansiHome)
 
 	// Title (shorter for 40-col).
 	b.WriteString(ansiBold + ansiMagenta)
@@ -325,8 +332,7 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 	} else {
 		b.WriteString("C64 Ultimate - Assembly64 Browser")
 	}
-	b.WriteString(ansiReset)
-	b.WriteString("\r\n")
+	b.WriteString(ansiReset + ansiClearLine + "\r\n")
 
 	// Category (compact for 40-col).
 	if m.width <= 40 {
@@ -344,7 +350,7 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 			}
 		}
 	}
-	b.WriteString("\r\n")
+	b.WriteString(ansiClearLine + "\r\n")
 
 	// Search line.
 	if m.width <= 40 {
@@ -360,7 +366,7 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 		b.WriteString(m.searchQuery)
 		b.WriteString(ansiReverse + " " + ansiReset)
 	}
-	b.WriteString("\r\n")
+	b.WriteString(ansiClearLine + "\r\n")
 
 	// Results list.
 	viewHeight := m.height - 8
@@ -369,7 +375,11 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 	}
 
 	if len(m.filteredResults) == 0 {
-		b.WriteString(ansiGray + "No results" + ansiReset + "\r\n")
+		b.WriteString(ansiGray + "No results" + ansiReset + ansiClearLine + "\r\n")
+		// Clear remaining lines in view area.
+		for i := 1; i < viewHeight; i++ {
+			b.WriteString(ansiClearLine + "\r\n")
+		}
 	} else {
 		start := m.scrollOffset
 		end := min(start+viewHeight, len(m.filteredResults))
@@ -378,7 +388,11 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 			entry := m.index.Entries[m.filteredResults[i]]
 			line := formatEntryTelnet(entry, i == m.cursor, m.width)
 			b.WriteString(line)
-			b.WriteString("\r\n")
+			b.WriteString(ansiClearLine + "\r\n")
+		}
+		// Clear any remaining lines if we have fewer results than viewHeight.
+		for i := end - start; i < viewHeight; i++ {
+			b.WriteString(ansiClearLine + "\r\n")
 		}
 	}
 
@@ -401,7 +415,7 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 	} else if m.statusMessage != "" {
 		b.WriteString(" " + ansiGreen + m.statusMessage + ansiReset)
 	}
-	b.WriteString("\r\n")
+	b.WriteString(ansiClearLine + "\r\n")
 
 	// Help line (compact for 40-col).
 	b.WriteString(ansiGray)
@@ -410,7 +424,7 @@ func renderScreen(conn net.Conn, m *TelnetModel) error {
 	} else {
 		b.WriteString("Arrows Tab Enter Q:Quit")
 	}
-	b.WriteString(ansiReset)
+	b.WriteString(ansiReset + ansiClearLine)
 
 	_, err := conn.Write([]byte(b.String()))
 	return err
