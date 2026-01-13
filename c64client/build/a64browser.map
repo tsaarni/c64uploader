@@ -1,0 +1,323 @@
+sections
+0880 - 2ef0 : DATA, code
+21fe - 2f9e : DATA, data
+2f9e - 3b20 : BSS, bss
+3b20 - 9000 : HEAP, heap
+9000 - 9f7d : STACK, stack
+00f7 - 00f7 : ZEROPAGE, zeropage
+0801 - 0853 : DATA, startup
+9ff6 - a000 : SSTACK, sstack
+9ff6 - 9ff6 : SSTACK, clear_screen@stack
+9ff6 - 9ff6 : SSTACK, print_at@stack
+9ff6 - 9ff6 : SSTACK, uci_sendcommand@stack
+9ff6 - 9ff6 : SSTACK, uci_readdata@stack
+9ff6 - 9ff6 : SSTACK, uci_readstatus@stack
+9ff6 - 9ff6 : SSTACK, uci_accept@stack
+9ff6 - 9ff6 : SSTACK, keyb_poll@stack
+9ff6 - 9ff6 : SSTACK, wait_key@stack
+9ff3 - 9ff6 : SSTACK, uci_getipaddress@stack
+9ff6 - 9ff6 : SSTACK, strlen@stack
+9ff6 - 9ff6 : SSTACK, uci_tcp_connect@stack
+9ff1 - 9ff6 : SSTACK, uci_tcp_nextline@stack
+9ff1 - 9ff1 : SSTACK, connect_to_server@stack
+9ff6 - 9ff6 : SSTACK, uci_socket_write@stack
+9ff6 - 9ff6 : SSTACK, send_command@stack
+9ff1 - 9ff1 : SSTACK, read_line@stack
+9ff6 - 9ff6 : SSTACK, atoi@stack
+9ff6 - 9ff6 : SSTACK, strchr@stack
+9ff6 - 9ff6 : SSTACK, strncpy@stack
+9ff1 - 9ff1 : SSTACK, load_categories@stack
+9ff6 - 9ff6 : SSTACK, print_at_color@stack
+9ff6 - 9ff6 : SSTACK, puts@stack
+9fe6 - 9ff6 : SSTACK, nformi@stack
+9fe6 - 9ff6 : SSTACK, nforml@stack
+9fed - 9ff6 : SSTACK, nformf@stack
+9fd8 - 9fe6 : SSTACK, sprintf@stack
+9fa8 - 9fd8 : SSTACK, draw_list@stack
+9fb8 - 9fd8 : SSTACK, debug_key@stack
+9fb5 - 9fb8 : SSTACK, get_key@stack
+9ff6 - 9ff6 : SSTACK, strcat@stack
+9f86 - 9fd8 : SSTACK, load_entries@stack
+9fb8 - 9fd8 : SSTACK, run_entry@stack
+9f8e - 9fd8 : SSTACK, do_search@stack
+9ff3 - 9ff6 : SSTACK, disconnect_from_server@stack
+9f7d - 9f86 : SSTACK, main@stack
+
+regions
+00f7 - 00ff : 0000, 0000, zeropage
+0801 - 0880 : 0853, 0052, startup
+0880 - 9000 : 2f9e, 32a0, main
+
+objects
+00f7 - 00f7 : ZeroStart, START:zeropage
+00f7 - 00f7 : ZeroEnd, END:zeropage
+0801 - 0853 : startup, NATIVE_CODE:startup
+0880 - 0c61 : main, NATIVE_CODE:code
+0c61 - 0c88 : clear_screen, NATIVE_CODE:code
+0c88 - 0cd7 : debug_key, NATIVE_CODE:code
+0cd7 - 0d4b : print_at, NATIVE_CODE:code
+0d4b - 0d5e : *, DATA:code
+0d5e - 0d73 : *, DATA:code
+0d73 - 0dd8 : uci_sendcommand, NATIVE_CODE:code
+0dd8 - 0e01 : uci_readdata, NATIVE_CODE:code
+0e01 - 0e2a : uci_readstatus, NATIVE_CODE:code
+0e2a - 0e3a : uci_accept, NATIVE_CODE:code
+0e3a - 0e52 : *, DATA:code
+0e52 - 0e68 : *, DATA:code
+0e68 - 0e79 : wait_key, NATIVE_CODE:code
+0e79 - 0f2a : keyb_poll, NATIVE_CODE:code
+0f2a - 0f40 : *, DATA:code
+0f40 - 0f56 : *, DATA:code
+0f56 - 0f8b : uci_getipaddress, NATIVE_CODE:code
+0f8b - 0f90 : *, DATA:code
+0f90 - 0fa9 : *, DATA:code
+0fa9 - 102a : connect_to_server, NATIVE_CODE:code
+102a - 1038 : *, DATA:code
+1038 - 10d7 : uci_tcp_connect, NATIVE_CODE:code
+10d7 - 10f3 : strlen, NATIVE_CODE:code
+10f3 - 1100 : *, DATA:code
+1100 - 1110 : *, DATA:code
+1110 - 1115 : read_line, NATIVE_CODE:code
+1115 - 11e9 : uci_tcp_nextline, NATIVE_CODE:code
+11e9 - 11f4 : *, DATA:code
+11f4 - 12de : load_categories, NATIVE_CODE:code
+12de - 12e9 : print_at@proxy, NATIVE_CODE:code
+12e9 - 12ff : *, DATA:code
+12ff - 1322 : send_command, NATIVE_CODE:code
+1322 - 13bf : uci_socket_write, NATIVE_CODE:code
+13bf - 13c4 : *, DATA:code
+13c4 - 13cc : atoi@proxy, NATIVE_CODE:code
+13cc - 1476 : atoi, NATIVE_CODE:code
+1476 - 1486 : strchr@proxy, NATIVE_CODE:code
+1486 - 14a8 : strchr, NATIVE_CODE:code
+14a8 - 14f3 : strncpy, NATIVE_CODE:code
+14f3 - 14f9 : *, DATA:code
+14f9 - 167e : draw_list, NATIVE_CODE:code
+167e - 1702 : print_at_color, NATIVE_CODE:code
+1702 - 170b : *, DATA:code
+170b - 170d : *, DATA:code
+170d - 1a62 : sprintf, NATIVE_CODE:code
+1a62 - 1b7d : nformi, NATIVE_CODE:code
+1b7d - 1cc7 : nforml, NATIVE_CODE:code
+1cc7 - 21a0 : nformf, NATIVE_CODE:code
+21a0 - 21ac : *, DATA:code
+21ac - 21ae : *, DATA:code
+21ae - 21d1 : *, DATA:code
+21d1 - 21f6 : *, DATA:code
+21f6 - 21fc : *, DATA:code
+21fc - 21fe : *, DATA:code
+21fe - 21ff : spentry, DATA:data
+21ff - 2200 : uci_target, DATA:data
+2200 - 2222 : *, DATA:code
+2222 - 223a : *, DATA:code
+223a - 232b : get_key, NATIVE_CODE:code
+232b - 2339 : *, DATA:code
+2339 - 234d : *, DATA:code
+234d - 2523 : load_entries, NATIVE_CODE:code
+2523 - 252e : *, DATA:code
+252e - 2561 : strcat, NATIVE_CODE:code
+2561 - 2564 : *, DATA:code
+2564 - 2568 : *, DATA:code
+2568 - 25d1 : run_entry, NATIVE_CODE:code
+25d1 - 25dc : *, DATA:code
+25dc - 25e3 : *, DATA:code
+25e3 - 2770 : do_search, NATIVE_CODE:code
+2770 - 277d : *, DATA:code
+277d - 278d : *, DATA:code
+278d - 27d9 : disconnect_from_server, NATIVE_CODE:code
+27d9 - 27df : *, DATA:code
+27df - 27e8 : *, DATA:code
+27e8 - 282d : freg, NATIVE_CODE:code
+282d - 291a : faddsub, NATIVE_CODE:code
+291a - 29b4 : crt_fmul, NATIVE_CODE:code
+29b4 - 29e2 : crt_fmul8, NATIVE_CODE:code
+29e2 - 2a90 : crt_fdiv, NATIVE_CODE:code
+2a90 - 2aab : divs16, NATIVE_CODE:code
+2aab - 2ab9 : negaccu, NATIVE_CODE:code
+2ab9 - 2ac7 : negtmp, NATIVE_CODE:code
+2ac7 - 2b4c : divmod, NATIVE_CODE:code
+2b4c - 2b6b : mods16, NATIVE_CODE:code
+2b95 - 2ba3 : negtmpb, NATIVE_CODE:code
+2ba3 - 2bef : f32_to_i16, NATIVE_CODE:code
+2bef - 2c0d : sint16_to_float, NATIVE_CODE:code
+2c0d - 2c36 : uint16_to_float, NATIVE_CODE:code
+2c54 - 2d2b : divmod32, NATIVE_CODE:code
+2d2b - 2df9 : crt_malloc, NATIVE_CODE:code
+2df9 - 2e01 : crt_free@proxy, NATIVE_CODE:code
+2e01 - 2e9a : crt_free, NATIVE_CODE:code
+2e9a - 2ea5 : freg@proxy, NATIVE_CODE:code
+2ea5 - 2eb8 : freg@proxy, NATIVE_CODE:code
+2eb8 - 2ecb : strchr@proxy, NATIVE_CODE:code
+2ecb - 2ed6 : atoi@proxy, NATIVE_CODE:code
+2ed6 - 2ede : uci_socket_write@proxy, NATIVE_CODE:code
+2ede - 2ee9 : print_at@proxy, NATIVE_CODE:code
+2ee9 - 2ef0 : print_at@proxy, NATIVE_CODE:code
+2ef0 - 2ef2 : uci_data_index, DATA:data
+2ef2 - 2ef4 : uci_data_len, DATA:data
+2ef4 - 2ef5 : socket_id, DATA:data
+2ef5 - 2ef6 : connected, DATA:data
+2ef6 - 2ef8 : item_count, DATA:data
+2ef8 - 2efa : total_count, DATA:data
+2efa - 2efc : cursor, DATA:data
+2efc - 2efe : offset, DATA:data
+2efe - 2f00 : current_page, DATA:data
+2f00 - 2f02 : search_query_len, DATA:data
+2f02 - 2f1e : fround5, DATA:data
+2f1e - 2f9e : keyb_codes, DATA:data
+2f9e - 2f9e : BSSStart, START:bss
+2f9e - 369e : uci_data, DATA:bss
+369e - 369f : keyb_key, DATA:bss
+369f - 36a7 : keyb_matrix, DATA:bss
+36a7 - 36a8 : ciaa_pra_def, DATA:bss
+36a8 - 36aa : temp_char, DATA:bss
+36aa - 36d2 : item_ids, DATA:bss
+36d2 - 36f2 : search_query, DATA:bss
+36f2 - 36f6 : HeapNode, DATA:bss
+3700 - 3800 : uci_status, DATA:bss
+3800 - 3880 : line_buffer, DATA:bss
+3880 - 3b00 : item_names, DATA:bss
+3b00 - 3b20 : current_category, DATA:bss
+3b20 - 3b20 : HeapStart, START:heap
+3b20 - 3b20 : BSSEnd, END:bss
+9000 - 9000 : HeapEnd, END:heap
+9f7d - 9f7d : StackEnd, END:stack
+9f7d - 9f84 : main@stack, BSS:main@stack
+9f84 - 9f86 : cmd, BSS:main@stack
+9f86 - 9f90 : load_entries@stack, BSS:load_entries@stack
+9f8e - 9f98 : do_search@stack, BSS:do_search@stack
+9f90 - 9f98 : num, BSS:load_entries@stack
+9f98 - 9fd8 : cmd, BSS:do_search@stack
+9f98 - 9fd8 : cmd, BSS:load_entries@stack
+9fa8 - 9fb0 : draw_list@stack, BSS:draw_list@stack
+9fb0 - 9fd8 : info, BSS:draw_list@stack
+9fb5 - 9fb8 : get_key@stack, BSS:get_key@stack
+9fb8 - 9fd8 : buf, BSS:debug_key@stack
+9fb8 - 9fd8 : cmd, BSS:run_entry@stack
+9fd8 - 9fde : sprintf@stack, BSS:sprintf@stack
+9fde - 9fe6 : si, BSS:sprintf@stack
+9fe6 - 9ff6 : buffer, BSS:nforml@stack
+9fe6 - 9ff6 : buffer, BSS:nformi@stack
+9fed - 9ff6 : nformf@stack, BSS:nformf@stack
+9ff1 - 9ff6 : cmd, BSS:uci_tcp_nextline@stack
+9ff3 - 9ff6 : cmd, BSS:disconnect_from_server@stack
+9ff3 - 9ff6 : cmd, BSS:uci_getipaddress@stack
+9ff6 - a000 : sstack, STACK:sstack
+
+objects by size
+2f9e (0700) : uci_data, DATA:bss
+1cc7 (04d9) : nformf, NATIVE_CODE:code
+0880 (03e1) : main, NATIVE_CODE:code
+170d (0355) : sprintf, NATIVE_CODE:code
+3880 (0280) : item_names, DATA:bss
+234d (01d6) : load_entries, NATIVE_CODE:code
+25e3 (018d) : do_search, NATIVE_CODE:code
+14f9 (0185) : draw_list, NATIVE_CODE:code
+1b7d (014a) : nforml, NATIVE_CODE:code
+1a62 (011b) : nformi, NATIVE_CODE:code
+3700 (0100) : uci_status, DATA:bss
+223a (00f1) : get_key, NATIVE_CODE:code
+282d (00ed) : faddsub, NATIVE_CODE:code
+11f4 (00ea) : load_categories, NATIVE_CODE:code
+2c54 (00d7) : divmod32, NATIVE_CODE:code
+1115 (00d4) : uci_tcp_nextline, NATIVE_CODE:code
+2d2b (00ce) : crt_malloc, NATIVE_CODE:code
+0e79 (00b1) : keyb_poll, NATIVE_CODE:code
+29e2 (00ae) : crt_fdiv, NATIVE_CODE:code
+13cc (00aa) : atoi, NATIVE_CODE:code
+1038 (009f) : uci_tcp_connect, NATIVE_CODE:code
+1322 (009d) : uci_socket_write, NATIVE_CODE:code
+291a (009a) : crt_fmul, NATIVE_CODE:code
+2e01 (0099) : crt_free, NATIVE_CODE:code
+2ac7 (0085) : divmod, NATIVE_CODE:code
+167e (0084) : print_at_color, NATIVE_CODE:code
+0fa9 (0081) : connect_to_server, NATIVE_CODE:code
+2f1e (0080) : keyb_codes, DATA:data
+3800 (0080) : line_buffer, DATA:bss
+0cd7 (0074) : print_at, NATIVE_CODE:code
+2568 (0069) : run_entry, NATIVE_CODE:code
+0d73 (0065) : uci_sendcommand, NATIVE_CODE:code
+0801 (0052) : startup, NATIVE_CODE:startup
+0c88 (004f) : debug_key, NATIVE_CODE:code
+278d (004c) : disconnect_from_server, NATIVE_CODE:code
+2ba3 (004c) : f32_to_i16, NATIVE_CODE:code
+14a8 (004b) : strncpy, NATIVE_CODE:code
+27e8 (0045) : freg, NATIVE_CODE:code
+9f98 (0040) : cmd, BSS:do_search@stack
+9f98 (0040) : cmd, BSS:load_entries@stack
+0f56 (0035) : uci_getipaddress, NATIVE_CODE:code
+252e (0033) : strcat, NATIVE_CODE:code
+29b4 (002e) : crt_fmul8, NATIVE_CODE:code
+0dd8 (0029) : uci_readdata, NATIVE_CODE:code
+0e01 (0029) : uci_readstatus, NATIVE_CODE:code
+2c0d (0029) : uint16_to_float, NATIVE_CODE:code
+36aa (0028) : item_ids, DATA:bss
+9fb0 (0028) : info, BSS:draw_list@stack
+0c61 (0027) : clear_screen, NATIVE_CODE:code
+12ff (0023) : send_command, NATIVE_CODE:code
+1486 (0022) : strchr, NATIVE_CODE:code
+36d2 (0020) : search_query, DATA:bss
+3b00 (0020) : current_category, DATA:bss
+9fb8 (0020) : buf, BSS:debug_key@stack
+9fb8 (0020) : cmd, BSS:run_entry@stack
+2b4c (001f) : mods16, NATIVE_CODE:code
+2bef (001e) : sint16_to_float, NATIVE_CODE:code
+10d7 (001c) : strlen, NATIVE_CODE:code
+2f02 (001c) : fround5, DATA:data
+2a90 (001b) : divs16, NATIVE_CODE:code
+2ea5 (0013) : freg@proxy, NATIVE_CODE:code
+2eb8 (0013) : strchr@proxy, NATIVE_CODE:code
+0e68 (0011) : wait_key, NATIVE_CODE:code
+0e2a (0010) : uci_accept, NATIVE_CODE:code
+1476 (0010) : strchr@proxy, NATIVE_CODE:code
+9fe6 (0010) : buffer, BSS:nforml@stack
+9fe6 (0010) : buffer, BSS:nformi@stack
+2aab (000e) : negaccu, NATIVE_CODE:code
+2ab9 (000e) : negtmp, NATIVE_CODE:code
+2b95 (000e) : negtmpb, NATIVE_CODE:code
+12de (000b) : print_at@proxy, NATIVE_CODE:code
+2e9a (000b) : freg@proxy, NATIVE_CODE:code
+2ecb (000b) : atoi@proxy, NATIVE_CODE:code
+2ede (000b) : print_at@proxy, NATIVE_CODE:code
+9f86 (000a) : load_entries@stack, BSS:load_entries@stack
+9f8e (000a) : do_search@stack, BSS:do_search@stack
+9ff6 (000a) : sstack, STACK:sstack
+9fed (0009) : nformf@stack, BSS:nformf@stack
+13c4 (0008) : atoi@proxy, NATIVE_CODE:code
+2df9 (0008) : crt_free@proxy, NATIVE_CODE:code
+2ed6 (0008) : uci_socket_write@proxy, NATIVE_CODE:code
+369f (0008) : keyb_matrix, DATA:bss
+9f90 (0008) : num, BSS:load_entries@stack
+9fa8 (0008) : draw_list@stack, BSS:draw_list@stack
+9fde (0008) : si, BSS:sprintf@stack
+2ee9 (0007) : print_at@proxy, NATIVE_CODE:code
+9f7d (0007) : main@stack, BSS:main@stack
+9fd8 (0006) : sprintf@stack, BSS:sprintf@stack
+1110 (0005) : read_line, NATIVE_CODE:code
+9ff1 (0005) : cmd, BSS:uci_tcp_nextline@stack
+36f2 (0004) : HeapNode, DATA:bss
+9fb5 (0003) : get_key@stack, BSS:get_key@stack
+9ff3 (0003) : cmd, BSS:disconnect_from_server@stack
+9ff3 (0003) : cmd, BSS:uci_getipaddress@stack
+2ef0 (0002) : uci_data_index, DATA:data
+2ef2 (0002) : uci_data_len, DATA:data
+2ef6 (0002) : item_count, DATA:data
+2ef8 (0002) : total_count, DATA:data
+2efa (0002) : cursor, DATA:data
+2efc (0002) : offset, DATA:data
+2efe (0002) : current_page, DATA:data
+2f00 (0002) : search_query_len, DATA:data
+36a8 (0002) : temp_char, DATA:bss
+9f84 (0002) : cmd, BSS:main@stack
+21fe (0001) : spentry, DATA:data
+21ff (0001) : uci_target, DATA:data
+2ef4 (0001) : socket_id, DATA:data
+2ef5 (0001) : connected, DATA:data
+369e (0001) : keyb_key, DATA:bss
+36a7 (0001) : ciaa_pra_def, DATA:bss
+00f7 (0000) : ZeroStart, START:zeropage
+00f7 (0000) : ZeroEnd, END:zeropage
+2f9e (0000) : BSSStart, START:bss
+3b20 (0000) : HeapStart, START:heap
+3b20 (0000) : BSSEnd, END:bss
+9000 (0000) : HeapEnd, END:heap
+9f7d (0000) : StackEnd, END:stack

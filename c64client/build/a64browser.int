@@ -1,0 +1,3483 @@
+--------------------------------------------------------------------
+main: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:484
+$10 R0(P), $00 R1(I), $00 R2(I), $12 R3(P), $02 R4(B), $14 R5(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 491)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 491)		STOREC1		<-	V(1 '')+0 , CC:0	{}
+0002 ( 487)		STOREA1		<-	V(-1 '')+53280 , CC:0	{V}
+0003 ( 488)		STOREA1		<-	V(-1 '')+53281 , CC:0	{V}
+0004 ( 490)		CALLN		<-	V(1 'clear_screen')+0 	{}
+0005 ( 491)		CONST	R0(P)[0..0]	<-	CG0(7:0 '')	{S}
+0006 ( 491)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(7 '')} [0..0]	{}
+0007 ( 491)		CALLN		<-	V(2 'print_at')+0 	{}
+0008 ( 492)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0009 ( 492)		STOREC1		<-	V(1 '')+0 , CC:2	{}
+000a ( 492)		CONST	R0(P)[0..0]	<-	CG0(8:0 '')	{S}
+000b ( 492)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(8 '')} [0..0]	{}
+000c ( 492)		CALLN		<-	V(2 'print_at')+0 	{}
+000d ( 124)		STOREC2		<-	V(2 '')+0 , CI:2	{}
+000e (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:1	{}
+000f ( 122)		COPY2:GG		<-	V(182 'cmd' A)+0 , V(9 '')+0 	{}
+0010 ( 122)		CONST	R0(P)[0..0]	<-	CG2(182:0 'cmd' A)	{S}
+0011 ( 124)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(182 'cmd' A)} [0..0]	{}
+0012 ( 124)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+0013 ( 125)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+0014 ( 126)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+0015 ( 127)		CALLN		<-	V(6 'uci_accept')+0 	{}
+0016 ( 114)		LOADG1	R0(C)[0..255]	<-	V(13 'uci_status' A)+0 	{}
+0017 ( 114)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:48	{}
+0018 ( 114)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h
+0000 ( 114)		LOADG1	R0(C)[0..255]	<-	V(13 'uci_status' A)+1 	{}
+0001 ( 114)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:48	{}
+0002 ( 114)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 504)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 504)		STOREC1		<-	V(1 '')+0 , CC:4	{}
+0002 ( 504)		CONST	R0(P)[0..0]	<-	CG0(22:0 '')	{S}
+0003 ( 504)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(22 '')} [0..0]	{}
+0004 ( 504)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 505)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0006 ( 505)		STOREC1		<-	V(1 '')+0 , CC:6	{}
+0007 ( 505)		CONST	R0(P)[0..0]	<-	CG0(23:0 '')	{S}
+0008 ( 505)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(23 '')} [0..0]	{}
+0009 ( 505)		CALLN		<-	V(2 'print_at')+0 	{}
+000a ( 507)		CALLN		<-	V(9 'uci_getipaddress')+0 	{}
+000b ( 114)		LOADG1	R0(C)[0..255]	<-	V(13 'uci_status' A)+0 	{}
+000c ( 114)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:48	{}
+000d ( 114)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 6
+		==> 4
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h
+0000 ( 114)		LOADG1	R0(C)[0..255]	<-	V(13 'uci_status' A)+1 	{}
+0001 ( 114)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:48	{}
+0002 ( 114)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 5
+		==> 4
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 510)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 510)		STOREC1		<-	V(1 '')+0 , CC:8	{}
+0002 ( 510)		CONST	R0(P)[0..0]	<-	CG0(28:0 '')	{S}
+0003 ( 510)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(28 '')} [0..0]	{}
+0004 ( 510)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 511)		STOREC1		<-	V(0 '')+0 , CC:4	{}
+0006 ( 511)		STOREC1		<-	V(1 '')+0 , CC:8	{}
+0007 ( 511)		CONST	R0(P)[0..0]	<-	CG1792(11:0 'uci_data' A)	{S}
+0008 ( 511)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(11 'uci_data' A)} [0..0]	{}
+0009 ( 511)		CALLN		<-	V(2 'print_at')+0 	{}
+000a ( 508)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 514)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 514)		STOREC1		<-	V(1 '')+0 , CC:10	{}
+0002 ( 514)		CONST	R0(P)[0..0]	<-	CG0(29:0 '')	{S}
+0003 ( 514)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(29 '')} [0..0]	{}
+0004 ( 514)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 515)		CALLN		<-	V(7 'wait_key')+0 	{}
+0006 ( 518)		CALLN	R0(B)	<-	V(10 'connect_to_server')+0 	{}
+0007 ( 518)		BRANCH		<-	R0(BF)	{}
+		==> 8
+		==> 7
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 526)		CALLN		<-	V(14 'load_categories')+0 	{}
+0001 ( 527)		CONST	R0(P)[0..0]	<-	CG0(121:0 '')	{S}
+0002 ( 527)		STOREG2		<-	V(-1 'sstack')+8 , R0(PF)+0 {V(121 '')} [0..0]	{}
+0003 ( 527)		CALLN		<-	V(21 'draw_list')+0 	{}
+0004 ( 530)		CONST	R0(C)[0..0]	<-	CI:0	{}
+0005 ( 534)		JUMP		<-		{}
+		==> 10
+L10: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 534)		CALLN	R5(C)	<-	V(28 'get_key')+0 	{}
+0001 ( 536)		BRANCH		<-	R5(C)	{}
+		==> 13
+		==> 9
+L13: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 536)		RELOP20	R0(B)[0..1]	<-	R5(C), R0(CF)	{}
+0001 ( 536)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 12
+		==> 9
+L12: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 536)		CONV37	R0(I)[0..255]	<-	R5(C)	{}
+0001 ( 540)		LOADG2	R1(I)[-32768..32767]	<-	V(79 'current_page')+0 	{}
+0002 ( 540)		RELOP19	R2(B)[0..1]	<-	R1(I)[-32768..32767], CI:1	{}
+0003 ( 540)		BRANCH		<-	R2(B)[0..1]	{}
+		==> 14
+		==> 15
+L14: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 540)		CONST	R1(I)[-32768..32767]	<-	CI:1	{}
+0001 ( 541)		CONST	R3(P)[0..0]	<-	CG32(130:0 'current_category' A)	{}
+0002 ( 545)		RELOP19	R4(B)[0..1]	<-	R5(C), CC:110	{}
+0003 ( 545)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 38
+		==> 50
+L38: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)	<-	CI:110	{}
+0001 ( 630)		LOADG2	R0(I)[-32768..32767]	<-	V(78 'offset')+0 	{}
+0002 ( 630)		LOADG2	R1(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0003 ( 630)		BINOP1	R1(I)	<-	R1(IF)[-32768..32767], R0(I)[-32768..32767]	{}
+0004 ( 630)		LOADG2	R2(I)[-32768..32767]	<-	V(74 'total_count')+0 	{}
+0005 ( 630)		RELOP24	R1(B)[0..1]	<-	R1(IF), R2(IF)[-32768..32767]	{}
+0006 ( 630)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 37
+		==> 9
+L37: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 632)		BINOP1	R0(I)[-32748..32787]	<-	R0(IF)[-32768..32767], CI:20	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 65
+L65: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 642)		STOREG2		<-	V(-1 'sstack')+8 , R0(IF)[-32748..32787]	{}
+0001 ( 642)		CALLN		<-	V(30 'load_entries')+0 	{}
+0002 ( 532)		JUMP		<-		{}
+		==> 66
+L66: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 643)		STOREG2		<-	V(-1 'sstack')+8 , R3(PF)[0..0]	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 62
+L62: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 570)		CALLN		<-	V(21 'draw_list')+0 	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 9
+L9: <= D-1: (19)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 665)		MOVE	R0(C)	<-	R5(CF)	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 10
+L50: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP28	R0(B)[0..1]	<-	R0(IF)[0..255], CI:110	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 51
+L52: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C), CC:47	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 19
+		==> 53
+L19: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)	<-	CI:47	{}
+0001 ( 553)		RELOP19	R0(B)[0..1]	<-	R1(IF)[-32768..32767], CI:0	{}
+0002 ( 553)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 20
+		==> 9
+L20: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 561)		STOREG2		<-	V(78 'offset')+0 , CI:0	{}
+0001 ( 560)		STOREG2		<-	V(77 'cursor')+0 , CI:0	{}
+0002 ( 559)		STOREG2		<-	V(74 'total_count')+0 , CI:0	{}
+0003 ( 558)		STOREG2		<-	V(73 'item_count')+0 , CI:0	{}
+0004 ( 557)		STOREG2		<-	V(90 'search_query_len')+0 , CI:0	{}
+0005 ( 556)		STOREG1		<-	V(89 'search_query' A)+0 , CC:0	{}
+0006 ( 555)		STOREG2		<-	V(79 'current_page')+0 , CI:2	{}
+0007 ( 562)		CONST	R0(P)[0..0]	<-	CG0(132:0 '')	{S}
+0008 ( 532)		JUMP		<-		{}
+		==> 63
+L63: <= D-1: (6)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 619)		STOREG2		<-	V(-1 'sstack')+8 , R0(PF)+0 {V(172 '')} [0..0]	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 62
+L53: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP28	R0(B)[0..1]	<-	R5(C), CC:47	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 55
+		==> 54
+L55: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C)[0..46], CC:8	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 29
+		==> 56
+L29: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)[0..46]	<-	CI:8	{}
+0001 ( 598)		RELOP19	R0(B)[0..1]	<-	R1(IF)[-32768..32767], CI:2	{}
+0002 ( 598)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 30
+		==> 31
+L30: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 600)		LOADG2	R0(I)[-32768..32767]	<-	V(90 'search_query_len')+0 	{}
+0001 ( 600)		RELOP23	R1(B)[0..1]	<-	R0(I)[-32768..32767], CI:0	{}
+0002 ( 600)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 32
+		==> 33
+L32: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 603)		BINOP1	R1(I)[0..31]	<-	R0(I)[1..32], CI:-1	{}
+0001 ( 603)		STOREG2		<-	V(90 'search_query_len')+0 , R1(I)[0..31]	{}
+0002 ( 604)		LEAG	R0(P)[0..31]	<-	V(89 'search_query' A)+-1 , R0(IF)[1..32]	{}
+0003 ( 604)		STOREI1		<-	R0(PF)+0 {V(89 'search_query' A)} [0..31], CC:0	{}
+0004 ( 613)		CONST	R0(P)[0..0]	<-	CG0(171:0 '')	{S}
+0005 ( 606)		RELOP25	R1(B)[0..1]	<-	R1(IF)[0..31], CI:2	{}
+0006 ( 606)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 34
+		==> 35
+L34: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 607)		CALLN		<-	V(33 'do_search')+0 	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 63
+L35: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 611)		STOREG2		<-	V(74 'total_count')+0 , CI:0	{}
+0001 ( 610)		STOREG2		<-	V(73 'item_count')+0 , CI:0	{}
+0002 ( 532)		JUMP		<-		{}
+		==> 63
+L33: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 618)		CALLN		<-	V(14 'load_categories')+0 	{}
+0001 ( 619)		CONST	R0(P)[0..0]	<-	CG0(172:0 '')	{S}
+0002 ( 532)		JUMP		<-		{}
+		==> 63
+L31: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 622)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 36
+		==> 9
+L36: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 624)		CALLN		<-	V(14 'load_categories')+0 	{}
+0001 ( 625)		CONST	R0(P)[0..0]	<-	CG0(173:0 '')	{S}
+0002 ( 532)		JUMP		<-		{}
+		==> 63
+L56: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C)[0..46], CC:13	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 25
+		==> 43
+L25: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)[0..46]	<-	CI:13	{}
+0001 ( 583)		RELOP19	R0(B)[0..1]	<-	R1(IF)[-32768..32767], CI:0	{}
+0002 ( 583)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 587)		STOREG2		<-	V(-1 'sstack')+8 , CI:0	{}
+0001 ( 586)		LOADG2	R0(I)[-32768..32767]	<-	V(77 'cursor')+0 	{}
+0002 ( 586)		BINOP3	R0(I)	<-	R0(IF)[-32768..32767], CI:32	{}
+0003 ( 586)		LEAG	R0(P)	<-	V(75 'item_names' A)+0 , R0(IF)[0..640]	{}
+0004 ( 586)		CONST	R1(P)[0..0]	<-	CG32(130:0 'current_category' A)	{S}
+0005 ( 586)		STRCPYII		<-	R1(P)+0 {V(130 'current_category' A)} [0..0], R0(PF)+0 {V(75 'item_names' A)} 	{}
+0006 ( 587)		CALLN		<-	V(30 'load_entries')+0 	{}
+0007 ( 588)		STOREG2		<-	V(-1 'sstack')+8 , R1(PF)+0 {V(130 'current_category' A)} [0..0]	{}
+0008 ( 532)		JUMP		<-		{}
+		==> 62
+L27: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 590)		LOADG2	R0(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 590)		RELOP23	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:0	{}
+0002 ( 590)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 9
+L28: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 593)		LOADG2	R0(I)[0..19]	<-	V(77 'cursor')+0 	{}
+0001 ( 593)		BINOP16	R0(I)[0..38]	<-	R0(IF)[0..19], CI:1	{}
+0002 ( 593)		LEAG	R0(P)[0..38]	<-	V(76 'item_ids' A)+0 , R0(IF)[0..38]	{}
+0003 ( 593)		LOADI2	R0(I)[-32768..32767]	<-	R0(PF)+0 {V(76 'item_ids' A)} [0..38]	{}
+0004 ( 593)		STOREG2		<-	V(-1 'sstack')+8 , R0(IF)[-32768..32767]	{}
+0005 ( 593)		CALLN		<-	V(32 'run_entry')+0 	{}
+0006 ( 532)		JUMP		<-		{}
+		==> 9
+L43: <= D-1: (4)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 649)		RELOP19	R0(B)[0..1]	<-	R1(IF)[-32768..32767], CI:2	{}
+0001 ( 649)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 45
+		==> 9
+L45: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 650)		RELOP25	R0(B)[0..1]	<-	R5(C), CC:65	{}
+0001 ( 650)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 47
+		==> 46
+L47: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 650)		RELOP26	R0(B)[0..1]	<-	R5(C)[65..], CC:90	{}
+0001 ( 650)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 44
+		==> 46
+L44: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 652)		LOADG2	R0(I)[-32768..32767]	<-	V(90 'search_query_len')+0 	{}
+0001 ( 652)		RELOP24	R1(B)[0..1]	<-	R0(I)[-32768..32767], CI:30	{}
+0002 ( 652)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 49
+		==> 9
+L49: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 654)		BINOP1	R1(I)[1..30]	<-	R0(I)[0..29], CI:1	{}
+0001 ( 654)		STOREG2		<-	V(90 'search_query_len')+0 , R1(I)[1..30]	{}
+0002 ( 654)		LEAG	R2(P)[0..29]	<-	V(89 'search_query' A)+0 , R0(I)[0..29]	{}
+0003 ( 654)		STOREI1		<-	R2(PF)+0 {V(89 'search_query' A)} [0..29], R5(C)[48..90]	{}
+0004 ( 655)		LEAG	R0(P)[1..30]	<-	V(89 'search_query' A)+1 , R0(IF)[0..29]	{}
+0005 ( 655)		STOREI1		<-	R0(PF)+0 {V(89 'search_query' A)} [1..30], CC:0	{}
+0006 ( 659)		CONST	R0(P)[0..0]	<-	CG0(174:0 '')	{S}
+0007 ( 657)		RELOP25	R1(B)[0..1]	<-	R1(IF)[1..30], CI:2	{}
+0008 ( 657)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 34
+		==> 63
+L46: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 650)		RELOP25	R0(B)[0..1]	<-	R5(C)[0..], CC:48	{}
+0001 ( 650)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 48
+		==> 9
+L48: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 650)		RELOP26	R0(B)[0..1]	<-	R5(C)[48..], CC:57	{}
+0001 ( 650)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 44
+		==> 9
+L54: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C), CC:100	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 23
+		==> 43
+L23: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)	<-	CI:100	{}
+0001 ( 575)		LOADG2	R0(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0002 ( 575)		BINOP2	R0(I)	<-	R0(IF)[-32768..32767], CI:1	{}
+0003 ( 575)		LOADG2	R1(I)[-32768..32767]	<-	V(77 'cursor')+0 	{}
+0004 ( 575)		RELOP24	R0(B)[0..1]	<-	R1(I)[-32768..32767], R0(IF)	{}
+0005 ( 575)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 24
+		==> 9
+L24: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 577)		BINOP1	R0(I)[-32767..32768]	<-	R1(IF)[-32768..32767], CI:1	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 64
+L64: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 577)		STOREG2		<-	V(77 'cursor')+0 , R0(IF)[-32767..32768]	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 66
+L51: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C), CC:113	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 18
+		==> 57
+L18: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)	<-	CI:113	{}
+0001 ( 548)		RELOP19	R0(B)[0..1]	<-	R1(IF)[-32768..32767], CI:0	{}
+0002 ( 548)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 11
+		==> 9
+L11: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 668)		CALLN		<-	V(34 'disconnect_from_server')+0 	{}
+0001 ( 670)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0002 ( 670)		STOREC1		<-	V(1 '')+0 , CC:0	{}
+0003 ( 669)		CALLN		<-	V(1 'clear_screen')+0 	{}
+0004 ( 670)		CONST	R0(P)[0..0]	<-	CG0(180:0 '')	{S}
+0005 ( 670)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(180 '')} [0..0]	{}
+0006 ( 670)		CALLN		<-	V(2 'print_at')+0 	{}
+0007 ( 672)		RETV		<-	CI:0	{}
+L57: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP28	R0(B)[0..1]	<-	R5(C), CC:113	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 59
+		==> 58
+L59: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C)[0..112], CC:112	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 39
+		==> 43
+L39: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)[0..112]	<-	CI:112	{}
+0001 ( 638)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 41
+		==> 9
+L41: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 638)		LOADG2	R0(I)[-32768..32767]	<-	V(78 'offset')+0 	{}
+0001 ( 638)		RELOP23	R1(B)[0..1]	<-	R0(I)[-32768..32767], CI:0	{}
+0002 ( 638)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 40
+		==> 9
+L40: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 640)		BINOP2	R0(I)[-19..32747]	<-	R0(IF)[1..32767], CI:20	{}
+0001 ( 641)		RELOP24	R1(B)[0..1]	<-	R0(I)[-19..32747], CI:0	{}
+0002 ( 641)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 42
+		==> 65
+L42: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 641)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 641)		JUMP		<-		{}
+		==> 65
+L58: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R0(B)[0..1]	<-	R5(C), CC:117	{}
+0001 ( 545)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 21
+		==> 43
+L21: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		CONST	R5(C)	<-	CI:117	{}
+0001 ( 567)		LOADG2	R0(I)[-32768..32767]	<-	V(77 'cursor')+0 	{}
+0002 ( 567)		RELOP23	R1(B)[0..1]	<-	R0(I)[-32768..32767], CI:0	{}
+0003 ( 567)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 22
+		==> 9
+L22: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 569)		BINOP1	R0(I)[0..32766]	<-	R0(IF)[1..32767], CI:-1	{}
+0001 ( 532)		JUMP		<-		{}
+		==> 64
+L15: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 542)		RELOP19	R3(B)[0..1]	<-	R1(I)[-32768..32767], CI:2	{}
+0001 ( 542)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 17
+		==> 16
+L17: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 542)		CONST	R1(I)[-32768..32767]	<-	CI:2	{}
+0001 ( 545)		RELOP19	R3(B)[0..1]	<-	R5(C), CC:110	{}
+0002 ( 545)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 9
+		==> 60
+L60: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 543)		CONST	R3(P)[0..0]	<-	CG0(131:0 '')	{}
+0001 ( 545)		JUMP		<-		{}
+		==> 50
+L16: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 545)		RELOP19	R3(B)[0..1]	<-	R5(C), CC:110	{}
+0001 ( 545)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 9
+		==> 61
+L61: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 539)		CONST	R3(P)[0..0]	<-	CG0(129:0 '')	{}
+0001 ( 545)		JUMP		<-		{}
+		==> 50
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 520)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 520)		STOREC1		<-	V(1 '')+0 , CC:12	{}
+0002 ( 520)		CONST	R0(P)[0..0]	<-	CG0(63:0 '')	{S}
+0003 ( 520)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(63 '')} [0..0]	{}
+0004 ( 520)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 521)		CALLN		<-	V(7 'wait_key')+0 	{}
+0006 ( 522)		RETV		<-	CI:1	{}
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 498)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 498)		STOREC1		<-	V(1 '')+0 , CC:4	{}
+0002 ( 498)		CONST	R0(P)[0..0]	<-	CG0(15:0 '')	{S}
+0003 ( 498)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(15 '')} [0..0]	{}
+0004 ( 498)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 499)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0006 ( 499)		STOREC1		<-	V(1 '')+0 , CC:6	{}
+0007 ( 499)		CONST	R0(P)[0..0]	<-	CG0(16:0 '')	{S}
+0008 ( 499)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(16 '')} [0..0]	{}
+0009 ( 499)		CALLN		<-	V(2 'print_at')+0 	{}
+000a ( 500)		CALLN		<-	V(7 'wait_key')+0 	{}
+000b ( 501)		RETV		<-	CI:1	{}
+--------------------------------------------------------------------
+clear_screen: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:57
+
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  59)		FILLA1000		<-	V(-1 '')+1024 , CC:32	{}
+0001 (  60)		FILLA1000		<-	V(-1 '')+55296 , CC:14	{}
+0002 (  61)		RET		<-		{}
+--------------------------------------------------------------------
+print_at: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:63
+$00 R0(I), $00 R1(I), $00 R2(P), $00 R3(I), $00 R4(B), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  65)		LOADZ1	R0(C)[0..255]	<-	V(0 '')+0 	{S}
+0001 (  65)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{S}
+0002 (  65)		LOADZ1	R1(C)[0..255]	<-	V(1 '')+0 	{S}
+0003 (  65)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{S}
+0004 (  65)		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{S}
+0005 (  65)		LEAA	R1(P)[1024..11224]	<-	V(-1 '')+1024 , R1(IF)[0..10200]	{S}
+0006 (  65)		LEAI	R1(P)+0 {V(-1 'ABS')} [1024..11479]	<-	R1(PF)+0 {V(-1 'ABS')} [1024..11224], R0(IF)[0..255]	{}
+0007 (  66)		LOADZ2	R0(P)	<-	V(2 '')+0 	{}
+0008 (  66)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0	{}
+0009 (  66)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  68)		LOADZ2	R0(P)	<-	V(2 '')+0 	{}
+0001 (  68)		LEAI	R2(P)+0	<-	R0(P)+0, CI:1	{}
+0002 (  68)		STOREZ2		<-	V(2 '')+0 , R2(PF)	{}
+0003 (  68)		LOADI1	R2(C)[0..255]	<-	R0(P)+0	{}
+0004 (  70)		CONV37	R3(I)[0..255]	<-	R2(C)[0..255]	{}
+0005 (  70)		RELOP25	R4(B)[0..1]	<-	R2(C)[0..255], CC:97	{}
+0006 (  70)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 6
+		==> 5
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  70)		RELOP26	R4(B)[0..1]	<-	R2(C)[97..255], CC:122	{}
+0001 (  70)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  71)		BINOP1	R2(I)[-96..26]	<-	R3(IF)[0..122], CI:-96	{}
+0001 (  66)		JUMP		<-		{}
+		==> 11
+L11: <= D-1: (4)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  76)		STOREI1		<-	R1(P)+0 {V(-1 'ABS')} [1024..], R2(CF)[-96..255]	{}
+0001 (  66)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  66)		LOADI1	R0(C)[0..255]	<-	R0(PF)+1	{}
+0001 (  76)		LEAI	R1(P)+0 {V(-1 'ABS')} [1025..]	<-	R1(PF)+0 {V(-1 'ABS')} [1024..], CI:1	{}
+0002 (  66)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 2
+		==> 3
+L3: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  78)		RET		<-		{}
+L5: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  72)		RELOP25	R4(B)[0..1]	<-	R2(C)[0..255], CC:65	{}
+0001 (  72)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 9
+		==> 11
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  72)		RELOP26	R4(B)[0..1]	<-	R2(C)[65..255], CC:90	{}
+0001 (  72)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  73)		BINOP1	R2(I)[-64..26]	<-	R3(IF)[0..90], CI:-64	{}
+0001 (  66)		JUMP		<-		{}
+		==> 11
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  74)		RELOP19	R3(B)[0..1]	<-	R2(C)[91..255], CC:124	{}
+0001 (  74)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 10
+		==> 11
+L10: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  76)		STOREI1		<-	R1(P)+0 {V(-1 'ABS')} [1024..], CC:32	{}
+0001 (  66)		JUMP		<-		{}
+		==> 1
+--------------------------------------------------------------------
+uci_sendcommand: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:119
+$00 R0(P), $00 R1(I), $00 R2(P), $00 R3(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  46)		LOADZ2	R0(P)	<-	V(0 '')+0 	{S}
+0001 (  46)		LOADG1	R1(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+0002 (  46)		STOREI1		<-	R0(P)+0, R1(CF)[0..255]	{}
+0003 (  51)		JUMP		<-		{}
+		==> 10
+L10: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  51)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (3) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  51)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  51)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 (  51)		BINOP9	R1(I)[0..32]	<-	R1(IF)[0..255], CI:32	{}
+0003 (  51)		RELOP20	R1(B)[0..1]	<-	R1(IF)[0..32], CI:0	{}
+0004 (  51)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 3
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  51)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  51)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 (  51)		BINOP9	R1(I)[0..16]	<-	R1(IF)[0..255], CI:16	{}
+0003 (  51)		RELOP20	R1(B)[0..1]	<-	R1(IF)[0..16], CI:0	{}
+0004 (  51)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  55)		LOADZ2	R1(I)[-32768..32767]	<-	V(2 '')+0 	{S}
+0001 (  55)		RELOP24	R2(B)[0..1]	<-	CI:0, R1(I)[-32768..32767]	{S}
+0002 (  55)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 11
+		==> 5
+L11: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  56)		MOVE	R2(P)+0	<-	R0(P)+0	{}
+0001 (  56)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  56)		LOADI1	R3(C)[0..255]	<-	R2(P)+0	{}
+0001 (  56)		STOREA1		<-	V(-1 '')+57117 , R3(CF)[0..255]	{V}
+0002 (  56)		LEAI	R2(P)+0	<-	R2(PF)+0, CI:1	{}
+0003 (  55)		BINOP2	R1(I)[0..32766]	<-	R1(IF)[1..32767], CI:1	{}
+0004 (  55)		RELOP27	R3(B)[0..1]	<-	R1(I)[0..32766], CI:0	{}
+0005 (  55)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 4
+		==> 5
+L5: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  59)		STOREA1		<-	V(-1 '')+57116 , CC:1	{V}
+0001 (  62)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0002 (  62)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0003 (  62)		BINOP9	R1(I)[0..8]	<-	R1(IF)[0..255], CI:8	{}
+0004 (  62)		RELOP20	R1(B)[0..1]	<-	R1(IF)[0..8], CI:0	{}
+0005 (  62)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 7
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  65)		STOREA1		<-	V(-1 '')+57116 , CC:8	{V}
+0001 (  48)		JUMP		<-		{}
+		==> 10
+L7: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  70)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  70)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 (  70)		BINOP9	R0(I)[0..32]	<-	R0(IF)[0..255], CI:32	{}
+0003 (  70)		RELOP19	R0(B)[0..1]	<-	R0(IF)[0..32], CI:0	{}
+0004 (  70)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 8
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  70)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  70)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 (  70)		BINOP9	R0(I)[0..16]	<-	R0(IF)[0..255], CI:16	{}
+0003 (  70)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..16], CI:0	{}
+0004 (  70)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 8
+L8: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  75)		RET		<-		{}
+--------------------------------------------------------------------
+uci_readdata: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:120
+$00 R0(I), $00 R1(P), $00 R2(I), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  93)		STOREG1		<-	V(11 'uci_data' A)+0 , CC:0	{}
+0001 (  92)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0002 (  97)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  97)		LEAG	R1(P)[0..]	<-	V(11 'uci_data' A)+0 , R0(I)[0..1792]	{}
+0001 (  33)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0002 (  33)		CONV37	R2(I)[0..255]	<-	R2(CF)[0..255]	{}
+0003 (  33)		BINOP9	R2(I)[0..128]	<-	R2(IF)[0..255], CI:128	{}
+0004 (  33)		RELOP20	R2(B)[0..1]	<-	R2(IF)[0..128], CI:0	{}
+0005 (  95)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  97)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+57118 	{V}
+0001 (  97)		STOREI1		<-	R1(PF)+0 {V(11 'uci_data' A)} [0..], R2(CF)[0..255]	{}
+0002 (  97)		BINOP1	R0(I)[1..]	<-	R0(IF)[0..], CI:1	{}
+0003 (  95)		JUMP		<-		{}
+		==> 1
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  99)		STOREI1		<-	R1(PF)+0 {V(11 'uci_data' A)} [0..], CC:0	{}
+0001 ( 100)		RET		<-		{}
+--------------------------------------------------------------------
+uci_readstatus: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:121
+$00 R0(I), $00 R1(P), $00 R2(I), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 106)		STOREG1		<-	V(13 'uci_status' A)+0 , CC:0	{}
+0001 ( 105)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0002 ( 110)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 110)		LEAG	R1(P)[0..]	<-	V(13 'uci_status' A)+0 , R0(I)[0..256]	{}
+0001 (  38)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0002 (  38)		CONV37	R2(I)[0..255]	<-	R2(CF)[0..255]	{}
+0003 (  38)		BINOP9	R2(I)[0..64]	<-	R2(IF)[0..255], CI:64	{}
+0004 (  38)		RELOP20	R2(B)[0..1]	<-	R2(IF)[0..64], CI:0	{}
+0005 ( 108)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 110)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+57119 	{V}
+0001 ( 110)		STOREI1		<-	R1(PF)+0 {V(13 'uci_status' A)} [0..], R2(CF)[0..255]	{}
+0002 ( 110)		BINOP1	R0(I)[1..]	<-	R0(IF)[0..], CI:1	{}
+0003 ( 108)		JUMP		<-		{}
+		==> 1
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 112)		STOREI1		<-	R1(PF)+0 {V(13 'uci_status' A)} [0..], CC:0	{}
+0001 ( 113)		RET		<-		{}
+--------------------------------------------------------------------
+uci_accept: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:122
+$00 R0(I), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  80)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  80)		BINOP8	R0(C)[0..255]	<-	R0(CF)[0..255], CC:2	{}
+0002 (  80)		STOREA1		<-	V(-1 '')+57116 , R0(CF)[0..255]	{V}
+0003 (  81)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  81)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+57116 	{V}
+0001 (  81)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 (  81)		BINOP9	R0(I)[0..2]	<-	R0(IF)[0..255], CI:2	{}
+0003 (  81)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..2], CI:0	{}
+0004 (  81)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 (  83)		RET		<-		{}
+--------------------------------------------------------------------
+wait_key: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:419
+$00 R0(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 421)		CALLN		<-	V(8 'keyb_poll')+0 	{}
+0001 ( 422)		LOADG1	R0(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0002 ( 422)		BINOP9	R0(C)[0..128]	<-	R0(CF)[0..255], CC:128	{}
+0003 ( 422)		BRANCH		<-	R0(CF)[0..128]	{}
+		==> 1
+		==> 4
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 423)		CALLN		<-	V(8 'keyb_poll')+0 	{}
+0001 ( 422)		LOADG1	R0(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0002 ( 422)		BINOP9	R0(C)[0..128]	<-	R0(CF)[0..255], CC:128	{}
+0003 ( 422)		BRANCH		<-	R0(CF)[0..128]	{}
+		==> 1
+		==> 4
+L4: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 424)		LOADG1	R0(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0001 ( 424)		BINOP9	R0(C)[0..128]	<-	R0(CF)[0..255], CC:128	{}
+0002 ( 424)		BRANCH		<-	R0(CF)[0..128]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 426)		RET		<-		{}
+L2: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 425)		CALLN		<-	V(8 'keyb_poll')+0 	{}
+0001 ( 424)		LOADG1	R0(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0002 ( 424)		BINOP9	R0(C)[0..128]	<-	R0(CF)[0..255], CC:128	{}
+0003 ( 424)		BRANCH		<-	R0(CF)[0..128]	{}
+		==> 3
+		==> 2
+--------------------------------------------------------------------
+keyb_poll: /usr/local/include/oscar64/c64/keyboard.h:126
+$00 R0(I), $00 R1(I), $00 R2(P), $00 R3(I), $00 R4(C), $00 R5(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  47)		STOREG1		<-	V(17 'keyb_key')+0 , CC:0	{}
+0001 (  45)		STOREA1		<-	V(-1 '')+56322 , CC:255	{V}
+0002 (  46)		STOREA1		<-	V(-1 '')+56320 , CC:255	{V}
+0003 (  49)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+56321 	{V}
+0004 (  49)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:255	{}
+0005 (  49)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  51)		STOREA1		<-	V(-1 '')+56323 , CC:0	{V}
+0001 (  52)		STOREA1		<-	V(-1 '')+56320 , CC:0	{V}
+0002 (  54)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+56321 	{V}
+0003 (  54)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:255	{}
+0004 (  54)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 4
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  56)		LOADG1	R0(C)[0..255]	<-	V(18 'keyb_matrix' A)+6 	{}
+0001 (  56)		BINOP9	R0(C)[0..239]	<-	R0(CF)[0..255], CC:239	{}
+0002 (  56)		STOREG1		<-	V(18 'keyb_matrix' A)+6 , R0(CF)[0..239]	{}
+0003 (  57)		LOADG1	R0(C)[0..255]	<-	V(18 'keyb_matrix' A)+1 	{}
+0004 (  57)		BINOP9	R0(C)[0..127]	<-	R0(CF)[0..255], CC:127	{}
+0005 (  57)		STOREG1		<-	V(18 'keyb_matrix' A)+1 , R0(CF)[0..127]	{}
+0006 (  59)		CONST	R0(C)[254..254]	<-	CI:254	{}
+0007 (  60)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0008 (  62)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  62)		STOREA1		<-	V(-1 '')+56320 , R0(C)[0..511]	{V}
+0001 (  65)		CONV37	R1(I)[0..7]	<-	R4(C)[0..7]	{}
+0002 (  65)		LEAG	R2(P)[0..7]	<-	V(18 'keyb_matrix' A)+0 , R1(I)[0..7]	{}
+0003 (  65)		LOADI1	R3(C)[0..255]	<-	R2(P)+0 {V(18 'keyb_matrix' A)} [0..7]	{}
+0004 (  66)		LOADA1	R5(C)[0..255]	<-	V(-1 '')+56321 	{V}
+0005 (  67)		STOREI1		<-	R2(PF)+0 {V(18 'keyb_matrix' A)} [0..7], R5(C)[0..255]	{}
+0006 (  63)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..511]	{}
+0007 (  63)		BINOP16	R0(I)[0..510]	<-	R0(IF)[0..255], CI:1	{}
+0008 (  63)		BINOP8	R0(I)[0..511]	<-	R0(IF)[0..510], CI:1	{}
+0009 (  69)		CONV37	R2(I)[0..255]	<-	R3(CF)[0..255]	{}
+000a (  69)		CONV37	R3(I)[0..255]	<-	R5(CF)[0..255]	{}
+000b (  69)		BINOP10	R3(I)[0..255]	<-	R3(IF)[0..255], CI:255	{}
+000c (  69)		BINOP9	R2(I)[0..255]	<-	R3(IF)[0..255], R2(IF)[0..255]	{}
+000d (  70)		BRANCH		<-	R2(C)[0..255]	{}
+		==> 8
+		==> 5
+L8: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  72)		BINOP16	R1(I)[0..56]	<-	R1(IF)[0..7], CI:3	{}
+0001 (  72)		BINOP8	R1(I)[0..255]	<-	R1(IF)[0..56], CI:128	{}
+0002 (  73)		BINOP9	R3(I)[0..240]	<-	R2(I)[0..255], CI:240	{}
+0003 (  73)		RELOP20	R3(B)[0..1]	<-	R3(IF)[0..240], CI:0	{}
+0004 (  73)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 9
+		==> 15
+L9: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  74)		BINOP1	R1(C)	<-	R1(CF)[0..255], CC:4	{}
+0001 (  75)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  75)		BINOP9	R3(I)[0..252]	<-	R2(I)[0..255], CI:204	{}
+0001 (  75)		RELOP20	R3(B)[0..1]	<-	R3(IF)[0..252], CI:0	{}
+0002 (  75)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 10
+		==> 16
+L10: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  76)		BINOP1	R1(C)	<-	R1(CF), CC:2	{}
+0001 (  77)		JUMP		<-		{}
+		==> 16
+L16: <= D-1: (2)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  77)		BINOP9	R2(I)[0..170]	<-	R2(IF)[0..255], CI:170	{}
+0001 (  77)		RELOP20	R2(B)[0..1]	<-	R2(IF)[0..170], CI:0	{}
+0002 (  77)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 11
+		==> 17
+L11: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  78)		BINOP1	R1(C)	<-	R1(CF), CI:1	{}
+0001 (  60)		JUMP		<-		{}
+		==> 17
+L17: <= D-1: (2)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  79)		STOREG1		<-	V(17 'keyb_key')+0 , R1(CF)	{}
+0001 (  60)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  60)		BINOP1	R4(C)[1..8]	<-	R4(CF)[0..7], CI:1	{}
+0001 (  60)		RELOP28	R1(B)[0..1]	<-	R4(C)[1..8], CC:8	{}
+0002 (  60)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 7
+L7: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  83)		LOADG1	R1(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0001 (  83)		BRANCH		<-	R1(C)[0..255]	{}
+		==> 13
+		==> 2
+L13: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  83)		LOADG1	R0(C)[0..255]	<-	V(18 'keyb_matrix' A)+1 	{}
+0001 (  83)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 (  83)		BINOP9	R0(I)[0..128]	<-	R0(IF)[0..255], CI:128	{}
+0003 (  83)		BRANCH		<-	R0(IF)[0..128]	{}
+		==> 14
+		==> 12
+L14: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  83)		LOADG1	R0(C)[0..255]	<-	V(18 'keyb_matrix' A)+6 	{}
+0001 (  83)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 (  83)		BINOP9	R0(I)[0..16]	<-	R0(IF)[0..255], CI:16	{}
+0003 (  83)		BRANCH		<-	R0(IF)[0..16]	{}
+		==> 2
+		==> 12
+L2: <= D-1: (3)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  99)		LOADG1	R0(C)[0..255]	<-	V(19 'ciaa_pra_def')+0 	{}
+0001 (  99)		STOREA1		<-	V(-1 '')+56320 , R0(CF)[0..255]	{V}
+0002 ( 100)		RET		<-		{}
+L12: <= D-1: (2)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  84)		BINOP8	R1(C)[0..255]	<-	R1(CF)[0..255], CC:64	{}
+0001 (  84)		STOREG1		<-	V(17 'keyb_key')+0 , R1(CF)[0..255]	{}
+0002 (  99)		LOADG1	R0(C)[0..255]	<-	V(19 'ciaa_pra_def')+0 	{}
+0003 (  99)		STOREA1		<-	V(-1 '')+56320 , R0(CF)[0..255]	{V}
+0004 ( 100)		RET		<-		{}
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/c64/keyboard.c
+0000 (  88)		STOREG1		<-	V(18 'keyb_matrix' A)+0 , CC:255	{}
+0001 (  89)		STOREG1		<-	V(18 'keyb_matrix' A)+1 , CC:255	{}
+0002 (  90)		STOREG1		<-	V(18 'keyb_matrix' A)+2 , CC:255	{}
+0003 (  91)		STOREG1		<-	V(18 'keyb_matrix' A)+3 , CC:255	{}
+0004 (  92)		STOREG1		<-	V(18 'keyb_matrix' A)+4 , CC:255	{}
+0005 (  93)		STOREG1		<-	V(18 'keyb_matrix' A)+5 , CC:255	{}
+0006 (  94)		STOREG1		<-	V(18 'keyb_matrix' A)+6 , CC:255	{}
+0007 (  95)		STOREG1		<-	V(18 'keyb_matrix' A)+7 , CC:255	{}
+0008 (  99)		LOADG1	R0(C)[0..255]	<-	V(19 'ciaa_pra_def')+0 	{}
+0009 (  99)		STOREA1		<-	V(-1 '')+56320 , R0(CF)[0..255]	{V}
+000a ( 100)		RET		<-		{}
+--------------------------------------------------------------------
+uci_getipaddress: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:154
+$00 R0(P), $02 R1(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 408)		STOREC2		<-	V(2 '')+0 , CI:3	{}
+0001 ( 405)		COPY3:GG		<-	V(26 'cmd' A)+0 , V(24 '')+0 	{}
+0002 ( 404)		LOADG1	R1(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+0003 (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:3	{}
+0004 ( 405)		CONST	R0(P)[0..0]	<-	CG3(26:0 'cmd' A)	{S}
+0005 ( 408)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(26 'cmd' A)} [0..0]	{}
+0006 ( 408)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+0007 ( 409)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+0008 ( 410)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+0009 ( 411)		CALLN		<-	V(6 'uci_accept')+0 	{}
+000a ( 413)		STOREG1		<-	V(10 'uci_target')+0 , R1(CF)[0..255]	{}
+000b ( 414)		RET		<-		{}
+--------------------------------------------------------------------
+connect_to_server: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:113
+$00 R0(P), $02 R1(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 115)		CONST	R0(P)[0..0]	<-	CG0(30:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(30 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 117)		CALLN	R0(C)	<-	V(11 'uci_tcp_connect')+0 	{}
+0007 ( 117)		STOREG1		<-	V(41 'socket_id')+0 , R0(C)	{}
+0008 ( 114)		LOADG1	R1(C)[0..255]	<-	V(13 'uci_status' A)+0 	{}
+0009 ( 114)		RELOP19	R1(B)[0..1]	<-	R1(CF)[0..255], CC:48	{}
+000a ( 114)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h
+0000 ( 114)		LOADG1	R1(C)[0..255]	<-	V(13 'uci_status' A)+1 	{}
+0001 ( 114)		RELOP19	R1(B)[0..1]	<-	R1(CF)[0..255], CC:48	{}
+0002 ( 114)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 128)		STOREC1		<-	V(4 '')+0 , R0(CF)	{}
+0001 ( 125)		STOREG1		<-	V(43 'connected')+0 , CB:1	{}
+0002 ( 128)		CALLN		<-	V(13 'uci_tcp_nextline')+0 	{}
+0003 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0004 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0005 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0006 ( 130)		CONST	R0(P)[0..0]	<-	CG0(55:0 '')	{S}
+0007 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(55 '')} [0..0]	{}
+0008 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0009 ( 131)		RETV		<-	CB:1	{}
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 121)		CONST	R0(P)[0..0]	<-	CG0(42:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(42 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 122)		RETV		<-	CB:0	{}
+--------------------------------------------------------------------
+uci_tcp_connect: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:157
+$00 R0(P), $00 R1(I), $00 R2(I), $00 R3(P), $00 R4(P), $00 R5(C), $02 R6(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 423)		CONST	R0(P)[0..0]	<-	CG0(31:0 '')	{S}
+0001 ( 423)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(31 '')} [0..0]	{}
+0002 ( 423)		CALLN	R0(I)	<-	V(12 'strlen')+0 	{E}
+0003 ( 424)		BINOP1	R1(I)	<-	R0(I), CI:5	{}
+0004 ( 424)		MALLOC	R4(P)+0{R1}	<-	R1(I)	{}
+0005 ( 427)		STOREI1		<-	R4(P)+0{R1}, CC:0	{}
+0006 ( 428)		STOREI1		<-	R4(P)+1{R1}, CC:7	{}
+0007 ( 429)		STOREI1		<-	R4(P)+2{R1}, CC:65	{}
+0008 ( 430)		STOREI1		<-	R4(P)+3{R1}, CC:25	{}
+0009 ( 422)		LOADG1	R6(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+000a ( 431)		RELOP24	R2(B)[0..1]	<-	CI:0, R0(I)	{}
+000b ( 431)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 431)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0001 ( 432)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 432)		LEAG	R3(P)[0..12]	<-	V(31 '')+0 , R2(I)[0..12]	{}
+0001 ( 432)		LOADI1	R5(C)[0..57]	<-	R3(PF)+0 {V(31 '')} [0..12]	{}
+0002 ( 432)		LEAI	R3(P)+0{R1}	<-	R4(P)+0{R1}, R2(I)[0..12]	{}
+0003 ( 432)		STOREI1		<-	R3(PF)+4{R1}, R5(CF)[0..57]	{}
+0004 ( 431)		BINOP1	R2(I)[1..13]	<-	R2(IF)[0..12], CI:1	{}
+0005 ( 431)		RELOP28	R3(B)[0..1]	<-	R2(I)[1..13], R0(I)[1..32767]	{}
+0006 ( 431)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 436)		STOREC2		<-	V(0 '')+0 , R4(P)+0{R1}	{}
+0001 ( 436)		STOREC2		<-	V(2 '')+0 , R1(IF)	{}
+0002 (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:3	{}
+0003 ( 433)		LEAI	R0(P)+0{R1}	<-	R4(P)+0{R1}, R0(IF)[-32768..32767]	{}
+0004 ( 433)		STOREI1		<-	R0(PF)+4{R1}, CC:0	{}
+0005 ( 436)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+0006 ( 437)		FREE		<-	R4(PF)+0{R1}	{}
+0007 ( 439)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+0008 ( 440)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+0009 ( 441)		CALLN		<-	V(6 'uci_accept')+0 	{}
+000a ( 445)		STOREG2		<-	V(33 'uci_data_len')+0 , CI:0	{}
+000b ( 444)		STOREG2		<-	V(32 'uci_data_index')+0 , CI:0	{}
+000c ( 443)		STOREG1		<-	V(10 'uci_target')+0 , R6(CF)[0..255]	{}
+000d ( 447)		LOADG1	R0(C)[0..255]	<-	V(11 'uci_data' A)+0 	{}
+000e ( 452)		RETV		<-	R0(CF)[0..255]	{}
+--------------------------------------------------------------------
+strlen: /usr/local/include/oscar64/string.h:12
+$00 R0(I), $00 R1(P), $00 R2(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 149)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 147)		LOADZ2	R1(P)	<-	V(0 '')+0 	{S}
+0002 ( 150)		LOADI1	R2(C)[0..255]	<-	R1(P)+0	{}
+0003 ( 150)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (2) Head P-1 /usr/local/include/oscar64/string.c
+0000 ( 151)		BINOP1	R0(I)[1..]	<-	R0(IF)[0..], CI:1	{}
+0001 ( 150)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0002 ( 150)		LOADI1	R2(C)[0..255]	<-	R1(P)+0	{}
+0003 ( 150)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (2)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 152)		RETV		<-	R0(IF)[0..]	{}
+--------------------------------------------------------------------
+uci_tcp_nextline: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:173
+$00 R0(I), $02 R1(I), $03 R2(I), $00 R3(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 644)		STOREG1		<-	V(44 'line_buffer' A)+0 , CC:0	{}
+0001 ( 643)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0002 ( 666)		LOADZ1	R3(C)[0..255]	<-	V(4 '')+0 	{S}
+0003 ( 621)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (3) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 621)		LOADG2	R0(I)[-32768..32767]	<-	V(32 'uci_data_index')+0 	{}
+0001 ( 621)		LOADG2	R1(I)[-32768..32767]	<-	V(33 'uci_data_len')+0 	{}
+0002 ( 621)		RELOP24	R1(B)[0..1]	<-	R0(I)[-32768..32767], R1(IF)[-32768..32767]	{}
+0003 ( 621)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 624)		BINOP1	R1(I)[-1..1790]	<-	R0(I)[-2..1789], CI:1	{}
+0001 ( 624)		STOREG2		<-	V(32 'uci_data_index')+0 , R1(IF)[-1..1790]	{}
+0002 ( 623)		LEAG	R0(P)[0..1791]	<-	V(11 'uci_data' A)+2 , R0(IF)[-2..1789]	{}
+0003 ( 623)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0 {V(11 'uci_data' A)} [0..1791]	{}
+0004 ( 646)		BRANCH		<-	R0(C)[0..255]	{}
+		==> 4
+		==> 3
+L4: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 646)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0001 ( 646)		RELOP20	R1(B)[0..1]	<-	R0(I)[0..255], CI:10	{}
+0002 ( 646)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 648)		RELOP19	R1(B)[0..1]	<-	R0(I)[0..255], CI:13	{}
+0001 ( 648)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 9
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 658)		LEAG	R1(P)[0..127]	<-	V(44 'line_buffer' A)+0 , R2(I)[0..127]	{}
+0001 ( 658)		STOREI1		<-	R1(PF)+0 {V(44 'line_buffer' A)} [0..127], R0(CF)[0..255]	{}
+0002 ( 658)		BINOP1	R2(I)[1..128]	<-	R2(IF)[0..127], CI:1	{}
+0003 ( 646)		JUMP		<-		{}
+		==> 1
+L3: <= D-1: (4)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 660)		LEAG	R0(P)[0..127]	<-	V(44 'line_buffer' A)+0 , R2(IF)[0..127]	{}
+0001 ( 660)		STOREI1		<-	R0(PF)+0 {V(44 'line_buffer' A)} [0..127], CC:0	{}
+0002 ( 666)		RET		<-		{}
+L6: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 481)		STOREC2		<-	V(2 '')+0 , CI:5	{}
+0001 ( 477)		STOREG1		<-	V(50 'cmd' A)+0 , CC:0	{}
+0002 ( 477)		STOREG1		<-	V(50 'cmd' A)+1 , CC:16	{}
+0003 ( 477)		STOREG1		<-	V(50 'cmd' A)+2 , R3(C)[0..255]	{}
+0004 ( 478)		STOREG1		<-	V(50 'cmd' A)+3 , CC:124	{}
+0005 ( 478)		STOREG1		<-	V(50 'cmd' A)+4 , CC:3	{}
+0006 ( 476)		LOADG1	R1(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+0007 (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:3	{}
+0008 ( 477)		CONST	R0(P)[0..0]	<-	CG5(50:0 'cmd' A)	{IS}
+0009 ( 481)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(50 'cmd' A)} [0..0]	{}
+000a ( 481)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+000b ( 482)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+000c ( 483)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+000d ( 484)		CALLN		<-	V(6 'uci_accept')+0 	{}
+000e ( 486)		STOREG1		<-	V(10 'uci_target')+0 , R1(CF)[0..255]	{}
+000f ( 487)		LOADG1	R0(C)[0..255]	<-	V(11 'uci_data' A)+1 	{}
+0010 ( 487)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0011 ( 487)		BINOP16	R0(I)[0..65280]	<-	R0(IF)[0..255], CI:8	{}
+0012 ( 487)		LOADG1	R1(C)[0..255]	<-	V(11 'uci_data' A)+0 	{}
+0013 ( 487)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0014 ( 487)		BINOP8	R0(I)	<-	R1(IF)[0..255], R0(IF)[0..65280]	{}
+0015 ( 630)		STOREG2		<-	V(33 'uci_data_len')+0 , R0(I)	{}
+0016 ( 631)		RELOP19	R1(B)[0..1]	<-	R0(I), CI:0	{}
+0017 ( 631)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 3
+		==> 8
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 633)		RELOP19	R0(B)[0..1]	<-	R0(IF), CI:-1	{}
+0001 ( 633)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 6
+		==> 7
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 636)		STOREG2		<-	V(32 'uci_data_index')+0 , CI:1	{}
+0001 ( 635)		LOADG1	R0(C)[0..255]	<-	V(11 'uci_data' A)+2 	{}
+0002 ( 646)		BRANCH		<-	R0(C)[0..255]	{}
+		==> 4
+		==> 3
+--------------------------------------------------------------------
+load_categories: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:171
+$07 R0(P), $09 R1(P), $0b R2(I), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 173)		CONST	R0(P)[0..0]	<-	CG0(64:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(64 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 175)		CONST	R0(P)[0..0]	<-	CG0(72:0 '')	{S}
+0007 ( 175)		STOREC2		<-	V(7 '')+0 , R0(PF)+0 {V(72 '')} [0..0]	{}
+0008 ( 175)		CALLN		<-	V(15 'send_command')+0 	{}
+0009 ( 176)		CALLN		<-	V(17 'read_line')+0 	{}
+000a ( 178)		STOREG2		<-	V(73 'item_count')+0 , CI:0	{}
+000b ( 166)		CONST	R0(P)[3..3]	<-	CG1(44:3 'line_buffer' A)	{S}
+000c ( 167)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [3..3]	{}
+000d ( 167)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+000e ( 179)		STOREG2		<-	V(74 'total_count')+0 , R0(IF)	{}
+000f ( 184)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 184)		CALLN		<-	V(17 'read_line')+0 	{}
+0001 ( 185)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0002 ( 185)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0003 ( 185)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 4
+L3: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 202)		STOREG2		<-	V(79 'current_page')+0 , CI:0	{}
+0003 ( 201)		STOREG2		<-	V(78 'offset')+0 , CI:0	{}
+0004 ( 200)		STOREG2		<-	V(77 'cursor')+0 , CI:0	{}
+0005 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0006 ( 203)		CONST	R0(P)[0..0]	<-	CG0(80:0 '')	{S}
+0007 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(80 '')} [0..0]	{}
+0008 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0009 ( 204)		RET		<-		{}
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 189)		STOREC2		<-	V(2 '')+0 , CI:124	{}
+0001 ( 185)		CONST	R0(P)[0..0]	<-	CG1(44:0 'line_buffer' A)	{S}
+0002 ( 189)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0003 ( 189)		CALLN	R1(P)	<-	V(19 'strchr')+0 	{E}
+0004 ( 190)		BRANCH		<-	R1(P)	{}
+		==> 5
+		==> 1
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 193)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0001 ( 192)		STOREI1		<-	R1(P)+0, CC:0	{}
+0002 ( 193)		LOADG2	R2(I)[0..19]	<-	V(73 'item_count')+0 	{}
+0003 ( 193)		BINOP3	R0(I)[0..608]	<-	R2(I)[0..19], CI:32	{}
+0004 ( 193)		LEAG	R0(P)[0..608]	<-	V(75 'item_names' A)+0 , R0(IF)[0..608]	{}
+0005 ( 193)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(75 'item_names' A)} [0..608]	{}
+0006 ( 193)		CALLN		<-	V(20 'strncpy')+0 	{}
+0007 ( 194)		STOREI1		<-	R0(PF)+31 {V(75 'item_names' A)} [0..608], CC:0	{}
+0008 ( 195)		LEAI	R0(P)+0	<-	R1(PF)+0, CI:1	{}
+0009 ( 195)		STOREC2		<-	V(0 '')+0 , R0(PF)	{}
+000a ( 195)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+000b ( 195)		BINOP16	R1(I)[0..38]	<-	R2(I)[0..19], CI:1	{}
+000c ( 195)		LEAG	R1(P)[0..38]	<-	V(76 'item_ids' A)+0 , R1(IF)[0..38]	{}
+000d ( 195)		STOREI2		<-	R1(PF)+0 {V(76 'item_ids' A)} [0..38], R0(IF)	{}
+000e ( 196)		BINOP1	R0(I)[1..20]	<-	R2(IF)[0..19], CI:1	{}
+000f ( 196)		STOREG2		<-	V(73 'item_count')+0 , R0(IF)[1..20]	{}
+0010 ( 190)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 182)		LOADG2	R0(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 182)		RELOP24	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:20	{}
+0002 ( 182)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 3
+--------------------------------------------------------------------
+send_command: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:148
+$00 R0(P), $00 R1(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 150)		LOADG1	R0(B)[0..1]	<-	V(43 'connected')+0 	{}
+0001 ( 150)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 1
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 152)		LOADG1	R1(C)[0..255]	<-	V(41 'socket_id')+0 	{}
+0001 ( 152)		STOREC1		<-	V(4 '')+0 , R1(C)[0..255]	{}
+0002 ( 152)		LOADZ2	R0(P)	<-	V(7 '')+0 	{S}
+0003 ( 152)		STOREC2		<-	V(5 '')+0 , R0(PF)	{}
+0004 ( 152)		CALLN		<-	V(16 'uci_socket_write')+0 	{}
+0005 ( 545)		STOREC1		<-	V(4 '')+0 , R1(CF)[0..255]	{}
+0006 ( 543)		STOREG1		<-	V(69 'temp_char' A)+0 , CC:10	{}
+0007 ( 544)		STOREG1		<-	V(69 'temp_char' A)+1 , CC:0	{}
+0008 ( 543)		CONST	R0(P)[0..0]	<-	CG1(69:0 'temp_char' A)	{S}
+0009 ( 545)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(69 'temp_char' A)} [0..0]	{}
+000a ( 545)		CALLN		<-	V(16 'uci_socket_write')+0 	{}
+000b ( 154)		RET		<-		{}
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 151)		RET		<-		{}
+--------------------------------------------------------------------
+uci_socket_write: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.h:161
+$00 R0(I), $00 R1(I), $02 R2(P), $04 R3(P), $00 R4(P), $00 R5(C), $06 R6(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 533)		LOADZ2	R3(P)	<-	V(5 '')+0 	{S}
+0001 ( 493)		STOREC2		<-	V(0 '')+0 , R3(P)	{}
+0002 ( 493)		CALLN	R0(I)	<-	V(12 'strlen')+0 	{E}
+0003 ( 494)		BINOP1	R1(I)	<-	R0(I), CI:3	{}
+0004 ( 494)		MALLOC	R4(P)+0{R1}	<-	R1(I)	{}
+0005 ( 498)		STOREI1		<-	R4(P)+0{R1}, CC:0	{}
+0006 ( 499)		STOREI1		<-	R4(P)+1{R1}, CC:17	{}
+0007 ( 533)		LOADZ1	R2(C)[0..255]	<-	V(4 '')+0 	{S}
+0008 ( 500)		STOREI1		<-	R4(P)+2{R1}, R2(CF)[0..255]	{}
+0009 ( 492)		LOADG1	R6(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+000a ( 502)		RELOP24	R2(B)[0..1]	<-	CI:0, R0(I)	{}
+000b ( 502)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 515)		MOVE	R2(P)+0{R1}	<-	R4(P)+0{R1}	{}
+0001 ( 504)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 504)		LOADI1	R5(C)[0..255]	<-	R3(P)+0	{}
+0001 ( 515)		STOREI1		<-	R2(P)+3{R1}, R5(CF)[0..255]	{}
+0002 ( 515)		LEAI	R2(P)+0{R1}	<-	R2(PF)+0{R1}, CI:1	{}
+0003 ( 504)		LEAI	R3(P)+0	<-	R3(PF)+0, CI:1	{}
+0004 ( 502)		BINOP2	R0(I)[0..32766]	<-	R0(IF)[1..32767], CI:1	{}
+0005 ( 502)		RELOP27	R5(B)[0..1]	<-	R0(I)[0..32766], CI:0	{}
+0006 ( 502)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/ultimate.c
+0000 ( 519)		STOREC2		<-	V(0 '')+0 , R4(P)+0{R1}	{}
+0001 ( 519)		STOREC2		<-	V(2 '')+0 , R1(IF)	{}
+0002 (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:3	{}
+0003 ( 519)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+0004 ( 520)		FREE		<-	R4(PF)+0{R1}	{}
+0005 ( 522)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+0006 ( 523)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+0007 ( 524)		CALLN		<-	V(6 'uci_accept')+0 	{}
+0008 ( 528)		STOREG2		<-	V(33 'uci_data_len')+0 , CI:0	{}
+0009 ( 527)		STOREG2		<-	V(32 'uci_data_index')+0 , CI:0	{}
+000a ( 526)		STOREG1		<-	V(10 'uci_target')+0 , R6(CF)[0..255]	{}
+000b ( 534)		RET		<-		{}
+--------------------------------------------------------------------
+read_line: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:157
+$00 R0(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 159)		LOADG1	R0(C)[0..255]	<-	V(41 'socket_id')+0 	{}
+0001 ( 159)		STOREC1		<-	V(4 '')+0 , R0(CF)[0..255]	{}
+0002 ( 159)		CALLN		<-	V(13 'uci_tcp_nextline')+0 	{}
+0003 ( 159)		RET		<-		{}
+--------------------------------------------------------------------
+atoi: /usr/local/include/oscar64/stdlib.h:30
+$00 R0(P), $00 R1(P), $00 R2(P), $00 R3(C), $00 R4(B), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 184)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 184)		LOADZ2	R0(P)	<-	V(0 '')+0 	{}
+0001 ( 184)		LEAI	R1(P)+0	<-	R0(P)+0, CI:1	{}
+0002 ( 184)		STOREZ2		<-	V(0 '')+0 , R1(PF)	{}
+0003 ( 184)		LOADI1	R3(C)[0..255]	<-	R0(P)+0	{}
+0004 ( 184)		RELOP26	R1(B)[0..1]	<-	R3(C)[0..255], CC:32	{}
+0005 ( 184)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 185)		BRANCH		<-	R3(CF)[0..32]	{}
+		==> 1
+		==> 4
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 185)		RETV		<-	CI:0	{}
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 188)		RELOP19	R1(B)[0..1]	<-	R3(C)[33..255], CC:45	{}
+0001 ( 188)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 191)		LEAI	R1(P)+0	<-	R0(P)+0, CI:2	{}
+0001 ( 191)		STOREZ2		<-	V(0 '')+0 , R1(PF)	{}
+0002 ( 190)		CONST	R4(B)[1..1]	<-	CI:1	{}
+0003 ( 197)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 194)		LOADI1	R3(C)[0..255]	<-	R0(PF)+1	{}
+0001 ( 197)		JUMP		<-		{}
+		==> 13
+L13: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 196)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 197)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 197)		RELOP25	R1(B)[0..1]	<-	R3(C)[0..255], CC:48	{}
+0001 ( 197)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 10
+		==> 9
+L10: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 197)		RELOP26	R1(B)[0..1]	<-	R3(C)[48..255], CC:57	{}
+0001 ( 197)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 8
+		==> 9
+L8: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 200)		LOADZ2	R1(P)	<-	V(0 '')+0 	{}
+0001 ( 200)		LEAI	R2(P)+0	<-	R1(P)+0, CI:1	{}
+0002 ( 200)		STOREZ2		<-	V(0 '')+0 , R2(PF)	{}
+0003 ( 197)		CONV37	R2(I)[48..57]	<-	R3(CF)[48..57]	{}
+0004 ( 200)		LOADI1	R3(C)[0..255]	<-	R1(PF)+0	{}
+0005 ( 199)		BINOP3	R0(I)	<-	R0(IF), CI:10	{}
+0006 ( 199)		BINOP2	R2(I)[0..9]	<-	R2(IF)[48..57], CI:48	{}
+0007 ( 199)		BINOP1	R0(I)	<-	R2(IF)[0..9], R0(IF)	{}
+0008 ( 197)		JUMP		<-		{}
+		==> 14
+L9: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 203)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 11
+		==> 12
+L11: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 204)		UNOP11	R0(I)	<-	R0(IF)	{}
+0001 ( 206)		RETV		<-	R0(IF)	{}
+L12: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 206)		RETV		<-	R0(IF)	{}
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 187)		CONST	R4(B)[0..0]	<-	CI:0	{}
+0001 ( 193)		RELOP19	R1(B)[0..1]	<-	R3(C)[33..255], CC:43	{}
+0002 ( 193)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 7
+		==> 13
+L7: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdlib.c
+0000 ( 194)		LEAI	R1(P)+0	<-	R0(P)+0, CI:2	{}
+0001 ( 194)		STOREZ2		<-	V(0 '')+0 , R1(PF)	{}
+0002 ( 197)		JUMP		<-		{}
+		==> 15
+--------------------------------------------------------------------
+strchr: /usr/local/include/oscar64/string.h:18
+$00 R0(I), $00 R1(P), $00 R2(C), $00 R3(B), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.h
+0000 (  18)		LOADZ2	R0(I)[-32768..32767]	<-	V(2 '')+0 	{S}
+0001 ( 211)		LOADZ2	R1(P)	<-	V(0 '')+0 	{}
+0002 ( 213)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head P-1 /usr/local/include/oscar64/string.c
+0000 ( 213)		LOADI1	R2(C)[0..255]	<-	R1(P)+0	{}
+0001 ( 213)		RELOP20	R3(B)[0..1]	<-	R2(C)[0..255], R0(C)[32..124]	{}
+0002 ( 213)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 4
+		==> 1
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 215)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 217)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0001 ( 213)		JUMP		<-		{}
+		==> 5
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 216)		CONST	R0(P)[0..0]	<-	CA0(-1:0 '')	{S}
+0001 ( 216)		RETV		<-	R0(PF)+0 {V(-1 'ABS')} [0..0]	{}
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 219)		RETV		<-	R1(PF)	{}
+--------------------------------------------------------------------
+strncpy: /usr/local/include/oscar64/string.h:6
+$00 R0(I), $00 R1(P), $00 R2(P), $00 R3(I), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 (  51)		CONST	R0(I)[30..30]	<-	CI:30	{}
+0001 (  48)		LOADZ2	R1(P)	<-	V(0 '')+0 	{}
+0002 (  49)		LOADZ2	R2(P)	<-	V(2 '')+0 	{}
+0003 (  51)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P-1 /usr/local/include/oscar64/string.c
+0000 (  51)		LOADI1	R3(C)[0..255]	<-	R2(P)+0	{}
+0001 (  51)		STOREI1		<-	R1(P)+0, R3(C)[0..255]	{}
+0002 (  51)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0003 (  51)		BRANCH		<-	R3(CF)[0..255]	{}
+		==> 1
+		==> 5
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 (  51)		LEAI	R2(P)+0	<-	R2(PF)+0, CI:1	{}
+0001 (  51)		MOVE	R3(I)[-32768..30]	<-	R0(I)[..30]	{}
+0002 (  51)		BINOP1	R0(I)[..29]	<-	R0(IF)[..30], CI:-1	{}
+0003 (  51)		RELOP20	R3(B)[0..1]	<-	R3(IF)[..30], CI:0	{}
+0004 (  51)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 2
+		==> 5
+L5: <= D-1: (2)  P-1 /usr/local/include/oscar64/string.c
+0000 (  56)		RELOP23	R2(B)[0..1]	<-	R0(I)[..30], CI:0	{}
+0001 (  56)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 3
+		==> 4
+L3: <= D-1: (2) Head P-1 /usr/local/include/oscar64/string.c
+0000 (  57)		STOREI1		<-	R1(P)+0, CC:0	{}
+0001 (  57)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0002 (  56)		BINOP1	R0(I)[0..29]	<-	R0(IF)[1..30], CI:-1	{}
+0003 (  56)		RELOP27	R2(B)[0..1]	<-	R0(I)[0..29], CI:0	{}
+0004 (  56)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 3
+		==> 4
+L4: <= D-1: (2)  P-1 /usr/local/include/oscar64/string.c
+0000 (  59)		RET		<-		{}
+--------------------------------------------------------------------
+draw_list: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:432
+$00 R0(P), $02 R1(I), $10 R2(I), $12 R3(I), $00 R4(P), $14 R5(P), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 437)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 437)		STOREC1		<-	V(1 '')+0 , CC:0	{}
+0002 ( 437)		STOREC1		<-	V(4 '')+0 , CC:7	{}
+0003 ( 434)		CALLN		<-	V(1 'clear_screen')+0 	{}
+0004 ( 437)		LOADG2	R0(P)	<-	V(-1 'sstack')+8 	{S}
+0005 ( 437)		STOREC2		<-	V(2 '')+0 , R0(PF)	{}
+0006 ( 437)		CALLN		<-	V(22 'print_at_color')+0 	{}
+0007 ( 440)		LOADG2	R2(I)[-32768..32767]	<-	V(79 'current_page')+0 	{}
+0008 ( 440)		RELOP19	R0(B)[0..1]	<-	R2(I)[-32768..32767], CI:2	{}
+0009 ( 440)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 16
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 442)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 442)		STOREC1		<-	V(1 '')+0 , CC:1	{}
+0002 ( 442)		CONST	R0(P)[0..0]	<-	CG0(88:0 '')	{S}
+0003 ( 442)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(88 '')} [0..0]	{}
+0004 ( 442)		CALLN		<-	V(2 'print_at')+0 	{}
+0005 ( 443)		STOREC1		<-	V(0 '')+0 , CC:8	{}
+0006 ( 443)		STOREC1		<-	V(1 '')+0 , CC:1	{}
+0007 ( 443)		CONST	R0(P)[0..0]	<-	CG32(89:0 'search_query' A)	{S}
+0008 ( 443)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(89 'search_query' A)} [0..0]	{}
+0009 ( 443)		CALLN		<-	V(2 'print_at')+0 	{}
+000a ( 444)		STOREC1		<-	V(1 '')+0 , CC:1	{}
+000b ( 444)		LOADG2	R0(I)[-32768..32767]	<-	V(90 'search_query_len')+0 	{}
+000c ( 444)		BINOP1	R0(I)[-32760..32775]	<-	R0(IF)[-32768..32767], CI:8	{}
+000d ( 444)		STOREC1		<-	V(0 '')+0 , R0(CF)[-32760..32775]	{}
+000e ( 444)		CONST	R0(P)[0..0]	<-	CG0(91:0 '')	{S}
+000f ( 444)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(91 '')} [0..0]	{}
+0010 ( 444)		CALLN		<-	V(2 'print_at')+0 	{}
+0011 ( 440)		CONST	R2(I)[-32768..32767]	<-	CI:2	{}
+0012 ( 448)		JUMP		<-		{}
+		==> 16
+L16: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 448)		LOADG2	R3(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 448)		RELOP23	R0(B)[0..1]	<-	R3(I)[-32768..32767], CI:0	{}
+0002 ( 448)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 14
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 450)		CONST	R4(P)[0..0]	<-	CG40(119:0 'info' A)	{S}
+0001 ( 451)		STOREC2		<-	V(9 '')+0 , R4(P)+0 {V(119 'info' A)} [0..0]	{}
+0002 ( 451)		CONST	R0(P)[0..0]	<-	CG0(114:0 '')	{S}
+0003 ( 451)		STOREG2		<-	V(-1 'sstack')+0 , R0(PF)+0 {V(114 '')} [0..0]	{}
+0004 ( 451)		LOADG2	R0(I)[-32768..32767]	<-	V(78 'offset')+0 	{}
+0005 ( 451)		BINOP1	R1(I)[-32767..32768]	<-	R0(I)[-32768..32767], CI:1	{}
+0006 ( 451)		STOREG2		<-	V(-1 'sstack')+2 , R1(IF)[-32767..32768]	{}
+0007 ( 451)		BINOP1	R0(I)[-32767..65534]	<-	R3(I)[1..32767], R0(IF)[-32768..32767]	{}
+0008 ( 451)		STOREG2		<-	V(-1 'sstack')+4 , R0(IF)[-32767..65534]	{}
+0009 ( 451)		LOADG2	R0(I)[-32768..32767]	<-	V(74 'total_count')+0 	{}
+000a ( 451)		STOREG2		<-	V(-1 'sstack')+6 , R0(IF)[-32768..32767]	{}
+000b ( 451)		CALLN		<-	V(23 'sprintf')+0 	{}
+000c ( 452)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+000d ( 452)		STOREC1		<-	V(1 '')+0 , CC:2	{}
+000e ( 452)		STOREC2		<-	V(2 '')+0 , R4(PF)+0 {V(119 'info' A)} [0..0]	{}
+000f ( 452)		CALLN		<-	V(2 'print_at')+0 	{}
+0010 ( 456)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 456)		RELOP24	R0(B)[0..1]	<-	CI:0, R3(I)[-32768..32767]	{}
+0001 ( 456)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 15
+		==> 5
+L15: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 456)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 458)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 458)		BINOP1	R4(I)[4..21]	<-	R0(I)[0..17], CI:4	{}
+0001 ( 462)		STOREC1		<-	V(1 '')+0 , R4(C)[4..21]	{}
+0002 ( 463)		BINOP3	R1(I)[0..544]	<-	R0(I)[0..17], CI:32	{}
+0003 ( 463)		LEAG	R5(P)[0..544]	<-	V(75 'item_names' A)+0 , R1(IF)[0..544]	{}
+0004 ( 459)		LOADG2	R1(I)[-32768..32767]	<-	V(77 'cursor')+0 	{}
+0005 ( 459)		RELOP19	R0(B)[0..1]	<-	R0(IF)[0..17], R1(IF)[-32768..32767]	{}
+0006 ( 459)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 462)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 462)		STOREC1		<-	V(4 '')+0 , CC:1	{}
+0002 ( 462)		CONST	R0(P)[0..0]	<-	CG0(115:0 '')	{S}
+0003 ( 462)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(115 '')} [0..0]	{}
+0004 ( 462)		CALLN		<-	V(22 'print_at_color')+0 	{}
+0005 ( 463)		STOREC1		<-	V(0 '')+0 , CC:2	{}
+0006 ( 463)		STOREC1		<-	V(1 '')+0 , R4(C)[4..21]	{}
+0007 ( 463)		STOREC2		<-	V(2 '')+0 , R5(PF)+0 {V(75 'item_names' A)} [0..544]	{}
+0008 ( 463)		STOREC1		<-	V(4 '')+0 , CC:1	{}
+0009 ( 463)		CALLN		<-	V(22 'print_at_color')+0 	{}
+000a ( 456)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 456)		BINOP1	R0(I)[1..18]	<-	R4(IF)[4..21], CI:-3	{}
+0001 ( 456)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..18], R3(I)[1..32767]	{}
+0002 ( 456)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 5
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 456)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..18], CI:18	{}
+0001 ( 456)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 4
+		==> 5
+L5: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 473)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 473)		STOREC1		<-	V(1 '')+0 , CC:23	{}
+0002 ( 472)		RELOP19	R0(B)[0..1]	<-	R2(I)[-32768..32767], CI:0	{}
+0003 ( 472)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 473)		CONST	R0(P)[0..0]	<-	CG0(116:0 '')	{S}
+0001 ( 472)		JUMP		<-		{}
+		==> 11
+L11: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 475)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(117 '')} [0..0]	{}
+0001 ( 473)		CALLN		<-	V(2 'print_at')+0 	{}
+0002 ( 478)		RET		<-		{}
+L10: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 474)		RELOP19	R0(B)[0..1]	<-	R2(IF)[-32768..32767], CI:1	{}
+0001 ( 474)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 12
+		==> 13
+L12: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 475)		CONST	R0(P)[0..0]	<-	CG0(117:0 '')	{S}
+0001 ( 474)		JUMP		<-		{}
+		==> 11
+L13: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 477)		CONST	R0(P)[0..0]	<-	CG0(118:0 '')	{S}
+0001 ( 474)		JUMP		<-		{}
+		==> 11
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 467)		STOREC1		<-	V(0 '')+0 , CC:2	{}
+0001 ( 467)		STOREC2		<-	V(2 '')+0 , R5(PF)+0 {V(75 'item_names' A)} [0..544]	{}
+0002 ( 467)		CALLN		<-	V(2 'print_at')+0 	{}
+0003 ( 456)		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+print_at_color: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:80
+$00 R0(I), $00 R1(I), $02 R2(P), $00 R3(P), $00 R4(I), $00 R5(C), $00 R6(B), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  80)		LOADZ1	R0(C)[0..2]	<-	V(0 '')+0 	{S}
+0001 (  80)		CONV37	R0(I)[0..2]	<-	R0(CF)[0..2]	{S}
+0002 (  82)		LOADZ1	R1(C)[0..255]	<-	V(1 '')+0 	{S}
+0003 (  82)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{S}
+0004 (  82)		BINOP3	R1(I)[0..10200]	<-	R1(IF)[0..255], CI:40	{S}
+0005 (  83)		LEAA	R1(P)[1024..11224]	<-	V(-1 '')+1024 , R1(IF)[0..10200]	{S}
+0006 (  82)		LEAI	R2(P)+0 {V(-1 'ABS')} [1024..11226]	<-	R1(P)+0 {V(-1 'ABS')} [1024..11224], R0(I)[0..2]	{}
+0007 (  82)		LEAI	R1(P)+0 {V(-1 'ABS')} [55296..65496]	<-	R1(PF)+0 {V(-1 'ABS')} [1024..11224], CI:54272	{S}
+0008 (  83)		LEAI	R1(P)+0 {V(-1 'ABS')} [55296..65498]	<-	R1(PF)+0 {V(-1 'ABS')} [55296..65496], R0(IF)[0..2]	{}
+0009 (  84)		LOADZ2	R0(P)	<-	V(2 '')+0 	{}
+000a (  84)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0	{}
+000b (  80)		LOADZ1	R5(C)[0..255]	<-	V(4 '')+0 	{S}
+000c (  84)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  86)		LOADZ2	R0(P)	<-	V(2 '')+0 	{}
+0001 (  86)		LEAI	R3(P)+0	<-	R0(P)+0, CI:1	{}
+0002 (  86)		STOREZ2		<-	V(2 '')+0 , R3(PF)	{}
+0003 (  86)		LOADI1	R3(C)[0..255]	<-	R0(P)+0	{}
+0004 (  87)		CONV37	R4(I)[0..255]	<-	R3(C)[0..255]	{}
+0005 (  87)		RELOP25	R6(B)[0..1]	<-	R3(C)[0..255], CC:97	{}
+0006 (  87)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 6
+		==> 4
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  87)		RELOP26	R6(B)[0..1]	<-	R3(C)[97..255], CC:122	{}
+0001 (  87)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 3
+		==> 4
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  88)		BINOP1	R3(I)[-96..26]	<-	R4(IF)[0..122], CI:-96	{}
+0001 (  87)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (5)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  93)		STOREI1		<-	R2(P)+0 {V(-1 'ABS')} [1024..], R3(CF)[-96..255]	{}
+0001 (  94)		STOREI1		<-	R1(P)+0 {V(-1 'ABS')} [55296..], R5(C)[1..7]	{}
+0002 (  84)		LOADI1	R0(C)[0..255]	<-	R0(PF)+1	{}
+0003 (  93)		LEAI	R2(P)+0 {V(-1 'ABS')} [1025..]	<-	R2(PF)+0 {V(-1 'ABS')} [1024..], CI:1	{}
+0004 (  94)		LEAI	R1(P)+0 {V(-1 'ABS')} [55297..]	<-	R1(PF)+0 {V(-1 'ABS')} [55296..], CI:1	{}
+0005 (  84)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  80)		RET		<-		{}
+L4: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  89)		RELOP25	R6(B)[0..1]	<-	R3(C)[0..255], CC:65	{}
+0001 (  89)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 9
+		==> 5
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  89)		RELOP26	R6(B)[0..1]	<-	R3(C)[65..255], CC:90	{}
+0001 (  89)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  90)		BINOP1	R3(I)[-64..26]	<-	R4(IF)[0..90], CI:-64	{}
+0001 (  89)		JUMP		<-		{}
+		==> 5
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  91)		RELOP19	R4(B)[0..1]	<-	R3(C)[91..255], CC:124	{}
+0001 (  91)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 10
+		==> 5
+L10: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 (  92)		CONST	R3(C)[32..32]	<-	CI:32	{}
+0001 (  91)		JUMP		<-		{}
+		==> 5
+--------------------------------------------------------------------
+sprintf: /usr/local/include/oscar64/stdio.h:20
+$00 R0(L), $04 R1(I), $06 R2(P), $10 R3(P), $12 R4(P), $00 R5(P), $08 R6(C), $09 R7(B), $0a R8(B), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 563)		CONST	R3(P)[2..2]	<-	CG2(-1:2 'sstack')	{}
+0001 ( 356)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0002 ( 563)		LOADG2	R4(P)	<-	V(-1 'sstack')+0 	{}
+0003 ( 563)		LOADZ2	R5(P)	<-	V(9 '')+0 	{}
+0004 ( 359)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (11) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 359)		LOADI1	R1(C)[0..255]	<-	R4(P)+0	{}
+0001 ( 359)		BRANCH		<-	R1(C)[0..255]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 361)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..255], CC:37	{}
+0001 ( 361)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 382)		STOREG1		<-	V(107 'si' A)+7 , CB:0	{}
+0001 ( 363)		BRANCH		<-	R2(C)	{}
+		==> 6
+		==> 7
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 363)		CONV37	R0(I)[0..255]	<-	R2(CF)	{}
+0001 ( 371)		LEAI	R5(P)+0	<-	R5(PF)+0, R0(IF)[0..255]	{}
+0002 ( 372)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003 ( 363)		JUMP		<-		{}
+		==> 7
+L7: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 380)		STOREG1		<-	V(107 'si' A)+5 , CB:0	{}
+0001 ( 381)		STOREG1		<-	V(107 'si' A)+6 , CB:0	{}
+0002 ( 374)		LOADI1	R6(C)[0..255]	<-	R4(P)+1	{}
+0003 ( 379)		STOREG1		<-	V(107 'si' A)+0 , CC:32	{}
+0004 ( 377)		STOREG1		<-	V(107 'si' A)+1 , CC:0	{}
+0005 ( 378)		STOREG1		<-	V(107 'si' A)+2 , CC:255	{}
+0006 ( 376)		STOREG1		<-	V(107 'si' A)+4 , CC:10	{}
+0007 ( 374)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:2	{}
+0008 ( 386)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 386)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:43	{}
+0001 ( 386)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 10
+		==> 11
+L10: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 387)		STOREG1		<-	V(107 'si' A)+5 , CB:1	{}
+0001 ( 384)		JUMP		<-		{}
+		==> 82
+L82: <= D-1: (4)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 396)		LOADI1	R6(C)[0..255]	<-	R4(P)+0	{}
+0001 ( 396)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0002 ( 384)		JUMP		<-		{}
+		==> 8
+L11: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 388)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:48	{}
+0001 ( 388)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 12
+		==> 13
+L12: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 389)		STOREG1		<-	V(107 'si' A)+0 , CC:48	{}
+0001 ( 384)		JUMP		<-		{}
+		==> 82
+L13: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 390)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:35	{}
+0001 ( 390)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 15
+L14: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 391)		STOREG1		<-	V(107 'si' A)+7 , CB:1	{}
+0001 ( 384)		JUMP		<-		{}
+		==> 82
+L15: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 392)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:45	{}
+0001 ( 392)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 16
+		==> 9
+L16: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 393)		STOREG1		<-	V(107 'si' A)+6 , CB:1	{}
+0001 ( 384)		JUMP		<-		{}
+		==> 82
+L9: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 399)		RELOP25	R0(B)[0..1]	<-	R6(C)[0..255], CC:48	{}
+0001 ( 399)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 19
+		==> 18
+L19: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 399)		RELOP26	R0(B)[0..1]	<-	R6(C)[48..255], CC:57	{}
+0001 ( 399)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 17
+		==> 24
+L17: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 402)		CONV37	R0(I)[48..57]	<-	R6(CF)[48..57]	{}
+0001 ( 401)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0002 ( 404)		JUMP		<-		{}
+		==> 20
+L20: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 404)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..2559]	{}
+0001 ( 404)		BINOP3	R1(I)[0..2550]	<-	R1(IF)[0..255], CI:10	{}
+0002 ( 404)		BINOP1	R0(I)[48..2607]	<-	R1(IF)[0..2550], R0(IF)[48..57]	{}
+0003 ( 404)		BINOP2	R1(I)[0..2559]	<-	R0(IF)[48..2607], CI:48	{}
+0004 ( 405)		LOADI1	R6(C)[0..255]	<-	R4(P)+0	{}
+0005 ( 405)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0006 ( 402)		RELOP25	R0(B)[0..1]	<-	R6(C)[0..255], CC:48	{}
+0007 ( 402)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 22
+		==> 21
+L22: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 402)		CONV37	R0(I)[48..255]	<-	R6(C)[48..255]	{}
+0001 ( 402)		RELOP26	R7(B)[0..1]	<-	R6(C)[48..255], CC:57	{}
+0002 ( 402)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 20
+		==> 21
+L21: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 407)		STOREG1		<-	V(107 'si' A)+1 , R1(CF)[0..2559]	{}
+0001 ( 410)		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 410)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:46	{}
+0001 ( 410)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 23
+		==> 24
+L23: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 412)		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001 ( 417)		JUMP		<-		{}
+		==> 77
+L77: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 417)		LOADI1	R6(C)[0..255]	<-	R4(P)+0	{}
+0001 ( 417)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0002 ( 414)		RELOP25	R1(B)[0..1]	<-	R6(C)[0..255], CC:48	{}
+0003 ( 414)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 27
+		==> 26
+L27: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 414)		RELOP26	R1(B)[0..1]	<-	R6(C)[48..255], CC:57	{}
+0001 ( 414)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 25
+		==> 26
+L25: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 414)		CONV37	R1(I)[48..57]	<-	R6(CF)[48..57]	{}
+0001 ( 416)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..2559]	{}
+0002 ( 416)		BINOP3	R0(I)[0..2550]	<-	R0(IF)[0..255], CI:10	{}
+0003 ( 416)		BINOP1	R0(I)[48..2607]	<-	R0(IF)[0..2550], R1(IF)[48..57]	{}
+0004 ( 416)		BINOP2	R0(I)[0..2559]	<-	R0(IF)[48..2607], CI:48	{}
+0005 ( 414)		JUMP		<-		{}
+		==> 77
+L26: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 419)		STOREG1		<-	V(107 'si' A)+2 , R0(CF)[0..2559]	{}
+0001 ( 422)		JUMP		<-		{}
+		==> 24
+L24: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 422)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:100	{}
+0001 ( 422)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 32
+L28: <= D-1: (4)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 424)		LOADI2	R0(I)[-32768..32767]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0001 ( 424)		STOREC2		<-	V(4 '')+0 , R0(IF)[-32768..32767]	{}
+0002 ( 424)		STOREC1		<-	V(6 '')+0 , CB:1	{}
+0003 ( 422)		JUMP		<-		{}
+		==> 79
+L79: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 424)		STOREC2		<-	V(2 '')+0 , R5(P)	{}
+0001 ( 428)		CONST	R0(P)[0..0]	<-	CG8(107:0 'si' A)	{S}
+0002 ( 428)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(107 'si' A)} [0..0]	{}
+0003 ( 428)		CALLN	R2(C)	<-	V(25 'nformi')+0 	{}
+0004 ( 428)		LEAI	R3(P)+0 {V(12 '')} [4..]	<-	R3(PF)+0 {V(12 '')} [2..], CI:2	{}
+0005 ( 426)		JUMP		<-		{}
+		==> 1
+L32: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 422)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:68	{}
+0001 ( 422)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 31
+L31: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 422)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:105	{}
+0001 ( 422)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 30
+L30: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 422)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:73	{}
+0001 ( 422)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 29
+L29: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 426)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:117	{}
+0001 ( 426)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 33
+		==> 35
+L33: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 428)		LOADI2	R0(I)[-32768..32767]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0001 ( 428)		STOREC2		<-	V(4 '')+0 , R0(IF)[-32768..32767]	{}
+0002 ( 428)		STOREC1		<-	V(6 '')+0 , CB:0	{}
+0003 ( 426)		JUMP		<-		{}
+		==> 79
+L35: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 426)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:85	{}
+0001 ( 426)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 33
+		==> 34
+L34: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 422)		CONV37	R1(I)[0..255]	<-	R6(C)[0..255]	{}
+0001 ( 430)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:120	{}
+0002 ( 430)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 36
+		==> 38
+L36: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 434)		STOREC1		<-	V(6 '')+0 , CB:0	{}
+0001 ( 433)		STOREG1		<-	V(107 'si' A)+4 , CC:16	{}
+0002 ( 434)		LOADI2	R0(I)[-32768..32767]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0003 ( 434)		STOREC2		<-	V(4 '')+0 , R0(IF)[-32768..32767]	{}
+0004 ( 432)		BINOP9	R1(I)[0..224]	<-	R1(IF)[0..255], CI:224	{}
+0005 ( 432)		BINOP8	R1(I)[0..255]	<-	R1(IF)[0..224], CI:1	{}
+0006 ( 432)		STOREG1		<-	V(107 'si' A)+3 , R1(CF)[0..255]	{}
+0007 ( 430)		JUMP		<-		{}
+		==> 79
+L38: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 430)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:88	{}
+0001 ( 430)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 36
+		==> 37
+L37: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 437)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:108	{}
+0001 ( 437)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 39
+		==> 41
+L39: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 439)		LOADI4	R0(L)[-2147483648..2147483647]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0001 ( 441)		LEAI	R3(P)+0 {V(12 '')} [6..]	<-	R3(PF)+0 {V(12 '')} [2..], CI:4	{}
+0002 ( 443)		LOADI1	R6(C)[0..255]	<-	R4(P)+0	{}
+0003 ( 443)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0004 ( 444)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:100	{}
+0005 ( 444)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 42
+		==> 46
+L42: <= D-1: (4)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 446)		STOREC1		<-	V(8 '')+0 , CB:1	{}
+0001 ( 444)		JUMP		<-		{}
+		==> 80
+L80: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 446)		STOREC2		<-	V(2 '')+0 , R5(P)	{}
+0001 ( 446)		STOREC4		<-	V(4 '')+0 , R0(LF)[-2147483648..2147483647]	{}
+0002 ( 450)		CONST	R0(P)[0..0]	<-	CG8(107:0 'si' A)	{S}
+0003 ( 450)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(107 'si' A)} [0..0]	{}
+0004 ( 450)		CALLN	R2(C)	<-	V(26 'nforml')+0 	{}
+0005 ( 448)		JUMP		<-		{}
+		==> 1
+L46: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 444)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:68	{}
+0001 ( 444)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 42
+		==> 45
+L45: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 444)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:105	{}
+0001 ( 444)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 42
+		==> 44
+L44: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 444)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:73	{}
+0001 ( 444)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 42
+		==> 43
+L43: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 448)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:117	{}
+0001 ( 448)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 47
+		==> 49
+L47: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 450)		STOREC1		<-	V(8 '')+0 , CB:0	{}
+0001 ( 448)		JUMP		<-		{}
+		==> 80
+L49: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 448)		RELOP19	R1(B)[0..1]	<-	R6(C)[0..255], CC:85	{}
+0001 ( 448)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 47
+		==> 48
+L48: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 444)		CONV37	R1(I)[0..255]	<-	R6(C)[0..255]	{}
+0001 ( 452)		RELOP19	R7(B)[0..1]	<-	R6(C)[0..255], CC:120	{}
+0002 ( 452)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 50
+		==> 51
+L50: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 456)		STOREC1		<-	V(8 '')+0 , CB:0	{}
+0001 ( 455)		STOREG1		<-	V(107 'si' A)+4 , CC:16	{}
+0002 ( 454)		BINOP9	R1(I)[0..224]	<-	R1(IF)[0..255], CI:224	{}
+0003 ( 454)		BINOP8	R1(I)[0..255]	<-	R1(IF)[0..224], CI:1	{}
+0004 ( 454)		STOREG1		<-	V(107 'si' A)+3 , R1(CF)[0..255]	{}
+0005 ( 452)		JUMP		<-		{}
+		==> 80
+L51: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 452)		RELOP19	R6(B)[0..1]	<-	R6(CF)[0..255], CC:88	{}
+0001 ( 452)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 50
+		==> 1
+L41: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 437)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:76	{}
+0001 ( 437)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 39
+		==> 40
+L40: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 462)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:102	{}
+0001 ( 462)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 58
+L52: <= D-1: (6)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 467)		STOREC2		<-	V(2 '')+0 , R5(P)	{}
+0001 ( 467)		LOADI4	R0(F)	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0002 ( 467)		STOREC4		<-	V(4 '')+0 , R0(FF)	{}
+0003 ( 466)		BINOP9	R0(I)[0..224]	<-	R1(I)[0..255], CI:224	{}
+0004 ( 466)		BINOP8	R0(I)[0..255]	<-	R0(IF)[0..224], CI:1	{}
+0005 ( 466)		STOREG1		<-	V(107 'si' A)+3 , R0(C)[0..255]	{}
+0006 ( 466)		CONST	R2(P)[0..0]	<-	CG8(107:0 'si' A)	{S}
+0007 ( 467)		STOREC2		<-	V(0 '')+0 , R2(PF)+0 {V(107 'si' A)} [0..0]	{}
+0008 ( 467)		BINOP2	R0(I)[-255..255]	<-	R1(IF)[0..255], R0(IF)[0..255]	{}
+0009 ( 467)		BINOP1	R0(I)[-158..352]	<-	R0(IF)[-255..255], CI:97	{}
+000a ( 467)		STOREC1		<-	V(8 '')+0 , R0(CF)[-158..352]	{}
+000b ( 467)		CALLN	R2(C)	<-	V(27 'nformf')+0 	{}
+000c ( 469)		LEAI	R3(P)+0 {V(12 '')} [6..]	<-	R3(PF)+0 {V(12 '')} [2..], CI:4	{}
+000d ( 461)		JUMP		<-		{}
+		==> 1
+L58: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 462)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:103	{}
+0001 ( 462)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 57
+L57: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 462)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:101	{}
+0001 ( 462)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 56
+L56: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 463)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:70	{}
+0001 ( 463)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 55
+L55: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 463)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:71	{}
+0001 ( 463)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 54
+L54: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 463)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:69	{}
+0001 ( 463)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 52
+		==> 53
+L53: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 472)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:115	{}
+0001 ( 472)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 59
+		==> 61
+L59: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 474)		LOADI2	R0(I)[-32768..32767]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0001 ( 474)		CAST	R0(P)	<-	R0(IF)[-32768..32767]	{}
+0002 ( 474)		LEAI	R3(P)+0 {V(12 '')} [4..]	<-	R3(PF)+0 {V(12 '')} [2..], CI:2	{}
+0003 ( 476)		CONST	R6(C)[0..0]	<-	CI:0	{}
+0004 ( 477)		LOADG1	R7(C)[0..255]	<-	V(107 'si' A)+1 	{}
+0005 ( 477)		BRANCH		<-	R7(C)[0..255]	{}
+		==> 63
+		==> 62
+L63: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 479)		CONV37	R1(I)[0..255]	<-	R6(C)[0..]	{}
+0001 ( 479)		LEAI	R1(P)+0	<-	R0(P)+0, R1(IF)[0..255]	{}
+0002 ( 479)		LOADI1	R1(C)[0..255]	<-	R1(PF)+0	{}
+0003 ( 479)		BRANCH		<-	R1(CF)[0..255]	{}
+		==> 64
+		==> 62
+L64: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 480)		BINOP1	R6(C)[1..]	<-	R6(CF)[0..], CI:1	{}
+0001 ( 479)		JUMP		<-		{}
+		==> 63
+L62: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 483)		LOADG1	R8(B)[0..1]	<-	V(107 'si' A)+6 	{}
+0001 ( 483)		BRANCH		<-	R8(B)[0..1]	{}
+		==> 74
+		==> 75
+L74: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 504)		LOADI1	R7(C)[0..255]	<-	R0(P)+0	{}
+0001 ( 504)		BRANCH		<-	R7(C)[0..255]	{}
+		==> 76
+		==> 66
+L76: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 504)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0001 ( 505)		JUMP		<-		{}
+		==> 67
+L67: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 505)		CONV37	R1(I)[0..255]	<-	R2(C)[0..]	{}
+0001 ( 505)		LEAI	R1(P)+0	<-	R5(P)+0, R1(IF)[0..255]	{}
+0002 ( 505)		STOREI1		<-	R1(PF)+0, R7(CF)[0..255]	{}
+0003 ( 505)		BINOP1	R2(C)[1..]	<-	R2(CF)[0..], CI:1	{}
+0004 ( 504)		LOADI1	R7(C)[0..255]	<-	R0(P)+0	{}
+0005 ( 504)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0006 ( 504)		BRANCH		<-	R7(C)[0..255]	{}
+		==> 67
+		==> 66
+L66: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 509)		BRANCH		<-	R8(BF)[0..1]	{}
+		==> 78
+		==> 1
+L78: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 511)		LOADG1	R0(C)[0..255]	<-	V(107 'si' A)+1 	{}
+0001 ( 511)		RELOP28	R0(B)[0..1]	<-	R6(C)[0..], R0(CF)[0..255]	{}
+0002 ( 511)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 68
+		==> 1
+L68: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 513)		CONV37	R0(I)[0..255]	<-	R2(C)[0..]	{}
+0001 ( 513)		LOADG1	R1(C)[0..255]	<-	V(107 'si' A)+0 	{}
+0002 ( 513)		LEAI	R0(P)+0	<-	R5(P)+0, R0(IF)[0..255]	{}
+0003 ( 513)		STOREI1		<-	R0(PF)+0, R1(CF)[0..255]	{}
+0004 ( 514)		BINOP1	R6(C)[1..255]	<-	R6(CF)[0..254], CI:1	{}
+0005 ( 513)		BINOP1	R2(C)[1..]	<-	R2(CF)[0..], CI:1	{}
+0006 ( 511)		JUMP		<-		{}
+		==> 78
+L75: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 485)		RELOP28	R1(B)[0..1]	<-	R6(C)[0..], R7(CF)[0..255]	{}
+0001 ( 485)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 65
+		==> 74
+L65: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 487)		CONV37	R1(I)[0..255]	<-	R2(C)[0..]	{}
+0001 ( 487)		LOADG1	R7(C)[0..255]	<-	V(107 'si' A)+0 	{}
+0002 ( 487)		LEAI	R1(P)+0	<-	R5(P)+0, R1(IF)[0..255]	{}
+0003 ( 487)		STOREI1		<-	R1(PF)+0, R7(CF)[0..255]	{}
+0004 ( 488)		BINOP1	R6(C)[1..255]	<-	R6(CF)[0..254], CI:1	{}
+0005 ( 487)		BINOP1	R2(C)[1..]	<-	R2(CF)[0..], CI:1	{}
+0006 ( 485)		LOADG1	R7(C)[0..255]	<-	V(107 'si' A)+1 	{}
+0007 ( 485)		JUMP		<-		{}
+		==> 75
+L61: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 472)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:83	{}
+0001 ( 472)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 59
+		==> 60
+L60: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 518)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:99	{}
+0001 ( 518)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 69
+		==> 71
+L69: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 520)		LOADI2	R0(I)[-32768..32767]	<-	R3(P)+0 {V(12 '')} [2..]	{}
+0001 ( 520)		STOREI1		<-	R5(P)+0, R0(CF)[-32768..32767]	{}
+0002 ( 520)		LEAI	R3(P)+0 {V(12 '')} [4..]	<-	R3(PF)+0 {V(12 '')} [2..], CI:2	{}
+0003 ( 518)		JUMP		<-		{}
+		==> 81
+L81: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 524)		CONST	R2(C)[1..1]	<-	CI:1	{}
+0001 ( 522)		JUMP		<-		{}
+		==> 1
+L71: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 518)		RELOP19	R0(B)[0..1]	<-	R6(C)[0..255], CC:67	{}
+0001 ( 518)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 69
+		==> 70
+L70: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 522)		BRANCH		<-	R6(C)[0..255]	{}
+		==> 72
+		==> 1
+L72: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 524)		STOREI1		<-	R5(P)+0, R6(CF)[0..255]	{}
+0001 ( 522)		JUMP		<-		{}
+		==> 81
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 529)		CONV37	R0(I)[0..255]	<-	R2(C)	{}
+0001 ( 529)		LEAI	R0(P)+0	<-	R5(P)+0, R0(IF)[0..255]	{}
+0002 ( 529)		STOREI1		<-	R0(PF)+0, R1(CF)[0..255]	{}
+0003 ( 359)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0004 ( 529)		BINOP1	R2(C)	<-	R2(CF), CI:1	{}
+0005 ( 530)		RELOP25	R0(B)[0..1]	<-	R2(C), CC:40	{}
+0006 ( 530)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 73
+		==> 1
+L73: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 530)		CONV37	R0(I)[40..255]	<-	R2(CF)[40..255]	{}
+0001 ( 538)		LEAI	R5(P)+0	<-	R5(PF)+0, R0(IF)[40..255]	{}
+0002 ( 539)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0003 ( 530)		JUMP		<-		{}
+		==> 1
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 543)		CONV37	R0(I)[0..255]	<-	R2(CF)	{}
+0001 ( 543)		LEAI	R0(P)+0	<-	R5(PF)+0, R0(IF)[0..255]	{}
+0002 ( 543)		STOREI1		<-	R0(PF)+0, CC:0	{}
+0003 ( 564)		RET		<-		{}
+--------------------------------------------------------------------
+puts: /usr/local/include/oscar64/stdio.h:12
+$00 R0(P), $00 R1(P), $00 R2(B), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  18)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (3) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 (  18)		LOADZ2	R0(P)	<-	V(0 '')+0 	{}
+0001 (  18)		LEAI	R1(P)+0	<-	R0(P)+0, CI:1	{}
+0002 (  18)		STOREZ2		<-	V(0 '')+0 , R1(PF)	{}
+0003 (  18)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0	{}
+0004 (  18)		BRANCH		<-	R0(C)[0..255]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/conio.c
+0000 ( 206)		RELOP19	R1(B)[0..1]	<-	R0(C)[0..255], CC:10	{}
+0001 ( 206)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/conio.c
+0000 ( 207)		CONST	R0(I)[13..13]	<-	CI:13	{S}
+0001 ( 239)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2)  P-1 /usr/local/include/oscar64/conio.c
+0000 ( 193)		JSR		<-	R0(CF)[0..255], V(-1 '')+0 	{}
+0001 ( 239)		JUMP		<-		{}
+		==> 1
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/conio.c
+0000 ( 208)		RELOP19	R1(B)[0..1]	<-	R0(C)[0..255], CC:9	{}
+0001 ( 208)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 8
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/conio.c
+0000 ( 413)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+211 	{V}
+0001 ( 210)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 210)		BINOP9	R0(I)[0..3]	<-	R0(IF)[0..255], CI:3	{}
+0003 ( 212)		CONST	R1(C)[32..32]	<-	CI:32	{IS}
+0004 ( 193)		JUMP		<-		{}
+		==> 7
+L7: <= D-1: (2) Head P-1 /usr/local/include/oscar64/conio.c
+0000 ( 193)		JSR		<-	R1(C)[32..32], V(-1 '')+0 	{}
+0001 ( 213)		BINOP1	R0(C)[1..4]	<-	R0(CF)[0..3], CI:1	{}
+0002 ( 213)		RELOP28	R2(B)[0..1]	<-	R0(C)[1..4], CC:4	{}
+0003 ( 213)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 7
+		==> 1
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  20)		RET		<-		{}
+--------------------------------------------------------------------
+nformi: /usr/local/include/oscar64/stdio.c:79
+$00 R0(I), $00 R1(P), $00 R2(I), $00 R3(I), $00 R4(I), $00 R5(B), $01 R6(C), $02 R7(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  85)		CONST	R5(B)[0..0]	<-	CI:0	{}
+0001 (  84)		LOADZ2	R0(I)[-32768..32767]	<-	V(4 '')+0 	{}
+0002 (  82)		LOADZ2	R1(P)	<-	V(0 '')+0 	{S}
+0003 (  82)		LOADI1	R6(C)[0..255]	<-	R1(P)+4	{}
+0004 (  79)		LOADZ1	R2(B)[0..1]	<-	V(6 '')+0 	{S}
+0005 (  87)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 2
+		==> 22
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  87)		RELOP24	R2(B)[0..1]	<-	R0(I)[-32768..32767], CI:0	{S}
+0001 (  87)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 1
+		==> 22
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  90)		UNOP11	R0(I)[1..32768]	<-	R0(IF)[-32768..-1]	{}
+0001 (  89)		CONST	R5(B)[1..1]	<-	CI:1	{}
+0002 (  94)		JUMP		<-		{}
+		==> 22
+L22: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  93)		CONST	R7(C)[16..16]	<-	CI:16	{}
+0001 (  94)		RELOP27	R2(B)[0..1]	<-	R0(I)[-32768..32768], CI:0	{}
+0002 (  94)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 25
+		==> 4
+L25: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  96)		CONV37	R2(I)[0..255]	<-	R6(C)[0..255]	{I}
+0001 (  96)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 (  96)		BINOP6	R3(I)[0..254]	<-	R0(I)[1..], R2(I)[0..255]	{}
+0001 (  99)		BINOP4	R0(I)[0..]	<-	R0(IF)[1..], R2(I)[0..255]	{}
+0002 (  97)		RELOP25	R4(B)[0..1]	<-	R3(C)[0..254], CC:10	{}
+0003 (  97)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  97)		LOADI1	R4(C)[0..255]	<-	R1(P)+3	{}
+0001 (  97)		CONV37	R4(I)[0..255]	<-	R4(CF)[0..255]	{}
+0002 (  97)		BINOP2	R4(I)[-10..245]	<-	R4(IF)[0..255], CI:10	{}
+0003 (  97)		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  97)		CONV37	R3(I)[0..254]	<-	R3(CF)[0..254]	{}
+0001 (  97)		BINOP1	R3(I)[-10..499]	<-	R3(IF)[0..254], R4(IF)[-10..245]	{}
+0002 (  98)		CONV37	R4(I)[1..16]	<-	R7(C)[1..16]	{}
+0003 (  98)		LEAG	R4(P)[0..15]	<-	V(97 'buffer' A)+-1 , R4(IF)[1..16]	{}
+0004 (  98)		STOREI1		<-	R4(PF)+0 {V(97 'buffer' A)} [0..15], R3(CF)[-10..499]	{}
+0005 (  98)		BINOP1	R7(C)[0..15]	<-	R7(CF)[1..16], CI:-1	{}
+0006 (  94)		RELOP27	R3(B)[0..1]	<-	R0(I)[0..], CI:0	{}
+0007 (  94)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 3
+		==> 4
+L4: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 102)		LOADI1	R0(C)[0..255]	<-	R1(P)+2	{}
+0001 ( 102)		RELOP20	R2(B)[0..1]	<-	R0(C)[0..255], CC:255	{}
+0002 ( 102)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 29
+		==> 30
+L29: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 102)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0001 ( 102)		BINOP2	R0(I)[-239..16]	<-	CI:16, R0(IF)[0..255]	{}
+0002 ( 102)		JUMP		<-		{}
+		==> 31
+L31: <= D-1: (3) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 104)		RELOP27	R2(B)[0..1]	<-	R7(C)[0..16], R0(C)[-239..16]	{}
+0001 ( 104)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 105)		CONV37	R2(I)[1..16]	<-	R7(C)[1..16]	{}
+0001 ( 105)		LEAG	R2(P)[0..15]	<-	V(97 'buffer' A)+-1 , R2(IF)[1..16]	{}
+0002 ( 105)		STOREI1		<-	R2(PF)+0 {V(97 'buffer' A)} [0..15], CC:48	{}
+0003 ( 105)		BINOP1	R7(C)[0..15]	<-	R7(CF)[1..16], CI:-1	{}
+0004 ( 104)		JUMP		<-		{}
+		==> 31
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 107)		LOADI1	R0(B)[0..1]	<-	R1(P)+7	{}
+0001 ( 107)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 8
+L9: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 107)		RELOP19	R0(B)[0..1]	<-	R6(CF)[0..255], CC:16	{}
+0001 ( 107)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 109)		LOADI1	R3(C)[0..255]	<-	R1(P)+3	{}
+0001 ( 109)		CONV37	R0(I)[2..16]	<-	R7(C)[2..16]	{}
+0002 ( 110)		LEAG	R2(P)[0..14]	<-	V(97 'buffer' A)+-2 , R0(I)[2..16]	{}
+0003 ( 110)		STOREI1		<-	R2(PF)+0 {V(97 'buffer' A)} [0..14], CC:48	{}
+0004 ( 109)		BINOP1	R3(C)[23..278]	<-	R3(CF)[0..255], CI:23	{}
+0005 ( 109)		LEAG	R0(P)[1..15]	<-	V(97 'buffer' A)+-1 , R0(IF)[2..16]	{}
+0006 ( 109)		STOREI1		<-	R0(PF)+0 {V(97 'buffer' A)} [1..15], R3(CF)[23..278]	{}
+0007 ( 110)		BINOP1	R7(C)[0..14]	<-	R7(CF)[2..16], CI:-2	{}
+0008 ( 113)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 118)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0001 ( 113)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 10
+		==> 11
+L10: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 114)		CONV37	R0(I)[1..16]	<-	R7(C)[1..16]	{}
+0001 ( 114)		LEAG	R0(P)[0..15]	<-	V(97 'buffer' A)+-1 , R0(IF)[1..16]	{}
+0002 ( 114)		STOREI1		<-	R0(PF)+0 {V(97 'buffer' A)} [0..15], CC:45	{}
+0003 ( 119)		JUMP		<-		{}
+		==> 33
+L33: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 116)		BINOP1	R7(C)[0..15]	<-	R7(CF)[1..16], CI:-1	{}
+0001 ( 119)		JUMP		<-		{}
+		==> 32
+L32: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 119)		LOADI1	R0(B)[0..1]	<-	R1(P)+6	{}
+0001 ( 119)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 20
+		==> 17
+L20: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 121)		RELOP28	R0(B)[0..1]	<-	R7(C)[0..16], CC:16	{}
+0001 ( 121)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 23
+		==> 15
+L23: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 122)		LOADZ2	R0(P)	<-	V(2 '')+0 	{IS}
+0001 ( 122)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 122)		CONV37	R2(I)[0..255]	<-	R4(C)[0..]	{}
+0001 ( 122)		CONV37	R3(I)[0..15]	<-	R7(C)[0..15]	{}
+0002 ( 122)		LEAG	R3(P)[0..15]	<-	V(97 'buffer' A)+0 , R3(IF)[0..15]	{}
+0003 ( 122)		LOADI1	R3(C)[0..255]	<-	R3(PF)+0 {V(97 'buffer' A)} [0..15]	{}
+0004 ( 122)		LEAI	R2(P)+0	<-	R0(P)+0, R2(IF)[0..255]	{}
+0005 ( 122)		STOREI1		<-	R2(PF)+0, R3(CF)[0..255]	{}
+0006 ( 122)		BINOP1	R4(C)[1..]	<-	R4(CF)[0..], CI:1	{}
+0007 ( 122)		BINOP1	R7(C)[1..16]	<-	R7(CF)[0..15], CI:1	{}
+0008 ( 121)		RELOP28	R2(B)[0..1]	<-	R7(C)[1..16], CC:16	{}
+0009 ( 121)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 14
+		==> 15
+L15: <= D-1: (3) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 123)		LOADI1	R0(C)[0..255]	<-	R1(P)+1	{}
+0001 ( 123)		RELOP28	R0(B)[0..1]	<-	R4(C)[0..], R0(CF)[0..255]	{}
+0002 ( 123)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 16
+		==> 13
+L16: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 123)		CONV37	R0(I)[0..254]	<-	R4(C)[0..254]	{}
+0001 ( 124)		LOADZ2	R2(P)	<-	V(2 '')+0 	{S}
+0002 ( 124)		LEAI	R2(P)+0	<-	R2(PF)+0, R0(IF)[0..254]	{}
+0003 ( 124)		LOADI1	R0(C)[0..255]	<-	R1(P)+0	{}
+0004 ( 124)		STOREI1		<-	R2(PF)+0, R0(CF)[0..255]	{}
+0005 ( 124)		BINOP1	R4(C)[1..255]	<-	R4(CF)[0..254], CI:1	{}
+0006 ( 123)		JUMP		<-		{}
+		==> 15
+L13: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 134)		RETV		<-	R4(CF)[0..]	{}
+L17: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 128)		LOADI1	R0(C)[0..255]	<-	R1(P)+1	{}
+0001 ( 128)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 128)		CONV37	R2(I)[0..16]	<-	R7(C)[0..16]	{}
+0003 ( 128)		BINOP1	R0(I)[0..271]	<-	R2(I)[0..16], R0(IF)[0..255]	{}
+0004 ( 128)		RELOP27	R0(B)[0..1]	<-	R0(IF)[0..271], CI:16	{}
+0005 ( 128)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 18
+		==> 21
+L18: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 129)		LOADI1	R3(C)[0..255]	<-	R1(P)+0	{}
+0001 ( 129)		LEAG	R0(P)[0..15]	<-	V(97 'buffer' A)+-1 , R2(IF)[1..16]	{}
+0002 ( 129)		STOREI1		<-	R0(PF)+0 {V(97 'buffer' A)} [0..15], R3(CF)[0..255]	{}
+0003 ( 129)		BINOP1	R7(C)[0..15]	<-	R7(CF)[1..16], CI:-1	{}
+0004 ( 128)		JUMP		<-		{}
+		==> 17
+L21: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 130)		RELOP28	R0(B)[0..1]	<-	R7(C)[0..16], CC:16	{}
+0001 ( 130)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 24
+		==> 13
+L24: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 131)		LOADZ2	R0(P)	<-	V(2 '')+0 	{IS}
+0001 ( 131)		JUMP		<-		{}
+		==> 19
+L19: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 131)		CONV37	R1(I)[0..255]	<-	R4(C)[0..]	{}
+0001 ( 131)		CONV37	R2(I)[0..15]	<-	R7(C)[0..15]	{}
+0002 ( 131)		LEAG	R2(P)[0..15]	<-	V(97 'buffer' A)+0 , R2(IF)[0..15]	{}
+0003 ( 131)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0 {V(97 'buffer' A)} [0..15]	{}
+0004 ( 131)		LEAI	R1(P)+0	<-	R0(P)+0, R1(IF)[0..255]	{}
+0005 ( 131)		STOREI1		<-	R1(PF)+0, R2(CF)[0..255]	{}
+0006 ( 131)		BINOP1	R4(C)[1..]	<-	R4(CF)[0..], CI:1	{}
+0007 ( 131)		BINOP1	R7(C)[1..16]	<-	R7(CF)[0..15], CI:1	{}
+0008 ( 130)		RELOP28	R1(B)[0..1]	<-	R7(C)[1..16], CC:16	{}
+0009 ( 130)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 19
+		==> 13
+L11: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 115)		LOADI1	R0(B)[0..1]	<-	R1(P)+5	{}
+0001 ( 115)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 12
+		==> 32
+L12: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 116)		CONV37	R0(I)[1..16]	<-	R7(C)[1..16]	{}
+0001 ( 116)		LEAG	R0(P)[0..15]	<-	V(97 'buffer' A)+-1 , R0(IF)[1..16]	{}
+0002 ( 116)		STOREI1		<-	R0(PF)+0 {V(97 'buffer' A)} [0..15], CC:43	{}
+0003 ( 119)		JUMP		<-		{}
+		==> 33
+L30: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 102)		CONST	R0(I)[15..15]	<-	CI:15	{}
+0001 ( 102)		JUMP		<-		{}
+		==> 31
+L27: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 (  97)		CONST	R4(I)[48..48]	<-	CI:48	{}
+0001 (  97)		JUMP		<-		{}
+		==> 28
+--------------------------------------------------------------------
+nforml: /usr/local/include/oscar64/stdio.c:137
+$00 R0(L), $00 R1(L), $00 R2(L), $00 R3(P), $00 R4(B), $01 R5(C), $00 R6(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 142)		CONST	R4(B)[0..0]	<-	CI:0	{}
+0001 ( 141)		LOADZ4	R0(L)[-2147483648..2147483647]	<-	V(4 '')+0 	{}
+0002 ( 137)		LOADZ1	R1(B)[0..1]	<-	V(8 '')+0 	{S}
+0003 ( 144)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 22
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 144)		RELOP24	R1(B)[0..1]	<-	R0(L)[-2147483648..2147483647], CL:0	{S}
+0001 ( 144)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 22
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 147)		UNOP11	R0(L)[1..2147483648]	<-	R0(LF)[-2147483648..-1]	{}
+0001 ( 146)		CONST	R4(B)[1..1]	<-	CI:1	{}
+0002 ( 152)		JUMP		<-		{}
+		==> 22
+L22: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 150)		CONST	R5(C)[16..16]	<-	CI:16	{}
+0001 ( 152)		RELOP27	R1(B)[0..1]	<-	R0(L)[-2147483648..2147483648], CL:0	{}
+0002 ( 152)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 25
+		==> 4
+L25: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 154)		LOADZ2	R3(P)	<-	V(0 '')+0 	{IS}
+0001 ( 154)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 154)		LOADI1	R1(C)[0..255]	<-	R3(P)+4	{}
+0001 ( 154)		CONV38	R1(L)[0..255]	<-	R1(CF)[0..255]	{}
+0002 ( 157)		BINOP4	R2(L)[0..]	<-	R0(L)[1..], R1(L)[0..255]	{}
+0003 ( 154)		BINOP6	R0(L)[0..254]	<-	R0(LF)[1..], R1(LF)[0..255]	{}
+0004 ( 155)		RELOP25	R1(B)[0..1]	<-	R0(I)[0..254], CI:10	{}
+0005 ( 155)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 155)		LOADI1	R1(C)[0..255]	<-	R3(P)+3	{}
+0001 ( 155)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 ( 155)		BINOP2	R1(I)[-10..245]	<-	R1(IF)[0..255], CI:10	{}
+0003 ( 155)		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 155)		BINOP1	R0(I)[-10..499]	<-	R1(IF)[-10..245], R0(IF)[0..254]	{}
+0001 ( 156)		CONV37	R1(I)[1..16]	<-	R5(C)[1..16]	{}
+0002 ( 156)		LEAG	R1(P)[0..15]	<-	V(99 'buffer' A)+-1 , R1(IF)[1..16]	{}
+0003 ( 156)		STOREI1		<-	R1(PF)+0 {V(99 'buffer' A)} [0..15], R0(CF)[-10..499]	{}
+0004 ( 156)		BINOP1	R5(C)[0..15]	<-	R5(CF)[1..16], CI:-1	{}
+0005 ( 157)		MOVE	R0(L)[0..]	<-	R2(L)[0..]	{}
+0006 ( 152)		RELOP27	R1(B)[0..1]	<-	R2(LF)[0..], CL:0	{}
+0007 ( 152)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 3
+		==> 4
+L4: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 160)		LOADZ2	R0(P)	<-	V(0 '')+0 	{S}
+0001 ( 160)		LOADI1	R1(C)[0..255]	<-	R0(P)+2	{}
+0002 ( 160)		RELOP20	R2(B)[0..1]	<-	R1(C)[0..255], CC:255	{}
+0003 ( 160)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 29
+		==> 30
+L29: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 160)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0001 ( 160)		BINOP2	R1(I)[-239..16]	<-	CI:16, R1(IF)[0..255]	{}
+0002 ( 160)		JUMP		<-		{}
+		==> 31
+L31: <= D-1: (3) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 162)		RELOP27	R2(B)[0..1]	<-	R5(C)[0..16], R1(C)[-239..16]	{}
+0001 ( 162)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 163)		CONV37	R2(I)[1..16]	<-	R5(C)[1..16]	{}
+0001 ( 163)		LEAG	R2(P)[0..15]	<-	V(99 'buffer' A)+-1 , R2(IF)[1..16]	{}
+0002 ( 163)		STOREI1		<-	R2(PF)+0 {V(99 'buffer' A)} [0..15], CC:48	{}
+0003 ( 163)		BINOP1	R5(C)[0..15]	<-	R5(CF)[1..16], CI:-1	{}
+0004 ( 162)		JUMP		<-		{}
+		==> 31
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 165)		LOADI1	R1(B)[0..1]	<-	R0(P)+7	{}
+0001 ( 165)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 9
+		==> 8
+L9: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 165)		LOADI1	R1(C)[0..255]	<-	R0(P)+4	{}
+0001 ( 165)		RELOP19	R1(B)[0..1]	<-	R1(CF)[0..255], CC:16	{}
+0002 ( 165)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 167)		LOADI1	R3(C)[0..255]	<-	R0(P)+3	{}
+0001 ( 167)		CONV37	R1(I)[2..16]	<-	R5(C)[2..16]	{}
+0002 ( 168)		LEAG	R2(P)[0..14]	<-	V(99 'buffer' A)+-2 , R1(I)[2..16]	{}
+0003 ( 168)		STOREI1		<-	R2(PF)+0 {V(99 'buffer' A)} [0..14], CC:48	{}
+0004 ( 167)		BINOP1	R3(C)[23..278]	<-	R3(CF)[0..255], CI:23	{}
+0005 ( 167)		LEAG	R1(P)[1..15]	<-	V(99 'buffer' A)+-1 , R1(IF)[2..16]	{}
+0006 ( 167)		STOREI1		<-	R1(PF)+0 {V(99 'buffer' A)} [1..15], R3(CF)[23..278]	{}
+0007 ( 168)		BINOP1	R5(C)[0..14]	<-	R5(CF)[2..16], CI:-2	{}
+0008 ( 171)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 176)		CONST	R6(C)[0..0]	<-	CI:0	{}
+0001 ( 171)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 10
+		==> 11
+L10: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 172)		CONV37	R1(I)[1..16]	<-	R5(C)[1..16]	{}
+0001 ( 172)		LEAG	R1(P)[0..15]	<-	V(99 'buffer' A)+-1 , R1(IF)[1..16]	{}
+0002 ( 172)		STOREI1		<-	R1(PF)+0 {V(99 'buffer' A)} [0..15], CC:45	{}
+0003 ( 177)		JUMP		<-		{}
+		==> 33
+L33: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 174)		BINOP1	R5(C)[0..15]	<-	R5(CF)[1..16], CI:-1	{}
+0001 ( 177)		JUMP		<-		{}
+		==> 32
+L32: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 177)		LOADI1	R1(B)[0..1]	<-	R0(P)+6	{}
+0001 ( 177)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 20
+		==> 17
+L20: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 179)		RELOP28	R1(B)[0..1]	<-	R5(C)[0..16], CC:16	{}
+0001 ( 179)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 23
+		==> 15
+L23: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 180)		LOADZ2	R1(P)	<-	V(2 '')+0 	{IS}
+0001 ( 180)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 180)		CONV37	R2(I)[0..255]	<-	R6(C)[0..]	{}
+0001 ( 180)		CONV37	R3(I)[0..15]	<-	R5(C)[0..15]	{}
+0002 ( 180)		LEAG	R3(P)[0..15]	<-	V(99 'buffer' A)+0 , R3(IF)[0..15]	{}
+0003 ( 180)		LOADI1	R3(C)[0..255]	<-	R3(PF)+0 {V(99 'buffer' A)} [0..15]	{}
+0004 ( 180)		LEAI	R2(P)+0	<-	R1(P)+0, R2(IF)[0..255]	{}
+0005 ( 180)		STOREI1		<-	R2(PF)+0, R3(CF)[0..255]	{}
+0006 ( 180)		BINOP1	R6(C)[1..]	<-	R6(CF)[0..], CI:1	{}
+0007 ( 180)		BINOP1	R5(C)[1..16]	<-	R5(CF)[0..15], CI:1	{}
+0008 ( 179)		RELOP28	R2(B)[0..1]	<-	R5(C)[1..16], CC:16	{}
+0009 ( 179)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 14
+		==> 15
+L15: <= D-1: (3) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 181)		LOADI1	R1(C)[0..255]	<-	R0(P)+1	{}
+0001 ( 181)		RELOP28	R1(B)[0..1]	<-	R6(C)[0..], R1(CF)[0..255]	{}
+0002 ( 181)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 16
+		==> 13
+L16: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 181)		CONV37	R1(I)[0..254]	<-	R6(C)[0..254]	{}
+0001 ( 182)		LOADZ2	R2(P)	<-	V(2 '')+0 	{S}
+0002 ( 182)		LEAI	R2(P)+0	<-	R2(PF)+0, R1(IF)[0..254]	{}
+0003 ( 182)		LOADI1	R1(C)[0..255]	<-	R0(P)+0	{}
+0004 ( 182)		STOREI1		<-	R2(PF)+0, R1(CF)[0..255]	{}
+0005 ( 182)		BINOP1	R6(C)[1..255]	<-	R6(CF)[0..254], CI:1	{}
+0006 ( 181)		JUMP		<-		{}
+		==> 15
+L13: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 192)		RETV		<-	R6(CF)[0..]	{}
+L17: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 186)		LOADI1	R1(C)[0..255]	<-	R0(P)+1	{}
+0001 ( 186)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 ( 186)		CONV37	R2(I)[0..16]	<-	R5(C)[0..16]	{}
+0003 ( 186)		BINOP1	R1(I)[0..271]	<-	R2(I)[0..16], R1(IF)[0..255]	{}
+0004 ( 186)		RELOP27	R1(B)[0..1]	<-	R1(IF)[0..271], CI:16	{}
+0005 ( 186)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 18
+		==> 21
+L18: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 187)		LOADI1	R3(C)[0..255]	<-	R0(P)+0	{}
+0001 ( 187)		LEAG	R1(P)[0..15]	<-	V(99 'buffer' A)+-1 , R2(IF)[1..16]	{}
+0002 ( 187)		STOREI1		<-	R1(PF)+0 {V(99 'buffer' A)} [0..15], R3(CF)[0..255]	{}
+0003 ( 187)		BINOP1	R5(C)[0..15]	<-	R5(CF)[1..16], CI:-1	{}
+0004 ( 186)		JUMP		<-		{}
+		==> 17
+L21: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 188)		RELOP28	R0(B)[0..1]	<-	R5(C)[0..16], CC:16	{}
+0001 ( 188)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 24
+		==> 13
+L24: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 189)		LOADZ2	R0(P)	<-	V(2 '')+0 	{IS}
+0001 ( 189)		JUMP		<-		{}
+		==> 19
+L19: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 189)		CONV37	R1(I)[0..255]	<-	R6(C)[0..]	{}
+0001 ( 189)		CONV37	R2(I)[0..15]	<-	R5(C)[0..15]	{}
+0002 ( 189)		LEAG	R2(P)[0..15]	<-	V(99 'buffer' A)+0 , R2(IF)[0..15]	{}
+0003 ( 189)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0 {V(99 'buffer' A)} [0..15]	{}
+0004 ( 189)		LEAI	R1(P)+0	<-	R0(P)+0, R1(IF)[0..255]	{}
+0005 ( 189)		STOREI1		<-	R1(PF)+0, R2(CF)[0..255]	{}
+0006 ( 189)		BINOP1	R6(C)[1..]	<-	R6(CF)[0..], CI:1	{}
+0007 ( 189)		BINOP1	R5(C)[1..16]	<-	R5(CF)[0..15], CI:1	{}
+0008 ( 188)		RELOP28	R1(B)[0..1]	<-	R5(C)[1..16], CC:16	{}
+0009 ( 188)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 19
+		==> 13
+L11: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 173)		LOADI1	R1(B)[0..1]	<-	R0(P)+5	{}
+0001 ( 173)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 12
+		==> 32
+L12: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 174)		CONV37	R1(I)[1..16]	<-	R5(C)[1..16]	{}
+0001 ( 174)		LEAG	R1(P)[0..15]	<-	V(99 'buffer' A)+-1 , R1(IF)[1..16]	{}
+0002 ( 174)		STOREI1		<-	R1(PF)+0 {V(99 'buffer' A)} [0..15], CC:43	{}
+0003 ( 177)		JUMP		<-		{}
+		==> 33
+L30: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 160)		CONST	R1(I)[15..15]	<-	CI:15	{}
+0001 ( 160)		JUMP		<-		{}
+		==> 31
+L27: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 155)		CONST	R1(I)[48..48]	<-	CI:48	{}
+0001 ( 155)		JUMP		<-		{}
+		==> 28
+--------------------------------------------------------------------
+nformf: /usr/local/include/oscar64/stdio.c:199
+$00 R0(F), $04 R1(F), $00 R2(P), $00 R3(P), $08 R4(I), $0a R5(I), $0c R6(I), $0d R7(P), $0e R8(I), $0f R9(C), $10 R10(B), $11 R11(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 201)		LOADZ2	R2(P)	<-	V(2 '')+0 	{S}
+0001 ( 205)		LOADZ4	R0(F)	<-	V(4 '')+0 	{}
+0002 ( 205)		RELOP24	R1(B)[0..1]	<-	R0(F), CF:0.000000 (00000000)	{}
+0003 ( 205)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 208)		STOREI1		<-	R2(P)+0, CC:45	{}
+0001 ( 207)		UNOP11	R0(F)	<-	R0(FF)	{}
+0002 ( 207)		STOREZ4		<-	V(4 '')+0 , R0(FF)	{}
+0003 ( 205)		JUMP		<-		{}
+		==> 62
+L62: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 211)		CONST	R9(C)[1..1]	<-	CI:1	{}
+0001 ( 210)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 213)		LOADZ4	R0(F)	<-	V(4 '')+0 	{}
+0001 ( 224)		STOREG4		<-	V(103 'x')+0 , R0(F)	{}
+0002 ( 215)		LOADZ2	R3(P)	<-	V(0 '')+0 	{S}
+0003 ( 226)		LOADG2	R1(I)[0..65535]	<-	V(103 'x')+2 	{}
+0004 ( 226)		BINOP17	R1(I)[0..511]	<-	R1(IF)[0..65535], CI:7	{}
+0005 ( 226)		BINOP9	R1(I)[0..255]	<-	R1(IF)[0..511], CI:255	{}
+0006 ( 226)		RELOP19	R1(B)[0..1]	<-	R1(IF)[0..255], CI:255	{}
+0007 ( 213)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 215)		CONV37	R0(I)[0..1]	<-	R9(C)[0..1]	{}
+0001 ( 215)		LOADI1	R1(C)[0..255]	<-	R3(P)+3	{}
+0002 ( 215)		BINOP1	R1(C)[8..263]	<-	R1(CF)[0..255], CI:8	{}
+0003 ( 215)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..1]	{}
+0004 ( 215)		STOREI1		<-	R0(P)+0, R1(CF)[8..263]	{}
+0005 ( 216)		LOADI1	R1(C)[0..255]	<-	R3(P)+3	{}
+0006 ( 216)		BINOP1	R1(C)[13..268]	<-	R1(CF)[0..255], CI:13	{}
+0007 ( 216)		STOREI1		<-	R0(P)+1, R1(CF)[13..268]	{}
+0008 ( 217)		LOADI1	R1(C)[0..255]	<-	R3(P)+3	{}
+0009 ( 217)		BINOP1	R1(C)	<-	R1(CF)[0..255], CI:5	{}
+000a ( 217)		STOREI1		<-	R0(PF)+2, R1(CF)	{}
+000b ( 217)		BINOP1	R9(C)[3..4]	<-	R9(CF)[0..1], CI:3	{}
+000c ( 213)		JUMP		<-		{}
+		==> 7
+L7: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 331)		LOADI1	R0(C)[0..255]	<-	R3(P)+1	{}
+0001 ( 331)		RELOP28	R0(B)[0..1]	<-	R9(C), R0(CF)[0..255]	{}
+0002 ( 331)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 40
+		==> 41
+L40: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 333)		LOADI1	R0(B)[0..1]	<-	R3(P)+6	{}
+0001 ( 333)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 44
+		==> 42
+L44: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 335)		LOADI1	R0(C)[0..255]	<-	R3(P)+1	{}
+0001 ( 335)		RELOP28	R0(B)[0..1]	<-	R9(C)[0..255], R0(CF)[0..255]	{}
+0002 ( 335)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 45
+		==> 43
+L45: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 335)		CONV37	R0(I)[0..254]	<-	R9(C)[0..254]	{}
+0001 ( 336)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..254]	{}
+0002 ( 336)		STOREI1		<-	R0(PF)+0, CC:32	{}
+0003 ( 335)		BINOP1	R9(C)[1..255]	<-	R9(CF)[0..254], CI:1	{}
+0004 ( 335)		JUMP		<-		{}
+		==> 44
+L43: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 345)		LOADI1	R0(C)[0..255]	<-	R3(PF)+1	{}
+0001 ( 348)		RETV		<-	R0(CF)[0..255]	{}
+L42: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 340)		RELOP26	R0(B)[0..1]	<-	CC:1, R9(C)[0..254]	{}
+0001 ( 340)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 55
+		==> 47
+L55: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 341)		CONV37	R0(I)[0..254]	<-	R9(C)[0..254]	{I}
+0001 ( 341)		BINOP2	R0(I)[-1..253]	<-	R0(IF)[0..254], CI:1	{}
+0002 ( 341)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[-1..253]	{}
+0003 ( 340)		CONST	R4(C)[1..1]	<-	CI:1	{}
+0004 ( 341)		JUMP		<-		{}
+		==> 46
+L46: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 341)		LOADI1	R1(C)[0..255]	<-	R3(P)+1	{}
+0001 ( 341)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 ( 341)		BINOP2	R1(I)[-254..254]	<-	R1(IF)[0..255], R4(I)[1..254]	{}
+0003 ( 341)		LOADI1	R5(C)[0..255]	<-	R0(P)+0	{}
+0004 ( 341)		LEAI	R1(P)+0	<-	R2(P)+0, R1(IF)[-254..254]	{}
+0005 ( 341)		STOREI1		<-	R1(PF)+0, R5(CF)[0..255]	{}
+0006 ( 341)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:-1	{}
+0007 ( 340)		BINOP1	R4(C)[2..255]	<-	R4(CF)[1..254], CI:1	{}
+0008 ( 340)		RELOP26	R1(B)[0..1]	<-	R4(C)[2..255], R9(C)[0..254]	{}
+0009 ( 340)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 46
+		==> 47
+L47: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 342)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0001 ( 342)		JUMP		<-		{}
+		==> 48
+L48: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 342)		LOADI1	R0(C)[0..255]	<-	R3(P)+1	{}
+0001 ( 342)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 342)		CONV37	R1(I)[0..254]	<-	R9(C)[0..254]	{I}
+0003 ( 342)		BINOP2	R0(I)[-254..255]	<-	R0(IF)[0..255], R1(IF)[0..254]	{}
+0004 ( 342)		CONV37	R1(I)[0..255]	<-	R4(C)[0..]	{}
+0005 ( 342)		RELOP28	R0(B)[0..1]	<-	R1(I)[0..255], R0(IF)[-254..255]	{}
+0006 ( 342)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 49
+		==> 43
+L49: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 343)		LEAI	R0(P)+0	<-	R2(P)+0, R1(IF)[0..254]	{}
+0001 ( 343)		STOREI1		<-	R0(PF)+0, CC:32	{}
+0002 ( 342)		BINOP1	R4(C)[1..]	<-	R4(CF)[0..], CI:1	{}
+0003 ( 342)		JUMP		<-		{}
+		==> 48
+L41: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 348)		RETV		<-	R9(CF)	{}
+L6: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 223)		LOADI1	R1(C)[0..255]	<-	R3(P)+2	{}
+0001 ( 223)		RELOP20	R4(B)[0..1]	<-	R1(C)[0..255], CC:255	{}
+0002 ( 223)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 56
+		==> 57
+L56: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 223)		CONV37	R4(I)[0..255]	<-	R1(CF)[0..255]	{}
+0001 ( 223)		JUMP		<-		{}
+		==> 58
+L58: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 223)		MOVE	R7(C)[0..255]	<-	R4(C)[0..255]	{}
+0001 ( 221)		CONST	R5(I)[0..0]	<-	CI:0	{}
+0002 ( 225)		RELOP20	R1(B)[0..1]	<-	R0(F), CF:0.000000 (00000000)	{}
+0003 ( 225)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 54
+		==> 8
+L54: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 227)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:1000.000000 (447a0000)	{}
+0001 ( 227)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 9
+		==> 53
+L9: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 230)		BINOP1	R5(I)[3..]	<-	R5(IF)[0..], CI:3	{}
+0001 ( 229)		BINOP5	R0(F)	<-	R0(FF), CF:1000.000000 (447a0000)	{}
+0002 ( 227)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:1000.000000 (447a0000)	{}
+0003 ( 227)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 9
+		==> 53
+L53: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 233)		RELOP24	R1(B)[0..1]	<-	R0(F), CF:1.000000 (3f800000)	{}
+0001 ( 233)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 10
+		==> 52
+L10: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 236)		BINOP2	R5(I)	<-	R5(IF), CI:3	{}
+0001 ( 235)		BINOP3	R0(F)	<-	R0(FF), CF:1000.000000 (447a0000)	{}
+0002 ( 233)		RELOP24	R1(B)[0..1]	<-	R0(F), CF:1.000000 (3f800000)	{}
+0003 ( 233)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 10
+		==> 52
+L52: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 239)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:10.000000 (41200000)	{}
+0001 ( 239)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 11
+		==> 8
+L11: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 242)		BINOP1	R5(I)	<-	R5(IF), CI:1	{}
+0001 ( 241)		BINOP5	R0(F)	<-	R0(FF), CF:10.000000 (41200000)	{}
+0002 ( 239)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:10.000000 (41200000)	{}
+0003 ( 239)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 11
+		==> 8
+L8: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 248)		LOADZ1	R8(C)[0..255]	<-	V(8 '')+0 	{S}
+0001 ( 248)		RELOP19	R10(B)[0..1]	<-	R8(C)[0..255], CC:101	{}
+0002 ( 247)		CONV37	R1(I)[0..255]	<-	R4(C)[0..255]	{}
+0003 ( 247)		BINOP1	R6(I)[1..256]	<-	R1(I)[0..255], CI:1	{}
+0004 ( 250)		RELOP19	R8(B)[0..1]	<-	R8(CF)[0..255], CC:103	{S}
+0005 ( 250)		BRANCH		<-	R8(BF)[0..1]	{}
+		==> 12
+		==> 13
+L12: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 252)		RELOP23	R8(B)[0..1]	<-	R5(I), CI:3	{}
+0001 ( 252)		BRANCH		<-	R8(BF)[0..1]	{}
+		==> 14
+		==> 15
+L14: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 253)		CONST	R10(B)[1..1]	<-	CI:1	{}
+0001 ( 256)		JUMP		<-		{}
+		==> 16
+L16: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 279)		RELOP28	R1(B)[0..1]	<-	R6(C)[1..255], CC:7	{}
+0001 ( 279)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 23
+		==> 24
+L23: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 280)		BINOP16	R1(I)[4..24]	<-	R6(C)[1..6], CI:2	{}
+0001 ( 280)		LEAG	R1(P)[0..20]	<-	V(101 'fround5' A)+-4 , R1(IF)[4..24]	{}
+0002 ( 280)		LOADI4	R1(F)	<-	R1(PF)+0 {V(101 'fround5' A)} [0..20]	{}
+0003 ( 284)		JUMP		<-		{}
+		==> 60
+L60: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 282)		BINOP1	R0(F)	<-	R1(FF), R0(FF)	{}
+0001 ( 282)		STOREZ4		<-	V(4 '')+0 , R0(F)	{}
+0002 ( 284)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:10.000000 (41200000)	{}
+0003 ( 284)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 25
+		==> 17
+L25: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 286)		BINOP5	R0(F)	<-	R0(FF), CF:10.000000 (41200000)	{}
+0001 ( 286)		STOREZ4		<-	V(4 '')+0 , R0(FF)	{}
+0002 ( 287)		BINOP1	R5(I)	<-	R5(IF), CI:1	{}
+0003 ( 284)		JUMP		<-		{}
+		==> 17
+L17: <= D-1: (4)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 292)		CONV37	R0(I)[0..255]	<-	R6(C)[1..33023]	{}
+0001 ( 292)		CONV37	R1(I)[0..255]	<-	R7(CF)[-1..255]	{}
+0002 ( 292)		BINOP2	R4(I)[-255..255]	<-	R0(IF)[0..255], R1(IF)[0..255]	{}
+0003 ( 294)		RELOP27	R0(B)[0..1]	<-	R6(C)[1..33023], CC:20	{}
+0004 ( 294)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 295)		CONST	R6(C)[20..20]	<-	CI:20	{}
+0001 ( 297)		BRANCH		<-	R4(C)[-128..255]	{}
+		==> 50
+		==> 28
+L50: <= D-1: (3)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 300)		CONST	R11(C)[0..0]	<-	CI:0	{}
+0001 ( 302)		JUMP		<-		{}
+		==> 30
+L30: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 302)		RELOP19	R0(B)[0..1]	<-	R11(C)[0..19], R4(C)[-128..255]	{}
+0001 ( 302)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 32
+		==> 33
+L32: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 303)		CONV37	R0(I)[0..255]	<-	R9(C)[0..]	{}
+0001 ( 303)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..255]	{}
+0002 ( 303)		STOREI1		<-	R0(PF)+0, CC:46	{}
+0003 ( 303)		BINOP1	R9(C)[1..]	<-	R9(CF)[0..], CI:1	{}
+0004 ( 304)		JUMP		<-		{}
+		==> 33
+L33: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 305)		CONV37	R0(I)[0..255]	<-	R9(C)[0..]	{}
+0001 ( 305)		LEAI	R7(P)+0	<-	R2(P)+0, R0(IF)[0..255]	{}
+0002 ( 304)		RELOP27	R0(B)[0..1]	<-	R11(C)[0..19], CC:6	{}
+0003 ( 304)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 34
+		==> 35
+L34: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 305)		STOREI1		<-	R7(PF)+0, CC:48	{}
+0001 ( 300)		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 305)		BINOP1	R9(C)[1..]	<-	R9(CF)[0..], CI:1	{}
+0001 ( 300)		BINOP1	R11(C)[1..20]	<-	R11(CF)[0..19], CI:1	{}
+0002 ( 300)		RELOP28	R0(B)[0..1]	<-	R11(C)[1..20], R6(C)[1..20]	{}
+0003 ( 300)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 30
+		==> 31
+L31: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 315)		BRANCH		<-	R10(BF)[0..1]	{}
+		==> 36
+		==> 7
+L36: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 317)		CONV37	R0(I)[1..254]	<-	R9(C)[1..254]	{}
+0001 ( 317)		LOADI1	R1(C)[0..255]	<-	R3(P)+3	{}
+0002 ( 317)		BINOP1	R1(C)[4..259]	<-	R1(CF)[0..255], CI:4	{}
+0003 ( 317)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[1..254]	{}
+0004 ( 317)		STOREI1		<-	R0(PF)+0, R1(CF)[4..259]	{}
+0005 ( 317)		BINOP1	R9(C)[2..255]	<-	R9(CF)[1..254], CI:1	{}
+0006 ( 320)		CONV37	R0(I)[2..255]	<-	R9(C)[2..255]	{}
+0007 ( 320)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[2..255]	{}
+0008 ( 318)		RELOP24	R1(B)[0..1]	<-	R5(I), CI:0	{}
+0009 ( 318)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 37
+		==> 38
+L37: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 320)		STOREI1		<-	R0(PF)+0, CC:45	{}
+0001 ( 321)		UNOP11	R5(I)[1..32768]	<-	R5(IF)[-32768..-1]	{}
+0002 ( 318)		JUMP		<-		{}
+		==> 39
+L39: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 320)		BINOP1	R9(C)	<-	R9(CF)[2..255], CI:1	{}
+0001 ( 326)		CONV37	R0(I)[0..255]	<-	R9(C)	{}
+0002 ( 326)		BINOP5	R1(I)	<-	R5(I)[0..32768], CI:10	{}
+0003 ( 326)		BINOP1	R1(I)	<-	R1(IF), CI:48	{}
+0004 ( 326)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..255]	{}
+0005 ( 326)		STOREI1		<-	R0(PF)+0, R1(CF)	{}
+0006 ( 326)		BINOP1	R9(C)	<-	R9(CF), CI:1	{}
+0007 ( 327)		CONV37	R0(I)[0..255]	<-	R9(C)	{}
+0008 ( 327)		BINOP7	R5(I)	<-	R5(IF)[0..32768], CI:10	{}
+0009 ( 327)		BINOP1	R5(I)	<-	R5(IF), CI:48	{}
+000a ( 327)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..255]	{}
+000b ( 327)		STOREI1		<-	R0(PF)+0, R5(CF)	{}
+000c ( 327)		BINOP1	R9(C)	<-	R9(CF), CI:1	{}
+000d ( 315)		JUMP		<-		{}
+		==> 7
+L38: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 324)		STOREI1		<-	R0(PF)+0, CC:43	{}
+0001 ( 318)		JUMP		<-		{}
+		==> 39
+L35: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 308)		LOADZ4	R0(F)	<-	V(4 '')+0 	{}
+0001 ( 308)		CONV29	R8(I)	<-	R0(F)	{}
+0002 ( 309)		CONV30	R1(F)	<-	R8(I)	{}
+0003 ( 309)		BINOP2	R0(F)	<-	R0(FF), R1(FF)	{}
+0004 ( 310)		BINOP3	R0(F)	<-	R0(FF), CF:10.000000 (41200000)	{}
+0005 ( 310)		STOREZ4		<-	V(4 '')+0 , R0(FF)	{}
+0006 ( 311)		BINOP1	R8(I)	<-	R8(IF), CI:48	{}
+0007 ( 311)		STOREI1		<-	R7(PF)+0, R8(CF)	{}
+0008 ( 300)		JUMP		<-		{}
+		==> 29
+L28: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 298)		CONV37	R0(I)[0..1]	<-	R9(C)[0..1]	{}
+0001 ( 298)		LEAI	R0(P)+0	<-	R2(P)+0, R0(IF)[0..1]	{}
+0002 ( 298)		STOREI1		<-	R0(PF)+0, CC:48	{}
+0003 ( 298)		BINOP1	R9(C)[1..2]	<-	R9(CF)[0..1], CI:1	{}
+0004 ( 300)		JUMP		<-		{}
+		==> 50
+L27: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 297)		BRANCH		<-	R4(C)[-128..255]	{}
+		==> 50
+		==> 28
+L24: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 282)		LOADG4	R1(F)	<-	V(101 'fround5' A)+24 	{}
+0001 ( 284)		JUMP		<-		{}
+		==> 60
+L15: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 252)		RELOP24	R8(B)[0..1]	<-	R5(I)[-32768..3], CI:0	{}
+0001 ( 252)		BRANCH		<-	R8(BF)[0..1]	{}
+		==> 14
+		==> 13
+L13: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 256)		BRANCH		<-	R10(B)[0..1]	{}
+		==> 16
+		==> 51
+L51: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 258)		RELOP24	R6(B)[0..1]	<-	R5(I), CI:0	{}
+0001 ( 258)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 18
+		==> 19
+L18: <= D-1: (2) Head P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 260)		BINOP5	R0(F)	<-	R0(FF), CF:10.000000 (41200000)	{}
+0001 ( 261)		BINOP1	R5(I)[-32767..0]	<-	R5(IF)[-32768..-1], CI:1	{}
+0002 ( 258)		RELOP24	R6(B)[0..1]	<-	R5(I)[-32767..0], CI:0	{}
+0003 ( 258)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 18
+		==> 19
+L19: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 264)		BINOP1	R1(I)[0..33022]	<-	R1(IF)[0..255], R5(I)[0..32767]	{}
+0001 ( 264)		BINOP1	R6(I)[1..33023]	<-	R1(IF)[0..33022], CI:1	{}
+0002 ( 266)		RELOP28	R1(B)[0..1]	<-	R6(C)[1..33023], CC:7	{}
+0003 ( 266)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 20
+		==> 21
+L20: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 267)		BINOP16	R1(I)[4..24]	<-	R6(I)[1..6], CI:2	{}
+0001 ( 267)		LEAG	R1(P)[0..20]	<-	V(101 'fround5' A)+-4 , R1(IF)[4..24]	{}
+0002 ( 267)		LOADI4	R1(F)	<-	R1(PF)+0 {V(101 'fround5' A)} [0..20]	{}
+0003 ( 271)		JUMP		<-		{}
+		==> 61
+L61: <= D-1: (2)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 269)		BINOP1	R0(F)	<-	R1(FF), R0(FF)	{}
+0001 ( 269)		STOREZ4		<-	V(4 '')+0 , R0(F)	{}
+0002 ( 271)		RELOP21	R1(B)[0..1]	<-	R0(F), CF:10.000000 (41200000)	{}
+0003 ( 271)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 22
+		==> 17
+L22: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 273)		BINOP5	R0(F)	<-	R0(FF), CF:10.000000 (41200000)	{}
+0001 ( 273)		STOREZ4		<-	V(4 '')+0 , R0(FF)	{}
+0002 ( 274)		BINOP1	R7(C)[-1..254]	<-	R4(CF)[0..255], CI:-1	{}
+0003 ( 271)		JUMP		<-		{}
+		==> 17
+L21: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 269)		LOADG4	R1(F)	<-	V(101 'fround5' A)+24 	{}
+0001 ( 271)		JUMP		<-		{}
+		==> 61
+L57: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 223)		CONST	R4(I)[6..6]	<-	CI:6	{}
+0001 ( 223)		JUMP		<-		{}
+		==> 58
+L2: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 210)		LOADZ2	R0(P)	<-	V(0 '')+0 	{S}
+0001 ( 210)		LOADI1	R0(B)[0..1]	<-	R0(PF)+5	{}
+0002 ( 210)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 4
+		==> 59
+L4: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 211)		STOREI1		<-	R2(P)+0, CC:43	{}
+0001 ( 210)		JUMP		<-		{}
+		==> 62
+L59: <= D-1: (1)  P-1 /usr/local/include/oscar64/stdio.c
+0000 ( 203)		CONST	R9(C)[0..0]	<-	CI:0	{}
+0001 ( 210)		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+get_key: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:355
+$00 R0(I), $10 R1(I), $02 R2(B), $11 R3(B), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 357)		CALLN		<-	V(8 'keyb_poll')+0 	{}
+0001 ( 359)		LOADG1	R0(C)[0..255]	<-	V(17 'keyb_key')+0 	{}
+0002 ( 359)		BINOP9	R1(C)[0..128]	<-	R0(C)[0..255], CC:128	{}
+0003 ( 359)		BRANCH		<-	R1(CF)[0..128]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 363)		BINOP9	R1(C)[0..64]	<-	R0(C)[0..255], CC:64	{}
+0001 ( 363)		RELOP20	R3(B)[0..1]	<-	R1(CF)[0..64], CC:0	{}
+0002 ( 366)		STOREG1		<-	V(-1 'sstack')+8 , R3(B)[0..1]	{}
+0003 ( 362)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0004 ( 362)		BINOP9	R1(I)[0..63]	<-	R0(IF)[0..255], CI:63	{}
+0005 ( 366)		STOREC1		<-	V(11 '')+0 , R1(C)[0..63]	{}
+0006 ( 366)		CALLN		<-	V(29 'debug_key')+0 	{}
+0007 ( 369)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:1	{}
+0008 ( 369)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 4
+L3: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 369)		RETV		<-	CC:13	{}
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 370)		BRANCH		<-	R1(C)[0..63]	{}
+		==> 6
+		==> 5
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 373)		LOADG2	R0(I)[-32768..32767]	<-	V(79 'current_page')+0 	{}
+0001 ( 373)		RELOP19	R2(B)[0..1]	<-	R0(I)[-32768..32767], CI:0	{}
+0002 ( 373)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 375)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:62	{}
+0001 ( 375)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L9: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 375)		RETV		<-	CC:113	{}
+L10: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 376)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:9	{}
+0001 ( 376)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 11
+		==> 12
+L11: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 376)		RETV		<-	CC:117	{}
+L12: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 377)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:7	{}
+0001 ( 377)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 13
+L14: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 377)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 11
+		==> 15
+L15: <= D-1: (3)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 378)		RETV		<-	CC:100	{}
+L13: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 378)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:13	{}
+0001 ( 378)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 15
+		==> 16
+L16: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 379)		RELOP19	R0(B)[0..1]	<-	R1(CF)[0..63], CC:55	{}
+0001 ( 379)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 17
+		==> 2
+L17: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 379)		RETV		<-	CC:47	{}
+L2: <= D-1: (6)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 416)		RETV		<-	CC:0	{}
+L8: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 382)		RELOP19	R2(B)[0..1]	<-	R0(I)[-32768..32767], CI:1	{}
+0001 ( 382)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 18
+		==> 19
+L18: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 384)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:9	{}
+0001 ( 384)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 11
+		==> 20
+L20: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 385)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:7	{}
+0001 ( 385)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 21
+L21: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 386)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:13	{}
+0001 ( 386)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 15
+		==> 22
+L22: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 387)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:39	{}
+0001 ( 387)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 23
+		==> 24
+L23: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 387)		RETV		<-	CC:110	{}
+L24: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 388)		RELOP19	R0(B)[0..1]	<-	R1(CF)[0..63], CC:41	{}
+0001 ( 388)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 25
+		==> 2
+L25: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 388)		RETV		<-	CC:112	{}
+L19: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 391)		RELOP19	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:2	{}
+0001 ( 391)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 26
+		==> 2
+L26: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 394)		LOADG2	R0(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 394)		RELOP23	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:0	{}
+0002 ( 394)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 27
+		==> 28
+L27: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 396)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..63], CC:7	{}
+0001 ( 396)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 28
+L28: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 403)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 36
+		==> 37
+L36: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 403)		BINOP1	R1(I)[64..127]	<-	R1(IF)[0..63], CI:64	{}
+0001 ( 403)		JUMP		<-		{}
+		==> 37
+L37: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 403)		LEAG	R0(P)[0..127]	<-	V(122 'keyb_codes')+0 , R1(IF)[0..127]	{}
+0001 ( 403)		LOADI1	R0(C)[0..157]	<-	R0(PF)+0 {V(122 'keyb_codes')} [0..127]	{}
+0002 ( 405)		RELOP25	R1(B)[0..1]	<-	R0(C)[0..157], CC:97	{}
+0003 ( 405)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 31
+		==> 30
+L31: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 405)		RELOP26	R1(B)[0..1]	<-	R0(C)[97..157], CC:122	{}
+0001 ( 405)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 29
+		==> 30
+L29: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 405)		CONV37	R0(I)[97..122]	<-	R0(CF)[97..122]	{}
+0001 ( 406)		BINOP2	R0(I)[65..90]	<-	R0(IF)[97..122], CI:32	{}
+0002 ( 406)		RETV		<-	R0(CF)[65..90]	{}
+L30: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 408)		RELOP25	R1(B)[0..1]	<-	R0(C)[0..157], CC:65	{}
+0001 ( 408)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 34
+		==> 33
+L34: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 408)		RELOP26	R1(B)[0..1]	<-	R0(C)[65..157], CC:90	{}
+0001 ( 408)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 32
+		==> 33
+L32: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 409)		RETV		<-	R0(CF)[48..90]	{}
+L33: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 411)		RELOP25	R1(B)[0..1]	<-	R0(C)[0..157], CC:48	{}
+0001 ( 411)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 35
+		==> 2
+L35: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 411)		RELOP26	R1(B)[0..1]	<-	R0(C)[48..157], CC:57	{}
+0001 ( 411)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 32
+		==> 2
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 370)		RETV		<-	CC:8	{}
+--------------------------------------------------------------------
+debug_key: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:346
+$00 R0(I), $00 R1(P), $02 R2(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 350)		LOADZ1	R2(C)[0..255]	<-	V(11 '')+0 	{S}
+0001 ( 350)		CONV37	R0(I)[0..255]	<-	R2(C)[0..255]	{S}
+0002 ( 351)		STOREG2		<-	V(-1 'sstack')+2 , R0(I)[0..255]	{}
+0003 ( 351)		CONST	R1(P)[0..0]	<-	CG0(123:0 '')	{S}
+0004 ( 351)		STOREG2		<-	V(-1 'sstack')+0 , R1(PF)+0 {V(123 '')} [0..0]	{}
+0005 ( 350)		RELOP28	R1(B)[0..1]	<-	R2(CF)[0..255], CC:64	{S}
+0006 ( 350)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 350)		LOADG1	R1(B)[0..1]	<-	V(-1 'sstack')+8 	{S}
+0001 ( 350)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 350)		BINOP1	R0(I)[64..127]	<-	R0(IF)[0..63], CI:64	{}
+0001 ( 350)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 350)		LEAG	R0(P)[0..127]	<-	V(122 'keyb_codes')+0 , R0(IF)[0..127]	{S}
+0001 ( 350)		LOADI1	R0(C)[0..157]	<-	R0(PF)+0 {V(122 'keyb_codes')} [0..127]	{}
+0002 ( 350)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 348)		CONST	R1(P)[0..0]	<-	CG32(124:0 'buf' A)	{S}
+0001 ( 351)		STOREC2		<-	V(9 '')+0 , R1(P)+0 {V(124 'buf' A)} [0..0]	{}
+0002 ( 351)		CONV37	R0(I)[0..157]	<-	R0(CF)[0..157]	{}
+0003 ( 351)		STOREG2		<-	V(-1 'sstack')+4 , R0(IF)[0..157]	{}
+0004 ( 351)		CALLN		<-	V(23 'sprintf')+0 	{}
+0005 ( 352)		STOREC1		<-	V(0 '')+0 , CC:28	{}
+0006 ( 352)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0007 ( 352)		STOREC2		<-	V(2 '')+0 , R1(PF)+0 {V(124 'buf' A)} [0..0]	{}
+0008 ( 352)		CALLN		<-	V(2 'print_at')+0 	{}
+0009 ( 353)		RET		<-		{}
+L2: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 350)		CONST	R0(C)[63..63]	<-	CI:63	{}
+0001 ( 350)		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+load_entries: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:207
+$10 R0(P), $00 R1(P), $12 R2(P), $14 R3(I), $16 R4(P), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 209)		CONST	R0(P)[0..0]	<-	CG0(133:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(133 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 212)		CONST	R1(P)[0..0]	<-	CG64(139:0 'cmd' A)	{S}
+0007 ( 214)		STOREC2		<-	V(0 '')+0 , R1(P)+0 {V(139 'cmd' A)} [0..0]	{}
+0008 ( 213)		CONST	R0(P)[0..0]	<-	CG0(134:0 '')	{S}
+0009 ( 213)		STRCPYII		<-	R1(P)+0 {V(139 'cmd' A)} [0..0], R0(PF)+0 {V(134 '')} [0..0]	{}
+000a (  39)		CONST	R0(P)[0..0]	<-	CG32(130:0 'current_category' A)	{S}
+000b ( 214)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(130 'current_category' A)} [0..0]	{}
+000c ( 214)		CALLN		<-	V(31 'strcat')+0 	{}
+000d ( 215)		STOREC2		<-	V(0 '')+0 , R1(P)+0 {V(139 'cmd' A)} [0..0]	{}
+000e ( 215)		CONST	R0(P)[0..0]	<-	CG0(135:0 '')	{S}
+000f ( 215)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(135 '')} [0..0]	{}
+0010 ( 215)		CALLN		<-	V(31 'strcat')+0 	{}
+0011 ( 218)		CONST	R2(P)[0..0]	<-	CG8(140:0 'num' A)	{S}
+0012 ( 219)		STOREC2		<-	V(9 '')+0 , R2(P)+0 {V(140 'num' A)} [0..0]	{}
+0013 ( 219)		CONST	R0(P)[0..0]	<-	CG0(136:0 '')	{S}
+0014 ( 219)		STOREG2		<-	V(-1 'sstack')+0 , R0(PF)+0 {V(136 '')} [0..0]	{}
+0015 ( 219)		LOADG2	R3(I)[-32768..32767]	<-	V(-1 'sstack')+8 	{S}
+0016 ( 219)		STOREG2		<-	V(-1 'sstack')+2 , R3(I)[-32768..32767]	{}
+0017 ( 219)		CALLN		<-	V(23 'sprintf')+0 	{}
+0018 ( 220)		STOREC2		<-	V(0 '')+0 , R1(P)+0 {V(139 'cmd' A)} [0..0]	{}
+0019 ( 220)		STOREC2		<-	V(2 '')+0 , R2(PF)+0 {V(140 'num' A)} [0..0]	{}
+001a ( 220)		CALLN		<-	V(31 'strcat')+0 	{}
+001b ( 221)		STOREC2		<-	V(0 '')+0 , R1(P)+0 {V(139 'cmd' A)} [0..0]	{}
+001c ( 221)		CONST	R0(P)[0..0]	<-	CG0(137:0 '')	{S}
+001d ( 221)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(137 '')} [0..0]	{}
+001e ( 221)		CALLN		<-	V(31 'strcat')+0 	{}
+001f ( 223)		STOREC2		<-	V(7 '')+0 , R1(PF)+0 {V(139 'cmd' A)} [0..0]	{}
+0020 ( 223)		CALLN		<-	V(15 'send_command')+0 	{}
+0021 ( 224)		CALLN		<-	V(17 'read_line')+0 	{}
+0022 ( 227)		CONST	R0(P)[3..3]	<-	CG1(44:3 'line_buffer' A)	{S}
+0023 ( 228)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(44 'line_buffer' A)} [3..3]	{}
+0024 ( 228)		CALLN	R2(I)	<-	V(18 'atoi')+0 	{E}
+0025 ( 229)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [3..3]	{}
+0026 ( 229)		STOREC2		<-	V(2 '')+0 , CI:32	{}
+0027 ( 229)		CALLN	R0(P)	<-	V(19 'strchr')+0 	{E}
+0028 ( 230)		BRANCH		<-	R0(P)	{}
+		==> 1
+		==> 12
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 231)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0001 ( 231)		STOREC2		<-	V(0 '')+0 , R0(PF)	{}
+0002 ( 231)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+0003 ( 231)		STOREG2		<-	V(74 'total_count')+0 , R0(IF)	{}
+0004 ( 237)		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 234)		STOREG2		<-	V(78 'offset')+0 , R3(IF)[-32768..32767]	{}
+0001 ( 233)		STOREG2		<-	V(73 'item_count')+0 , CI:0	{}
+0002 ( 237)		RELOP24	R0(B)[0..1]	<-	CI:0, R2(I)	{}
+0003 ( 237)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 13
+		==> 11
+L13: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 237)		CONST	R3(I)[0..0]	<-	CI:0	{}
+0001 ( 239)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 239)		CALLN		<-	V(17 'read_line')+0 	{}
+0001 ( 240)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0002 ( 240)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0003 ( 240)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 11
+		==> 5
+L11: <= D-1: (4)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 263)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0001 ( 263)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0002 ( 263)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L9: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 264)		CALLN		<-	V(17 'read_line')+0 	{}
+0001 ( 263)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0002 ( 263)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0003 ( 263)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L10: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 267)		STOREG2		<-	V(79 'current_page')+0 , CI:1	{}
+0003 ( 266)		STOREG2		<-	V(77 'cursor')+0 , CI:0	{}
+0004 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0005 ( 268)		CONST	R0(P)[0..0]	<-	CG0(138:0 '')	{S}
+0006 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(138 '')} [0..0]	{}
+0007 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0008 ( 207)		RET		<-		{}
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 245)		STOREC2		<-	V(2 '')+0 , CI:124	{}
+0001 ( 240)		CONST	R0(P)[0..0]	<-	CG1(44:0 'line_buffer' A)	{S}
+0002 ( 245)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0003 ( 245)		CALLN	R4(P)	<-	V(19 'strchr')+0 	{E}
+0004 ( 246)		BRANCH		<-	R4(P)	{}
+		==> 6
+		==> 2
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 249)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0001 ( 248)		STOREI1		<-	R4(P)+0, CC:0	{}
+0002 ( 249)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+0003 ( 252)		STOREC2		<-	V(2 '')+0 , CI:124	{}
+0004 ( 249)		BINOP16	R1(I)[0..38]	<-	R3(I)[0..19], CI:1	{}
+0005 ( 249)		LEAG	R1(P)[0..38]	<-	V(76 'item_ids' A)+0 , R1(IF)[0..38]	{}
+0006 ( 249)		STOREI2		<-	R1(PF)+0 {V(76 'item_ids' A)} [0..38], R0(IF)	{}
+0007 ( 248)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0008 ( 252)		STOREC2		<-	V(0 '')+0 , R4(P)	{}
+0009 ( 252)		CALLN	R0(P)	<-	V(19 'strchr')+0 	{E}
+000a ( 256)		STOREC2		<-	V(2 '')+0 , R4(PF)	{}
+000b ( 253)		BRANCH		<-	R0(P)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 254)		STOREI1		<-	R0(PF)+0, CC:0	{}
+0001 ( 253)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 256)		BINOP3	R0(I)[0..608]	<-	R3(I)[0..19], CI:32	{}
+0001 ( 256)		LEAG	R0(P)[0..608]	<-	V(75 'item_names' A)+0 , R0(IF)[0..608]	{}
+0002 ( 256)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(75 'item_names' A)} [0..608]	{}
+0003 ( 256)		CALLN		<-	V(20 'strncpy')+0 	{}
+0004 ( 257)		STOREI1		<-	R0(PF)+31 {V(75 'item_names' A)} [0..608], CC:0	{}
+0005 ( 258)		BINOP1	R0(I)[1..20]	<-	R3(IF)[0..19], CI:1	{}
+0006 ( 258)		STOREG2		<-	V(73 'item_count')+0 , R0(IF)[1..20]	{}
+0007 ( 246)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 237)		LOADG2	R3(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 237)		RELOP24	R0(B)[0..1]	<-	R3(I)[-32768..32767], CI:20	{}
+0002 ( 237)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 4
+		==> 11
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 237)		RELOP24	R0(B)[0..1]	<-	R3(I)[-32768..19], R2(I)[1..32767]	{}
+0001 ( 237)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 11
+--------------------------------------------------------------------
+strcat: /usr/local/include/oscar64/string.h:14
+$00 R0(P), $00 R1(P), $00 R2(C), 
+L0: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 160)		LOADZ2	R0(P)	<-	V(2 '')+0 	{}
+0001 ( 159)		LOADZ2	R1(P)	<-	V(0 '')+0 	{}
+0002 ( 162)		LOADI1	R2(C)[0..255]	<-	R1(P)+0	{}
+0003 ( 162)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (2) Head P-1 /usr/local/include/oscar64/string.c
+0000 ( 163)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0001 ( 162)		LOADI1	R2(C)[0..255]	<-	R1(P)+0	{}
+0002 ( 162)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 1
+		==> 2
+L2: <= D-1: (3) Head P-1 /usr/local/include/oscar64/string.c
+0000 ( 165)		LOADI1	R2(C)[0..255]	<-	R0(P)+0	{}
+0001 ( 165)		STOREI1		<-	R1(P)+0, R2(C)[0..255]	{}
+0002 ( 165)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0003 ( 165)		LEAI	R1(P)+0	<-	R1(PF)+0, CI:1	{}
+0004 ( 165)		BRANCH		<-	R2(CF)[0..255]	{}
+		==> 2
+		==> 3
+L3: <= D-1: (1)  P-1 /usr/local/include/oscar64/string.c
+0000 ( 167)		RET		<-		{}
+--------------------------------------------------------------------
+run_entry: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:272
+$00 R0(P), $00 R1(P), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 274)		CONST	R0(P)[0..0]	<-	CG0(150:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(150 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 276)		CONST	R1(P)[0..0]	<-	CG32(152:0 'cmd' A)	{S}
+0007 ( 277)		STOREC2		<-	V(9 '')+0 , R1(P)+0 {V(152 'cmd' A)} [0..0]	{}
+0008 ( 277)		CONST	R0(P)[0..0]	<-	CG0(151:0 '')	{S}
+0009 ( 277)		STOREG2		<-	V(-1 'sstack')+0 , R0(PF)+0 {V(151 '')} [0..0]	{}
+000a ( 277)		LOADG2	R0(I)[-32768..32767]	<-	V(-1 'sstack')+8 	{S}
+000b ( 277)		STOREG2		<-	V(-1 'sstack')+2 , R0(IF)[-32768..32767]	{}
+000c ( 277)		CALLN		<-	V(23 'sprintf')+0 	{}
+000d ( 278)		STOREC2		<-	V(7 '')+0 , R1(PF)+0 {V(152 'cmd' A)} [0..0]	{}
+000e ( 278)		CALLN		<-	V(15 'send_command')+0 	{}
+000f ( 280)		CALLN		<-	V(17 'read_line')+0 	{}
+0010 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0011 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0012 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0013 ( 281)		CONST	R0(P)[0..0]	<-	CG128(44:0 'line_buffer' A)	{S}
+0014 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0015 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0016 ( 282)		RET		<-		{}
+--------------------------------------------------------------------
+do_search: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:285
+$10 R0(P), $00 R1(P), $12 R2(I), $14 R3(I), $15 R4(P), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0003 ( 287)		CONST	R0(P)[0..0]	<-	CG0(157:0 '')	{S}
+0004 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(157 '')} [0..0]	{}
+0005 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0006 ( 291)		STOREG2		<-	V(-1 'sstack')+4 , CI:0	{}
+0007 ( 290)		CONST	R1(P)[0..0]	<-	CG64(160:0 'cmd' A)	{S}
+0008 ( 291)		STOREC2		<-	V(9 '')+0 , R1(P)+0 {V(160 'cmd' A)} [0..0]	{}
+0009 ( 291)		CONST	R0(P)[0..0]	<-	CG0(158:0 '')	{S}
+000a ( 291)		STOREG2		<-	V(-1 'sstack')+0 , R0(PF)+0 {V(158 '')} [0..0]	{}
+000b (  40)		CONST	R0(P)[0..0]	<-	CG32(89:0 'search_query' A)	{S}
+000c ( 291)		STOREG2		<-	V(-1 'sstack')+2 , R0(PF)+0 {V(89 'search_query' A)} [0..0]	{}
+000d ( 291)		CALLN		<-	V(23 'sprintf')+0 	{}
+000e ( 293)		STOREC2		<-	V(7 '')+0 , R1(PF)+0 {V(160 'cmd' A)} [0..0]	{}
+000f ( 293)		CALLN		<-	V(15 'send_command')+0 	{}
+0010 ( 294)		CALLN		<-	V(17 'read_line')+0 	{}
+0011 ( 297)		CONST	R0(P)[3..3]	<-	CG1(44:3 'line_buffer' A)	{S}
+0012 ( 298)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(44 'line_buffer' A)} [3..3]	{}
+0013 ( 298)		CALLN	R2(I)	<-	V(18 'atoi')+0 	{E}
+0014 ( 299)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [3..3]	{}
+0015 ( 299)		STOREC2		<-	V(2 '')+0 , CI:32	{}
+0016 ( 299)		CALLN	R0(P)	<-	V(19 'strchr')+0 	{E}
+0017 ( 300)		BRANCH		<-	R0(P)	{}
+		==> 1
+		==> 12
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 301)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0001 ( 301)		STOREC2		<-	V(0 '')+0 , R0(PF)	{}
+0002 ( 301)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+0003 ( 301)		STOREG2		<-	V(74 'total_count')+0 , R0(IF)	{}
+0004 ( 307)		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 304)		STOREG2		<-	V(78 'offset')+0 , CI:0	{}
+0001 ( 303)		STOREG2		<-	V(73 'item_count')+0 , CI:0	{}
+0002 ( 307)		RELOP24	R0(B)[0..1]	<-	CI:0, R2(I)	{}
+0003 ( 307)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 13
+		==> 11
+L13: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 307)		CONST	R3(I)[0..0]	<-	CI:0	{}
+0001 ( 309)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 309)		CALLN		<-	V(17 'read_line')+0 	{}
+0001 ( 310)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0002 ( 310)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0003 ( 310)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 11
+		==> 5
+L11: <= D-1: (4)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 333)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0001 ( 333)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0002 ( 333)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L9: <= D-1: (2) Head P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 334)		CALLN		<-	V(17 'read_line')+0 	{}
+0001 ( 333)		LOADG1	R0(C)[0..255]	<-	V(44 'line_buffer' A)+0 	{}
+0002 ( 333)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:46	{}
+0003 ( 333)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 10
+L10: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 ( 106)		STOREC1		<-	V(1 '')+0 , CC:24	{}
+0002 ( 337)		STOREG2		<-	V(79 'current_page')+0 , CI:2	{}
+0003 ( 336)		STOREG2		<-	V(77 'cursor')+0 , CI:0	{}
+0004 ( 100)		FILLA40		<-	V(-1 '')+1984 , CC:32	{}
+0005 ( 338)		CONST	R0(P)[0..0]	<-	CG0(159:0 '')	{S}
+0006 ( 106)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(159 '')} [0..0]	{}
+0007 ( 106)		CALLN		<-	V(2 'print_at')+0 	{}
+0008 ( 285)		RET		<-		{}
+L5: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 315)		STOREC2		<-	V(2 '')+0 , CI:124	{}
+0001 ( 310)		CONST	R0(P)[0..0]	<-	CG1(44:0 'line_buffer' A)	{S}
+0002 ( 315)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0003 ( 315)		CALLN	R4(P)	<-	V(19 'strchr')+0 	{E}
+0004 ( 316)		BRANCH		<-	R4(P)	{}
+		==> 6
+		==> 2
+L6: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 319)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(44 'line_buffer' A)} [0..0]	{}
+0001 ( 318)		STOREI1		<-	R4(P)+0, CC:0	{}
+0002 ( 319)		CALLN	R0(I)	<-	V(18 'atoi')+0 	{E}
+0003 ( 322)		STOREC2		<-	V(2 '')+0 , CI:124	{}
+0004 ( 319)		BINOP16	R1(I)[0..38]	<-	R3(I)[0..19], CI:1	{}
+0005 ( 319)		LEAG	R1(P)[0..38]	<-	V(76 'item_ids' A)+0 , R1(IF)[0..38]	{}
+0006 ( 319)		STOREI2		<-	R1(PF)+0 {V(76 'item_ids' A)} [0..38], R0(IF)	{}
+0007 ( 318)		LEAI	R4(P)+0	<-	R4(PF)+0, CI:1	{}
+0008 ( 322)		STOREC2		<-	V(0 '')+0 , R4(P)	{}
+0009 ( 322)		CALLN	R0(P)	<-	V(19 'strchr')+0 	{E}
+000a ( 326)		STOREC2		<-	V(2 '')+0 , R4(PF)	{}
+000b ( 323)		BRANCH		<-	R0(P)	{}
+		==> 7
+		==> 8
+L7: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 324)		STOREI1		<-	R0(PF)+0, CC:0	{}
+0001 ( 323)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 326)		BINOP3	R0(I)[0..608]	<-	R3(I)[0..19], CI:32	{}
+0001 ( 326)		LEAG	R0(P)[0..608]	<-	V(75 'item_names' A)+0 , R0(IF)[0..608]	{}
+0002 ( 326)		STOREC2		<-	V(0 '')+0 , R0(P)+0 {V(75 'item_names' A)} [0..608]	{}
+0003 ( 326)		CALLN		<-	V(20 'strncpy')+0 	{}
+0004 ( 327)		STOREI1		<-	R0(PF)+31 {V(75 'item_names' A)} [0..608], CC:0	{}
+0005 ( 328)		BINOP1	R0(I)[1..20]	<-	R3(IF)[0..19], CI:1	{}
+0006 ( 328)		STOREG2		<-	V(73 'item_count')+0 , R0(IF)[1..20]	{}
+0007 ( 316)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 307)		LOADG2	R3(I)[-32768..32767]	<-	V(73 'item_count')+0 	{}
+0001 ( 307)		RELOP24	R0(B)[0..1]	<-	R3(I)[-32768..32767], CI:20	{}
+0002 ( 307)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 4
+		==> 11
+L4: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 307)		RELOP24	R0(B)[0..1]	<-	R3(I)[-32768..19], R2(I)[1..32767]	{}
+0001 ( 307)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 3
+		==> 11
+--------------------------------------------------------------------
+disconnect_from_server: /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c:134
+$00 R0(P), $07 R1(C), 
+L0: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 136)		LOADG1	R0(B)[0..1]	<-	V(43 'connected')+0 	{}
+0001 ( 136)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 2
+L1: <= D-1: (1)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 138)		LOADG1	R1(C)[0..255]	<-	V(41 'socket_id')+0 	{}
+0001 ( 138)		STOREC1		<-	V(4 '')+0 , R1(C)[0..255]	{}
+0002 ( 138)		CONST	R0(P)[0..0]	<-	CG0(175:0 '')	{S}
+0003 ( 138)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(175 '')} [0..0]	{}
+0004 ( 138)		CALLN		<-	V(16 'uci_socket_write')+0 	{}
+0005 ( 466)		STOREC2		<-	V(2 '')+0 , CI:3	{}
+0006 ( 463)		STOREG1		<-	V(177 'cmd' A)+0 , CC:0	{}
+0007 ( 463)		STOREG1		<-	V(177 'cmd' A)+1 , CC:9	{}
+0008 ( 463)		STOREG1		<-	V(177 'cmd' A)+2 , R1(CF)[0..255]	{}
+0009 ( 462)		LOADG1	R1(C)[0..255]	<-	V(10 'uci_target')+0 	{}
+000a (  28)		STOREG1		<-	V(10 'uci_target')+0 , CC:3	{}
+000b ( 463)		CONST	R0(P)[0..0]	<-	CG3(177:0 'cmd' A)	{S}
+000c ( 466)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(177 'cmd' A)} [0..0]	{}
+000d ( 466)		CALLN		<-	V(3 'uci_sendcommand')+0 	{}
+000e ( 467)		CALLN		<-	V(4 'uci_readdata')+0 	{}
+000f ( 468)		CALLN		<-	V(5 'uci_readstatus')+0 	{}
+0010 ( 469)		CALLN		<-	V(6 'uci_accept')+0 	{}
+0011 ( 140)		STOREG1		<-	V(43 'connected')+0 , CB:0	{}
+0012 ( 471)		STOREG1		<-	V(10 'uci_target')+0 , R1(CF)[0..255]	{}
+0013 ( 136)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2)  P-1 /home/jalanara/Devel/Omat/C64U/c64uploader/c64client/src/main.c
+0000 ( 142)		RET		<-		{}

@@ -141,6 +141,7 @@ func main() {
 	assembly64Path := flag.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 database")
 	telnetMode := flag.Bool("telnet", false, "Start telnet server mode")
 	telnetPort := flag.Int("port", 6464, "Telnet server port")
+	nativePort := flag.Int("native-port", 6465, "Native protocol server port (0 to disable)")
 	flag.Parse()
 
 	// Set log level.
@@ -173,6 +174,22 @@ func main() {
 		slog.Info("Success! Program uploaded and running")
 	} else if *telnetMode {
 		// Telnet server mode.
+		index, err := loadAssembly64Index(*assembly64Path)
+		if err != nil {
+			slog.Error("Failed to load Assembly64 index", "error", err)
+			os.Exit(1)
+		}
+
+		// Start native protocol server if enabled.
+		if *nativePort > 0 {
+			apiClient := NewAPIClient(*host)
+			if err := StartNativeServer(*nativePort, index, apiClient, *assembly64Path); err != nil {
+				slog.Error("Native server error", "error", err)
+				os.Exit(1)
+			}
+		}
+
+		// Start telnet server (blocking).
 		if err := startTelnetServer(*host, *telnetPort, *assembly64Path); err != nil {
 			slog.Error("Telnet server error", "error", err)
 			os.Exit(1)
