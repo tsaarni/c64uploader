@@ -7,22 +7,25 @@ Remotely upload and run programs on Commodore 64 Ultimate via its [REST API](htt
 
 ## Features
 
-The `c64uploader` can be used as:
-- **Command-line tool** - Upload and run a specific local file or remote URL, or poke memory
-- **Text-based UI (TUI)** - Browse and run programs from local Assembly64 collection
-- **Server for C64 client** - For browsing and running programs directly on C64 (included)
+This project consists of two components:
 
-Following file types are supported:
+### c64uploader (Go application)
 
-- `.prg` - C64 program files (direct upload and run)
-- `.crt` - Cartridge images (direct upload and run)
-- `.d64`, `.g64`, `.d71`, `.d81` - Disk images (uploads via FTP to `/Temp`, mounts as drive A, extracts and runs first PRG via DMA)
+A command-line tool that runs on your PC and communicates with the C64 Ultimate via its REST API. It provides multiple modes of operation:
 
-The file type is auto-detected based on the file extension.
+- **TUI Mode** - Interactive terminal UI for browsing and running programs from a local Assembly64 collection
+- **Load Mode** - Upload and run individual files (PRG, CRT, D64, etc.) from local paths or remote URLs
+- **FTP Mode** - Transfer files to the C64 Ultimate's filesystem via FTP
+- **Poke Mode** - Modify C64 memory addresses (useful for cheats and memory tricks)
+- **Server Mode** - Host a lightweight protocol server for the C64 client application
 
-## Usage
+### a64browser (C64 native application)
 
-The program uses a subcommand-based interface. Run `c64uploader <command> [options] [arguments]`.
+A native C64 program that runs directly on the C64 Ultimate. It connects to the `c64uploader` server over the network, enabling you to browse and launch programs from your Assembly64 collection entirely from the C64 itself—no PC interaction needed once the server is running.
+
+## c64uploader Usage
+
+The `c64uploader` tool runs on your PC and uses a subcommand-based interface: `c64uploader <command> [options] [arguments]`.
 
 ### TUI Mode
 
@@ -127,49 +130,16 @@ Start the C64 protocol server for the C64 client:
 ```
 
 The C64 protocol is a simple line-based protocol optimized for low-bandwidth C64 communication.
-See `uploader/C64PROTOCOL.md` for details.
+See `uploader/C64PROTOCOL.md` for protocol details.
 
-## C64 Client
+## a64browser (C64 Client)
 
-A native C64 client is included in the `c64client/` directory.
-It runs directly on the C64 Ultimate and connects to the `c64uploader` server.
-Network and FTP File Service must be enabled on the C64 Ultimate.
+The `a64browser` is a native C64 application located in the `c64client/` directory. It runs directly on your C64 Ultimate and connects to the `c64uploader` server over the network, allowing you to browse and launch programs from your Assembly64 collection.
 
-### Requirements
+**Prerequisites:** Network and FTP File Service must be enabled on your C64 Ultimate.
 
-### Installing Oscar64 on Linux
 
-Oscar64 is a C compiler for the C64. To install on Linux:
-
-```bash
-# Clone the repository
-git clone https://github.com/drmortalwombat/oscar64.git
-cd oscar64
-
-# Build using make
-make
-
-# Install system-wide (optional)
-sudo make install
-```
-
-If not installed system-wide, you can set the include path:
-```bash
-export OSCAR64_INCLUDE=/path/to/oscar64/include
-```
-
-Or add `oscar64` directory to your PATH.
-
-### Building the C64 Client
-
-```bash
-cd c64client
-make prg
-```
-
-This produces `build/a64browser.prg`.
-
-### Running on C64
+### Running a64browser on C64
 
 1. Upload the C64 client to your C64 Ultimate
    ```bash
@@ -187,7 +157,7 @@ This produces `build/a64browser.prg`.
    - Press **C** to configure server IP (saved to `/Usb1/a64browser.cfg`)
    - Press any other key to connect with current settings
 
-### C64 Client Controls
+### Controls
 
 **Category list:**
 - **W/S** or cursor keys - Navigate up/down
@@ -212,41 +182,3 @@ This produces `build/a64browser.prg`.
 - **Enter** - Edit field / Save
 - **DEL** - Delete character (in edit) or back (in menu)
 - Numbers and `.` - Enter IP address
-
-### Makefile Targets
-
-```bash
-make prg      # Build PRG file (default)
-make crt      # Build CRT cartridge (16KB)
-make d64      # Build D64 disk image
-make run      # Run in VICE emulator (x64sc)
-make deploy   # Upload to Ultimate via FTP (set U2P_HOST env var)
-make runprg   # Run PRG directly on Ultimate via HTTP API
-make runcrt   # Run CRT directly on Ultimate via HTTP API
-make clean    # Remove build files
-```
-
-## Compilation
-
-```bash
-cd uploader
-go build
-```
-
-## Architecture
-
-```
-c64uploader/
-├── uploader/        # Go server application
-│   ├── main.go      # Entry point, argument parsing
-│   ├── apiclient.go # Ultimate II+ REST API client
-│   ├── index.go     # Assembly64 metadata indexing
-│   ├── tui.go       # Text-based UI (Bubble Tea)
-│   └── server.go    # Native protocol server for C64 client
-├── c64client/       # Native C64 client
-│   ├── src/
-│   │   ├── main.c   # Client application
-│   │   └── ultimate.c # UCI library for Ultimate II+
-│   └── Makefile
-└── README.md
-```
