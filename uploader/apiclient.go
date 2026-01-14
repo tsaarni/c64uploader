@@ -112,32 +112,53 @@ func (c *APIClient) removeDisk() error {
 	return c.doRequest("PUT", "/v1/drives/a:remove", nil)
 }
 
+// ftpConnect establishes a connection to the FTP server and logs in.
+func (c *APIClient) ftpConnect(ftpAddr string) (*ftp.ServerConn, error) {
+	conn, err := ftp.Dial(ftpAddr, ftp.DialWithTimeout(30*time.Second))
+	if err != nil {
+		return nil, fmt.Errorf("connecting to FTP server: %w", err)
+	}
+
+	// Login (C64 Ultimate typically uses anonymous or no authentication).
+	if err := conn.Login("anonymous", "anonymous"); err != nil {
+		conn.Quit()
+		return nil, fmt.Errorf("FTP login failed: %w", err)
+	}
+
+	return conn, nil
+}
+
+// ftpUpload uploads file data to the specified destination path via FTP.
+func (c *APIClient) ftpUpload(conn *ftp.ServerConn, fileData []byte, destination string) error {
+	slog.Info("Uploading file via FTP", "path", destination, "size", len(fileData))
+
+	// Upload file.
+	if err := conn.Stor(destination, bytes.NewReader(fileData)); err != nil {
+		return fmt.Errorf("FTP upload failed: %w", err)
+	}
+
+	slog.Info("FTP upload completed", "path", destination)
+	return nil
+}
+
 // uploadDiskViaFTP uploads a disk image to /Temp directory via FTP.
 func (c *APIClient) uploadDiskViaFTP(fileData []byte, filename string) (string, error) {
 	// Connect to FTP server.
 	ftpAddr := fmt.Sprintf("%s:21", c.Host)
-	conn, err := ftp.Dial(ftpAddr, ftp.DialWithTimeout(30*time.Second))
+	conn, err := c.ftpConnect(ftpAddr)
 	if err != nil {
-		return "", fmt.Errorf("connecting to FTP server: %w", err)
+		return "", err
 	}
 	defer conn.Quit()
-
-	// Login (C64 Ultimate typically uses anonymous or no authentication).
-	if err := conn.Login("anonymous", "anonymous"); err != nil {
-		return "", fmt.Errorf("FTP login failed: %w", err)
-	}
 
 	// Generate target path in /Temp directory.
 	targetPath := filepath.Join("/Temp", filename)
 
-	slog.Info("Uploading disk image via FTP", "path", targetPath, "size", len(fileData))
-
 	// Upload file.
-	if err := conn.Stor(targetPath, bytes.NewReader(fileData)); err != nil {
-		return "", fmt.Errorf("FTP upload failed: %w", err)
+	if err := c.ftpUpload(conn, fileData, targetPath); err != nil {
+		return "", err
 	}
 
-	slog.Info("FTP upload completed", "path", targetPath)
 	return targetPath, nil
 }
 

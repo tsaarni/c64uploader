@@ -1,4 +1,4 @@
-// Native protocol server for C64 client.
+// C64 protocol server for C64 client.
 // Simple line-based protocol optimized for low-bandwidth C64 communication.
 package main
 
@@ -13,28 +13,28 @@ import (
 	"time"
 )
 
-// Native protocol commands:
+// C64 protocol commands:
 // CATS                    - List categories
 // LIST <cat> <offset> <n> - List n entries from category starting at offset
-// SEARCH <query> <off> <n>- Search entries
+// SEARCH <off> <n> <query>- Search entries (query can be multi-word)
 // INFO <id>               - Get entry details
 // RUN <id>                - Download and run entry
 // QUIT                    - Close connection
 
 const (
-	nativeReadTimeout = 5 * time.Minute
-	nativePageSize    = 20 // Default entries per page
+	c64ReadTimeout = 5 * time.Minute
+	c64PageSize    = 20 // Default entries per page
 )
 
-// StartNativeServer starts the native protocol server.
-func StartNativeServer(port int, index *SearchIndex, apiClient *APIClient, assembly64Path string) error {
+// StartC64Server starts the C64 protocol server.
+func StartC64Server(port int, index *SearchIndex, apiClient *APIClient, assembly64Path string) error {
 	listener, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
-		return fmt.Errorf("failed to start native server: %w", err)
+		return fmt.Errorf("failed to start C64 server: %w", err)
 	}
 
-	slog.Info("Native protocol server listening", "port", port)
-	fmt.Printf("Native protocol server listening on :%d\n", port)
+	slog.Info("C64 protocol server listening", "port", port)
+	fmt.Printf("C64 protocol server listening on :%d\n", port)
 
 	go func() {
 		for {
@@ -43,18 +43,18 @@ func StartNativeServer(port int, index *SearchIndex, apiClient *APIClient, assem
 				slog.Error("Accept error", "error", err)
 				continue
 			}
-			go handleNativeConnection(conn, index, apiClient, assembly64Path)
+			go handleC64Connection(conn, index, apiClient, assembly64Path)
 		}
 	}()
 
 	return nil
 }
 
-func handleNativeConnection(conn net.Conn, index *SearchIndex, apiClient *APIClient, assembly64Path string) {
+func handleC64Connection(conn net.Conn, index *SearchIndex, apiClient *APIClient, assembly64Path string) {
 	defer conn.Close()
 
 	remoteAddr := conn.RemoteAddr().String()
-	slog.Info("Native client connected", "remote", remoteAddr)
+	slog.Info("C64 client connected", "remote", remoteAddr)
 
 	// Send greeting
 	conn.Write([]byte("OK Assembly64 Browser\n"))
@@ -62,11 +62,11 @@ func handleNativeConnection(conn net.Conn, index *SearchIndex, apiClient *APICli
 	reader := bufio.NewReader(conn)
 
 	for {
-		conn.SetReadDeadline(time.Now().Add(nativeReadTimeout))
+		conn.SetReadDeadline(time.Now().Add(c64ReadTimeout))
 
 		line, err := reader.ReadString('\n')
 		if err != nil {
-			slog.Debug("Native client disconnected", "remote", remoteAddr, "error", err)
+			slog.Debug("C64 client disconnected", "remote", remoteAddr, "error", err)
 			return
 		}
 
@@ -75,9 +75,9 @@ func handleNativeConnection(conn net.Conn, index *SearchIndex, apiClient *APICli
 			continue
 		}
 
-		slog.Debug("Native command", "remote", remoteAddr, "cmd", line)
+		slog.Debug("C64 command", "remote", remoteAddr, "cmd", line)
 
-		response := handleNativeCommand(line, index, apiClient, assembly64Path, conn)
+		response := handleC64Command(line, index, apiClient, assembly64Path, conn)
 		if response == "QUIT" {
 			conn.Write([]byte("OK Goodbye\n"))
 			return
@@ -86,7 +86,7 @@ func handleNativeConnection(conn net.Conn, index *SearchIndex, apiClient *APICli
 	}
 }
 
-func handleNativeCommand(line string, index *SearchIndex, apiClient *APIClient, assembly64Path string, conn net.Conn) string {
+func handleC64Command(line string, index *SearchIndex, apiClient *APIClient, assembly64Path string, conn net.Conn) string {
 	parts := strings.Fields(line)
 	if len(parts) == 0 {
 		return "ERR Empty command\n"
@@ -99,33 +99,22 @@ func handleNativeCommand(line string, index *SearchIndex, apiClient *APIClient, 
 		return handleCats(index)
 
 	case "LIST":
-		if len(parts) < 2 {
-			return "ERR Usage: LIST <category> [offset] [count]\n"
+		if len(parts) < 4 {
+			return "ERR Usage: LIST <category> <offset> <count>\n"
 		}
 		category := parts[1]
-		offset := 0
-		count := nativePageSize
-		if len(parts) >= 3 {
-			offset, _ = strconv.Atoi(parts[2])
-		}
-		if len(parts) >= 4 {
-			count, _ = strconv.Atoi(parts[3])
-		}
+		offset, _ := strconv.Atoi(parts[2])
+		count, _ := strconv.Atoi(parts[3])
 		return handleList(index, category, offset, count)
 
 	case "SEARCH":
-		if len(parts) < 2 {
-			return "ERR Usage: SEARCH <query> [offset] [count]\n"
+		if len(parts) < 4 {
+			return "ERR Usage: SEARCH <offset> <count> <query>\n"
 		}
-		query := parts[1]
-		offset := 0
-		count := nativePageSize
-		if len(parts) >= 3 {
-			offset, _ = strconv.Atoi(parts[2])
-		}
-		if len(parts) >= 4 {
-			count, _ = strconv.Atoi(parts[3])
-		}
+		offset, _ := strconv.Atoi(parts[1])
+		count, _ := strconv.Atoi(parts[2])
+		// Query is all remaining parts joined with spaces
+		query := strings.Join(parts[3:], " ")
 		return handleSearch(index, query, offset, count)
 
 	case "INFO":
@@ -187,8 +176,9 @@ func handleList(index *SearchIndex, category string, offset, count int) string {
 		return fmt.Sprintf("OK 0 %d\n.\n", total)
 	}
 
+	// If count is 0, return all results from offset
 	end := offset + count
-	if end > total {
+	if count == 0 || end > total {
 		end = total
 	}
 
@@ -222,8 +212,9 @@ func handleSearch(index *SearchIndex, query string, offset, count int) string {
 		return fmt.Sprintf("OK 0 %d\n.\n", total)
 	}
 
+	// If count is 0, return all results from offset
 	end := offset + count
-	if end > total {
+	if count == 0 || end > total {
 		end = total
 	}
 

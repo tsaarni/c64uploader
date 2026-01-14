@@ -3,15 +3,14 @@
 Remotely upload and run programs on Commodore 64 Ultimate via its [REST API](https://1541u-documentation.readthedocs.io/en/latest/api/api_calls.html).
 
 > [!NOTE]
-> This code was generated with GitHub Copilot and Claude Code and is not thoroughly tested or reviewed.
+> This code was generated with AI coding assistant and is not thoroughly tested or reviewed.
 
 ## Features
 
-The program can be used as:
+The `c64uploader` can be used as:
 - **Command-line tool** - Upload and run a specific local file or poke memory
-- **Text-based UI (TUI)** - Browse and run programs from Assembly64 collection
-- **Telnet server** - Access Assembly64 browser via any telnet client (ANSI terminal)
-- **Native protocol server** - For the C64 native client (included)
+- **Text-based UI (TUI)** - Browse and run programs from local Assembly64 collection
+- **Server for C64 client** - For browsing and running programs directly on C64 (included)
 
 Following file types are supported:
 
@@ -23,25 +22,58 @@ The file type is auto-detected based on the file extension.
 
 ## Usage
 
+The program uses a subcommand-based interface. Run `c64uploader <command> [options] [arguments]`.
+
 ### TUI Mode
 
-Launch without arguments to browse and upload files from Assembly64 collection:
+Browse and upload files from local Assembly64 collection to C64 Ultimate using an interactive terminal UI:
 
 ```bash
-./c64uploader [options]
+./c64uploader tui [options]
 ```
+
+**Options:**
+- `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
+- `-assembly64 <path>` - Path to Assembly64 collection (default: `~/Downloads/assembly64`)
+- `-v` - Enable verbose debug logging
 
 Uses Assembly64 collection from local path specified via `-assembly64` option.
 Scans `.releaselog.json` metadata files to build the index of available files.
 
 Note that the metadata seems to be incomplete. Not all files are listed in the menu.
 
-### CLI Mode
+### Load Mode
 
-Upload and run a specific file:
+Upload and run a specific file (PRG, CRT, D64, etc.):
 
 ```bash
-./c64uploader [options] <filename>
+./c64uploader load [options] <filename>
+```
+
+**Options:**
+- `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
+- `-v` - Enable verbose debug logging
+
+**Example:**
+```bash
+./c64uploader load -host 192.168.2.100 ~/games/space_invaders.prg
+```
+
+### FTP Mode
+
+Upload a file to C64 Ultimate via FTP:
+
+```bash
+./c64uploader ftp [options] <filename> <destination>
+```
+
+**Options:**
+- `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
+- `-v` - Enable verbose debug logging
+
+**Example:**
+```bash
+./c64uploader ftp -host 192.168.2.100 ~/games/space_invaders.prg /Temp/space_invaders.prg
 ```
 
 ### Poke Mode
@@ -49,68 +81,53 @@ Upload and run a specific file:
 Issue POKE commands to modify C64 memory (e.g., change border color, enable cheats):
 
 ```bash
-./c64uploader [options] poke <address>,<value>
+./c64uploader poke [options] <address>,<value>
 ```
 
 * `address` - Memory address to poke (0-65535 or 0x0000-0xFFFF or $0000-$FFFF)
 * `value` - Value to write (0-255 or 0x00-0xFF or $00-$FF)
 
-### Telnet Server Mode
+**Options:**
+- `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
+- `-v` - Enable verbose debug logging
 
-Start a telnet server for remote Assembly64 browsing with ANSI terminal support:
-
+**Examples:**
 ```bash
-./c64uploader [options] -telnet <port>
+./c64uploader poke 53280,0      # Decimal address and value (black border)
+./c64uploader poke 0xD020,1     # Hex address with 0x prefix (white border)
+./c64uploader poke $D020,2      # Hex address with $ prefix (red border)
+./c64uploader poke D020,5       # Hex address without prefix (green border)
 ```
 
-Example:
-```bash
-./c64uploader -host 192.168.2.100 -assembly64 ~/Assembly64 -telnet 2323
-```
+### Server Mode
 
-Then connect from any telnet client:
-```bash
-telnet localhost 2323
-```
-
-Features:
-- Full ANSI color terminal interface
-- Arrow key navigation, search, category browsing
-- Works with any telnet client (PuTTY, terminal, etc.)
-
-### Native Protocol Server Mode
-
-Start a native protocol server for the C64 client:
+Start the C64 protocol server for the C64 client:
 
 ```bash
-./c64uploader [options] -native <port>
+./c64uploader server [options]
 ```
 
-Example:
+**Options:**
+- `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
+- `-assembly64 <path>` - Path to Assembly64 collection (default: `~/Downloads/assembly64`)
+- `-port <port>` - C64 protocol server port (default: `6465`)
+- `-v` - Enable verbose debug logging
+
+**Example:**
 ```bash
-./c64uploader -host 192.168.2.100 -assembly64 ~/Assembly64 -native 6465
+./c64uploader server -host 192.168.2.100 -assembly64 ~/Assembly64 -port 6465
 ```
 
-The native protocol is a simple line-based protocol optimized for low-bandwidth C64 communication.
+The C64 protocol is a simple line-based protocol optimized for low-bandwidth C64 communication.
+See `uploader/C64PROTOCOL.md` for details.
 
-### Common Options
+## C64 Client
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `-host` | C64 Ultimate hostname or IP | `c64u` |
-| `-assembly64` | Path to Assembly64 collection | `~/Downloads/assembly64` |
-| `-telnet` | Start telnet server on specified port | (disabled) |
-| `-native` | Start native protocol server on specified port | (disabled) |
-
-## C64 Native Client
-
-A native C64 client is included in the `c64client/` directory. It runs directly on the C64 with Ultimate II+ cartridge and connects to the native protocol server.
+A native C64 client is included in the `c64client/` directory.
+It runs directly on the C64 Ultimate and connects to the `c64uploader` server.
+Network and FTP File Service must be enabled on the C64 Ultimate.
 
 ### Requirements
-
-- [Oscar64](https://github.com/drmortalwombat/oscar64) compiler
-- Ultimate II+ or Ultimate 64 with network enabled
-- The uploader running with `-native 6465` option
 
 ### Installing Oscar64 on Linux
 
@@ -146,12 +163,15 @@ This produces `build/a64browser.prg`.
 
 ### Running on C64
 
-1. Start the server on your PC:
+1. Upload the C64 client to your C64 Ultimate
    ```bash
-   ./c64uploader -host <ultimate-ip> -assembly64 <path> -native 6465
+   ./c64uploader ftp -host <ultimate-ip> build/a64browser.crt
    ```
 
-2. Copy `build/a64browser.prg` to your Ultimate II+ USB drive
+2. Start the server on your PC
+   ```bash
+   ./c64uploader server -host <ultimate-ip> -assembly64 <path>
+   ```
 
 3. Run the program on your C64
 
@@ -201,6 +221,7 @@ make clean    # Remove build files
 ## Compilation
 
 ```bash
+cd uploader
 go build
 ```
 
@@ -208,15 +229,16 @@ go build
 
 ```
 c64uploader/
-├── main.go          # Entry point, argument parsing
-├── api.go           # Ultimate II+ REST API client
-├── index.go         # Assembly64 metadata indexing
-├── tui.go           # Text-based UI (Bubble Tea)
-├── telnet.go        # Telnet server with ANSI support
-├── native.go        # Native protocol server for C64 client
-└── c64client/       # Native C64 client
-    ├── src/
-    │   ├── main.c       # Client application
-    │   └── ultimate.c   # UCI library for Ultimate II+
-    └── Makefile
+├── uploader/        # Go server application
+│   ├── main.go      # Entry point, argument parsing
+│   ├── apiclient.go # Ultimate II+ REST API client
+│   ├── index.go     # Assembly64 metadata indexing
+│   ├── tui.go       # Text-based UI (Bubble Tea)
+│   └── server.go    # Native protocol server for C64 client
+├── c64client/       # Native C64 client
+│   ├── src/
+│   │   ├── main.c   # Client application
+│   │   └── ultimate.c # UCI library for Ultimate II+
+│   └── Makefile
+└── README.md
 ```

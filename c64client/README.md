@@ -68,13 +68,7 @@ The `ultimate.h/c` library provides access to Ultimate II+ Command Interface:
 
 ## Server Protocol
 
-The client communicates with the Go server using a simple text protocol:
-
-```
-Client: CMD <args>\n
-Server: response lines...\n
-Server: \n (empty line = end)
-```
+See [`../uploader/C64PROTOCOL.md`](../uploader/C64PROTOCOL.md) for details.
 
 ## Configuration
 

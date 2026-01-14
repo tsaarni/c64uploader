@@ -198,7 +198,7 @@ bool connect_to_server(void)
 
     connected = true;
 
-    // Read greeting line "OK Assembly64 Browser"
+    // Read greeting line "OK c64uploader"
     uci_tcp_nextline(socket_id, line_buffer);
 
     print_status("connected!");
@@ -360,9 +360,9 @@ void do_search(const char *query, int start)
 {
     print_status("searching...");
 
-    // Build command: "SEARCH query offset 20"
+    // Build command: "SEARCH offset count query"
     char cmd[64];
-    sprintf(cmd, "SEARCH %s %d 20", query, start);
+    sprintf(cmd, "SEARCH %d 20 %s", start, query);
 
     send_command(cmd);
     read_line();  // "OK n total"
