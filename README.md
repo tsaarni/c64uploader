@@ -8,7 +8,7 @@ Remotely upload and run programs on Commodore 64 Ultimate via its [REST API](htt
 ## Features
 
 The `c64uploader` can be used as:
-- **Command-line tool** - Upload and run a specific local file or poke memory
+- **Command-line tool** - Upload and run a specific local file or remote URL, or poke memory
 - **Text-based UI (TUI)** - Browse and run programs from local Assembly64 collection
 - **Server for C64 client** - For browsing and running programs directly on C64 (included)
 
@@ -44,36 +44,44 @@ Note that the metadata seems to be incomplete. Not all files are listed in the m
 
 ### Load Mode
 
-Upload and run a specific file (PRG, CRT, D64, etc.):
+Upload and run a specific file (PRG, CRT, D64, etc.) from a local path or remote URL:
 
 ```bash
-./c64uploader load [options] <filename>
+./c64uploader load [options] <filename|url>
 ```
 
 **Options:**
 - `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
 - `-v` - Enable verbose debug logging
 
-**Example:**
+**Examples:**
 ```bash
+# Load from local file
 ./c64uploader load -host 192.168.2.100 ~/games/space_invaders.prg
+
+# Load from remote URL
+./c64uploader load https://example.com/foo.d64
 ```
 
 ### FTP Mode
 
-Upload a file to C64 Ultimate via FTP:
+Upload a file to C64 Ultimate via FTP from a local path or remote URL:
 
 ```bash
-./c64uploader ftp [options] <filename> <destination>
+./c64uploader ftp [options] <filename|url> <destination>
 ```
 
 **Options:**
 - `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
 - `-v` - Enable verbose debug logging
 
-**Example:**
+**Examples:**
 ```bash
+# Upload from local file
 ./c64uploader ftp -host 192.168.2.100 ~/games/space_invaders.prg /Temp/space_invaders.prg
+
+# Upload from remote URL
+./c64uploader ftp https://example.com/foo.prg /Temp
 ```
 
 ### Poke Mode

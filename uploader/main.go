@@ -8,12 +8,40 @@ import (
 	"fmt"
 	"io"
 	"log/slog"
+	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
 
 	tea "github.com/charmbracelet/bubbletea"
 )
+
+// isURL checks if a string is a URL.
+func isURL(s string) bool {
+	return strings.HasPrefix(s, "http://") || strings.HasPrefix(s, "https://")
+}
+
+// downloadURL downloads a remote file to memory.
+func downloadURL(url string) ([]byte, error) {
+	slog.Info("Downloading remote file", "url", url)
+	resp, err := http.Get(url)
+	if err != nil {
+		return nil, fmt.Errorf("downloading URL: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("download failed with status: %s", resp.Status)
+	}
+
+	data, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("reading response body: %w", err)
+	}
+
+	slog.Info("Download complete", "size", len(data))
+	return data, nil
+}
 
 // detectFileType determines the file type from extension.
 func detectFileType(filename string) string {
@@ -39,13 +67,7 @@ func detectFileType(filename string) string {
 }
 
 // uploadAndRunFile uploads a file and runs it based on file type.
-func uploadAndRunFile(client *APIClient, filename string) error {
-	// Read file.
-	fileData, err := os.ReadFile(filename)
-	if err != nil {
-		return fmt.Errorf("reading file: %w", err)
-	}
-
+func uploadAndRunFile(client *APIClient, fileData []byte, filename string) error {
 	// Detect file type.
 	fileType := detectFileType(filename)
 	if fileType == "" {
@@ -170,20 +192,40 @@ func runLoad(args []string) {
 	}
 
 	if fs.NArg() < 1 {
-		fmt.Fprintf(os.Stderr, "Error: filename required\n")
-		fmt.Fprintf(os.Stderr, "Usage: c64uploader load [options] <filename>\n")
+		fmt.Fprintf(os.Stderr, "Error: filename or URL required\n")
+		fmt.Fprintf(os.Stderr, "Usage: c64uploader load [options] <filename|url>\n")
 		os.Exit(1)
 	}
 
-	filename := fs.Arg(0)
+	input := fs.Arg(0)
+
+	// Load data from URL or local file.
+	var fileData []byte
+	var err error
+
+	if isURL(input) {
+		slog.Info("Detected URL", "url", input)
+		fileData, err = downloadURL(input)
+		if err != nil {
+			slog.Error("Failed to download URL", "error", err)
+			os.Exit(1)
+		}
+	} else {
+		slog.Info("Reading local file", "path", input)
+		fileData, err = os.ReadFile(input)
+		if err != nil {
+			slog.Error("Failed to read file", "error", err)
+			os.Exit(1)
+		}
+	}
 
 	// Create API client.
 	client := NewAPIClient(*host)
 
 	slog.Info("Connecting to C64 Ultimate", "host", *host)
-	slog.Info("Uploading file", "path", filename)
+	slog.Info("Uploading file", "path", input, "size", len(fileData))
 
-	if err := uploadAndRunFile(client, filename); err != nil {
+	if err := uploadAndRunFile(client, fileData, input); err != nil {
 		slog.Error("Failed to upload and run file", "error", err)
 		os.Exit(1)
 	}
@@ -254,27 +296,41 @@ func runFTP(args []string) {
 	}
 
 	if fs.NArg() < 2 {
-		fmt.Fprintf(os.Stderr, "Error: filename and destination required\n")
-		fmt.Fprintf(os.Stderr, "Usage: c64uploader ftp [options] <filename> <destination>\n")
+		fmt.Fprintf(os.Stderr, "Error: filename/URL and destination required\n")
+		fmt.Fprintf(os.Stderr, "Usage: c64uploader ftp [options] <filename|url> <destination>\n")
 		fmt.Fprintf(os.Stderr, "Example: c64uploader ftp ~/games/game.prg /Temp/game.prg\n")
+		fmt.Fprintf(os.Stderr, "Example: c64uploader ftp https://example.com/game.prg /Temp/game.prg\n")
 		os.Exit(1)
 	}
 
-	filename := fs.Arg(0)
+	input := fs.Arg(0)
 	destination := fs.Arg(1)
 
-	// Read file.
-	fileData, err := os.ReadFile(filename)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error reading file: %v\n", err)
-		os.Exit(1)
+	// Load data from URL or local file.
+	var fileData []byte
+	var err error
+
+	if isURL(input) {
+		slog.Info("Detected URL", "url", input)
+		fileData, err = downloadURL(input)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error downloading URL: %v\n", err)
+			os.Exit(1)
+		}
+	} else {
+		slog.Info("Reading local file", "path", input)
+		fileData, err = os.ReadFile(input)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error reading file: %v\n", err)
+			os.Exit(1)
+		}
 	}
 
 	// Create API client.
 	client := NewAPIClient(*host)
 
 	slog.Info("Connecting to C64 Ultimate FTP server", "host", *host)
-	slog.Info("Uploading file", "source", filename, "destination", destination, "size", len(fileData))
+	slog.Info("Uploading file", "source", input, "destination", destination, "size", len(fileData))
 
 	// Use the existing FTP upload method but with custom destination.
 	ftpAddr := fmt.Sprintf("%s:21", *host)
