@@ -45,6 +45,19 @@ func LoadIndexFromJSON(jsonPath, assembly64Path string) (*SearchIndex, error) {
 			FileType:     entry.FileType,
 			// Compute full path: assembly64Path + path + primaryFile
 			FullPath: filepath.Join(assembly64Path, entry.Path, entry.PrimaryFile),
+			// Extended fields from JSON database.
+			ReleaseName: entry.ReleaseName,
+			Language:    entry.Language,
+			Region:      entry.Region,
+			Engine:      entry.Engine,
+			IsPreview:   entry.IsPreview,
+			Version:     entry.Version,
+			Is4k:        entry.Is4k,
+			Crack:       entry.Crack,
+		}
+		// Handle Top200Rank pointer.
+		if entry.Top200Rank != nil {
+			releaseEntry.Top200Rank = *entry.Top200Rank
 		}
 
 		index.Entries = append(index.Entries, releaseEntry)
@@ -93,6 +106,34 @@ type ReleaseEntry struct {
 	CategoryName string // "Games", "Demos", "Music", etc.
 	FullPath     string // Absolute path to the file.
 	FileType     string // "d64", "prg", "crt" - from extension.
+
+	// Extended fields (populated from JSON database, empty in legacy mode).
+	ReleaseName string     // Full release name with crack info.
+	Language    string     // german, french, english, etc.
+	Region      string     // PAL, NTSC.
+	Engine      string     // seuck, gkgm, bdck.
+	IsPreview   bool       // True if preview/unfinished.
+	Version     string     // Version string if present.
+	Top200Rank  int        // 1-200 or 0 if not ranked.
+	Is4k        bool       // True if 4k competition entry.
+	Crack       *CrackInfo // Crack/trainer info (nil if not cracked).
+}
+
+// AdvancedSearch holds criteria for advanced searching.
+type AdvancedSearch struct {
+	Title       string // Search in title.
+	Group       string // Search in group.
+	Language    string // Exact match: german, french, etc.
+	Region      string // Exact match: PAL, NTSC.
+	Engine      string // Exact match: seuck, etc.
+	FileType    string // Exact match: d64, prg, crt.
+	MinTrainers int    // Minimum number of trainers.
+	MaxTrainers int    // Maximum number of trainers (-1 = no limit).
+	Top200Only  bool   // Only show Top200 entries.
+	Is4kOnly    bool   // Only show 4k entries.
+	HasDocs     bool   // Must have docs.
+	HasFastload bool   // Must have fastload.
+	IsCracked   *bool  // nil=any, true=cracked only, false=original only.
 }
 
 // SearchIndex holds all entries organized for fast searching.

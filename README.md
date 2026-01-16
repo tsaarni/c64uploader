@@ -44,12 +44,37 @@ Browse and upload files from local Assembly64 collection to C64 Ultimate using a
 **Options:**
 - `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
 - `-assembly64 <path>` - Path to Assembly64 collection (default: `~/Downloads/assembly64`)
+- `-db <path>` - Path to JSON database file (default: `<assembly64>/c64uploader.json`)
+- `-legacy` - Force legacy `.releaselog.json` loading instead of JSON database
 - `-v` - Enable verbose debug logging
 
-Uses Assembly64 collection from local path specified via `-assembly64` option.
-Scans `.releaselog.json` metadata files to build the index of available files.
+**Data Sources:**
+- **JSON Database (default)** - Uses `c64uploader.json` database in the assembly64 directory for fast loading and rich metadata. Generate with `dbgen` command.
+- **Legacy Mode** - Falls back to scanning `.releaselog.json` metadata files if JSON database not found, or when `-legacy` flag is used.
 
-Note that the metadata seems to be incomplete. Not all files are listed in the menu.
+**Controls:**
+- **↑/↓** - Navigate up/down
+- **Tab** - Cycle through categories
+- **Enter** - Load and run selected entry
+- **/** - Open advanced search (JSON database mode only)
+- **Esc** - Clear search or quit
+- **Q** - Quit
+- **Ctrl+L** - Refresh index (legacy mode) / Reset search and filters (JSON database mode)
+
+**Advanced Search (press `/`):**
+
+When using the JSON database, press `/` to open an advanced search form with filters for:
+- Title and Group (partial text match)
+- Language (german, french, english...)
+- Region (PAL, NTSC)
+- Engine (seuck, gkgm, bdck...)
+- File type (d64, prg, crt...)
+- Trainer count (min/max)
+- Top 200 games only
+- 4K competition entries only
+- Has documentation
+- Has fastloader
+- Cracked/original filter
 
 ### Load Mode
 
@@ -127,16 +152,44 @@ Start the C64 protocol server for the C64 client:
 **Options:**
 - `-host <ip>` - C64 Ultimate hostname or IP address (default: `c64u`)
 - `-assembly64 <path>` - Path to Assembly64 collection (default: `~/Downloads/assembly64`)
+- `-db <path>` - Path to JSON database file (default: `<assembly64>/c64uploader.json`)
+- `-legacy` - Force legacy `.releaselog.json` loading instead of JSON database
 - `-port <port>` - C64 protocol server port (default: `6465`)
 - `-v` - Enable verbose debug logging
 
 **Example:**
 ```bash
-./c64uploader server -host 192.168.2.100 -assembly64 ~/Assembly64 -port 6465
+./c64uploader server -host 192.168.2.100 -assembly64 ~/assembly64 -port 6465
 ```
 
 The C64 protocol is a simple line-based protocol optimized for low-bandwidth C64 communication.
 See `uploader/C64PROTOCOL.md` for protocol details.
+
+### Database Generator
+
+Generate a JSON database from your Assembly64 collection for faster loading and richer search capabilities:
+
+```bash
+./c64uploader dbgen [options]
+```
+
+**Options:**
+- `-assembly64 <path>` - Path to Assembly64 data directory (required)
+- `-out <path>` - Output JSON database file (default: `<assembly64>/c64uploader.json`)
+
+**Example:**
+```bash
+./c64uploader dbgen -assembly64 ~/assembly64
+```
+
+The generator scans the `Games/CSDB/All` directory structure and extracts metadata from directory names including:
+- Title, group, and release name
+- Crack information (trainers, flags like docs/fastload/highscore)
+- Language, region, and game engine
+- Top 200 ranking (cross-referenced from `Games/CSDB/Top200/`)
+- 4K competition status (cross-referenced from `Games/CSDB/4k/`)
+
+See `docs/json-database-format.md` for the complete database schema specification.
 
 ## a64browser (C64 Client)
 

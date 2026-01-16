@@ -149,16 +149,8 @@ func printUsage() {
 }
 
 // loadIndex loads the search index, trying JSON database first unless legacy mode is forced.
+// assembly64Path should already be expanded (no ~).
 func loadIndex(assembly64Path, dbPath string, forceLegacy bool) (*SearchIndex, error) {
-	// Expand ~ to home directory.
-	if strings.HasPrefix(assembly64Path, "~/") {
-		home, err := os.UserHomeDir()
-		if err != nil {
-			return nil, fmt.Errorf("failed to get home directory: %w", err)
-		}
-		assembly64Path = filepath.Join(home, assembly64Path[2:])
-	}
-
 	// Try JSON database first (unless legacy mode forced).
 	if !forceLegacy && dbPath != "" {
 		if _, err := os.Stat(dbPath); err == nil {
@@ -176,7 +168,7 @@ func runTUI(args []string) {
 	host := fs.String("host", "c64u", "C64 Ultimate hostname or IP address")
 	verbose := fs.Bool("v", false, "Enable verbose debug logging")
 	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 data directory")
-	dbPath := fs.String("db", "games.json", "Path to JSON database file")
+	dbPath := fs.String("db", "", "Path to JSON database file (default: <assembly64>/c64uploader.json)")
 	legacy := fs.Bool("legacy", false, "Force legacy .releaselog.json loading")
 	fs.Parse(args)
 
@@ -188,12 +180,6 @@ func runTUI(args []string) {
 	// Disable slog output in TUI mode to avoid interfering with the display.
 	slog.SetDefault(slog.New(slog.NewTextHandler(io.Discard, nil)))
 
-	index, err := loadIndex(*assembly64Path, *dbPath, *legacy)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: Failed to load index: %v\n", err)
-		os.Exit(1)
-	}
-
 	// Expand assembly64Path for TUI (needed for file operations).
 	a64Path := *assembly64Path
 	if strings.HasPrefix(a64Path, "~/") {
@@ -201,10 +187,22 @@ func runTUI(args []string) {
 		a64Path = filepath.Join(home, a64Path[2:])
 	}
 
+	// Compute default database path if not specified.
+	dbFile := *dbPath
+	if dbFile == "" {
+		dbFile = filepath.Join(a64Path, "c64uploader.json")
+	}
+
+	index, err := loadIndex(a64Path, dbFile, *legacy)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error: Failed to load index: %v\n", err)
+		os.Exit(1)
+	}
+
 	// Determine if we're in legacy mode (JSON not found or -legacy flag).
 	legacyMode := *legacy
 	if !legacyMode {
-		if _, err := os.Stat(*dbPath); os.IsNotExist(err) {
+		if _, err := os.Stat(dbFile); os.IsNotExist(err) {
 			legacyMode = true
 		}
 	}
@@ -394,7 +392,7 @@ func runServer(args []string) {
 	host := fs.String("host", "c64u", "C64 Ultimate hostname or IP address")
 	verbose := fs.Bool("v", false, "Enable verbose debug logging")
 	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 data directory")
-	dbPath := fs.String("db", "games.json", "Path to JSON database file")
+	dbPath := fs.String("db", "", "Path to JSON database file (default: <assembly64>/c64uploader.json)")
 	legacy := fs.Bool("legacy", false, "Force legacy .releaselog.json loading")
 	port := fs.Int("port", 6465, "C64 protocol server port")
 	fs.Parse(args)
@@ -404,17 +402,23 @@ func runServer(args []string) {
 		slog.SetLogLoggerLevel(slog.LevelDebug)
 	}
 
-	index, err := loadIndex(*assembly64Path, *dbPath, *legacy)
-	if err != nil {
-		slog.Error("Failed to load index", "error", err)
-		os.Exit(1)
-	}
-
 	// Expand assembly64Path for server (needed for file operations).
 	a64Path := *assembly64Path
 	if strings.HasPrefix(a64Path, "~/") {
 		home, _ := os.UserHomeDir()
 		a64Path = filepath.Join(home, a64Path[2:])
+	}
+
+	// Compute default database path if not specified.
+	dbFile := *dbPath
+	if dbFile == "" {
+		dbFile = filepath.Join(a64Path, "c64uploader.json")
+	}
+
+	index, err := loadIndex(a64Path, dbFile, *legacy)
+	if err != nil {
+		slog.Error("Failed to load index", "error", err)
+		os.Exit(1)
 	}
 
 	// Create API client.
@@ -433,13 +437,13 @@ func runServer(args []string) {
 func runDBGen(args []string) {
 	fs := flag.NewFlagSet("dbgen", flag.ExitOnError)
 	assembly64Path := fs.String("assembly64", "", "Path to Assembly64 data directory (required)")
-	outputPath := fs.String("output", "games.json", "Output JSON file path")
+	outputPath := fs.String("out", "", "Output JSON file path (default: <assembly64>/c64uploader.json)")
 	fs.Parse(args)
 
 	if *assembly64Path == "" {
 		fmt.Fprintf(os.Stderr, "Error: -assembly64 path is required\n")
-		fmt.Fprintf(os.Stderr, "Usage: c64uploader dbgen -assembly64 <path> [-output <file>]\n")
-		fmt.Fprintf(os.Stderr, "Example: c64uploader dbgen -assembly64 /home/user/assembly64/Data -output games.json\n")
+		fmt.Fprintf(os.Stderr, "Usage: c64uploader dbgen -assembly64 <path> [-out <file>]\n")
+		fmt.Fprintf(os.Stderr, "Example: c64uploader dbgen -assembly64 ~/assembly64\n")
 		os.Exit(1)
 	}
 
@@ -460,7 +464,13 @@ func runDBGen(args []string) {
 		os.Exit(1)
 	}
 
-	if err := GenerateGamesDB(path, *outputPath); err != nil {
+	// Compute default output path if not specified.
+	outFile := *outputPath
+	if outFile == "" {
+		outFile = filepath.Join(path, "c64uploader.json")
+	}
+
+	if err := GenerateGamesDB(path, outFile); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
 		os.Exit(1)
 	}

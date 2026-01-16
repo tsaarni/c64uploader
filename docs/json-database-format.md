@@ -207,14 +207,51 @@ The release name is parsed to extract:
 
 ## Usage
 
-Full file path construction:
+### Generating the Database
+
+Use the `dbgen` command to generate the database from your Assembly64 collection:
+
+```bash
+# Generate c64uploader.json in the assembly64 directory (default)
+./c64uploader dbgen -assembly64 ~/assembly64
+
+# Or specify a custom output path
+./c64uploader dbgen -assembly64 ~/assembly64 -out ~/custom/path.json
 ```
-{assembly64_root}/{path}/{filename}
+
+### Using the Database
+
+The JSON database (`c64uploader.json`) is automatically loaded from the assembly64 directory:
+
+```bash
+# TUI mode (uses <assembly64>/c64uploader.json by default)
+./c64uploader tui -assembly64 ~/assembly64
+
+# Server mode
+./c64uploader server -assembly64 ~/assembly64
+
+# Force legacy mode (skip JSON database)
+./c64uploader tui -legacy -assembly64 ~/assembly64
+
+# Use a custom database path
+./c64uploader tui -db ~/custom/path.json -assembly64 ~/assembly64
+```
+
+### File Path Construction
+
+Full file path is constructed as:
+```
+{assembly64_root}/{path}/{primaryFile}
 ```
 
 Example:
 ```
-/home/user/assembly64/Data/Games/CSDB/All/.../giana.d64
+/home/user/assembly64/Games/CSDB/All/.../giana.d64
 ```
 
 Where `assembly64_root` is the value passed to `-assembly64` flag.
+
+### Advanced Search
+
+When using the JSON database in TUI mode, press `/` to open the advanced search form.
+This allows filtering by all metadata fields: language, region, engine, trainer count, Top200 status, etc.
