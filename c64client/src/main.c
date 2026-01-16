@@ -29,13 +29,14 @@ static char server_host[32] = DEFAULT_SERVER_HOST;
 static byte socket_id = 0;
 static bool connected = false;
 
-// Pages: 0=cats, 1=list, 2=search, 3=settings, 4=advsearch, 5=advresults
+// Pages: 0=cats, 1=list, 2=search, 3=settings, 4=advsearch, 5=advresults, 6=info
 #define PAGE_CATS        0
 #define PAGE_LIST        1
 #define PAGE_SEARCH      2
 #define PAGE_SETTINGS    3
 #define PAGE_ADV_SEARCH  4
 #define PAGE_ADV_RESULTS 5
+#define PAGE_INFO        6
 
 // Menu/list state
 #define MAX_ITEMS 20
@@ -85,6 +86,13 @@ static bool settings_editing = false;  // Are we editing a field?
 
 // Line buffer for protocol
 static char line_buffer[128];
+
+// Info screen state
+static int info_return_page = PAGE_CATS;  // Page to return to after info
+#define MAX_INFO_LINES 12
+static char info_labels[MAX_INFO_LINES][8];   // "NAME", "GROUP", etc.
+static char info_values[MAX_INFO_LINES][32];  // The values
+static int  info_line_count = 0;
 
 // VIC chip at $D000
 #define vic (*(struct VIC *)0xd000)
@@ -536,6 +544,56 @@ void do_adv_search(int start)
     print_status("ready");
 }
 
+// Fetch info for an entry
+bool fetch_info(int id)
+{
+    print_status("loading info...");
+
+    char cmd[32];
+    sprintf(cmd, "INFO %d", id);
+    send_command(cmd);
+    read_line();  // "OK" or "ERR ..."
+
+    if (line_buffer[0] == 'E')
+    {
+        print_status(line_buffer);
+        return false;
+    }
+
+    info_line_count = 0;
+
+    // Read field lines until "."
+    while (info_line_count < MAX_INFO_LINES)
+    {
+        read_line();
+        if (line_buffer[0] == '.')
+            break;
+
+        // Parse "LABEL|value"
+        char *sep = strchr(line_buffer, '|');
+        if (sep)
+        {
+            *sep = 0;
+            // Only add if value is non-empty
+            if (sep[1] != 0)
+            {
+                strncpy(info_labels[info_line_count], line_buffer, 7);
+                info_labels[info_line_count][7] = 0;
+                strncpy(info_values[info_line_count], sep + 1, 31);
+                info_values[info_line_count][31] = 0;
+                info_line_count++;
+            }
+        }
+    }
+
+    // Consume any remaining lines
+    while (line_buffer[0] != '.')
+        read_line();
+
+    print_status("ready");
+    return info_line_count > 0;
+}
+
 //-----------------------------------------------------------------------------
 // Keyboard input
 //-----------------------------------------------------------------------------
@@ -586,6 +644,7 @@ char get_key(void)
             if (k == KSCAN_S || k == KSCAN_CSR_DOWN) return 'd';
             if (k == KSCAN_N) return 'n';
             if (k == KSCAN_P) return 'p';
+            if (k == KSCAN_I) return 'i';  // Info
             if (k == KSCAN_CSR_RIGHT && shift) return 8;  // Left = back
         }
         // In search mode
@@ -602,6 +661,7 @@ char get_key(void)
             {
                 if (k == KSCAN_CSR_DOWN && shift) return 'u';
                 if (k == KSCAN_CSR_DOWN) return 'd';
+                if (k == KSCAN_I) return 'i';  // Info
             }
 
             // Return printable character using keyb_codes table
@@ -670,7 +730,13 @@ char get_key(void)
             if (k == KSCAN_S || k == KSCAN_CSR_DOWN) return 'd';
             if (k == KSCAN_N) return 'n';
             if (k == KSCAN_P) return 'p';
+            if (k == KSCAN_I) return 'i';  // Info
             if (k == KSCAN_CSR_RIGHT && shift) return 8;  // Left = back
+        }
+        // In info screen - any key returns
+        else if (current_page == PAGE_INFO)
+        {
+            return 'x';  // Any key = exit info
         }
     }
     return 0;
@@ -776,9 +842,9 @@ void draw_list(const char *title)
     if (current_page == PAGE_CATS)
         print_at(0, 23, "w/s:move enter:sel /:search c:cfg q:quit");
     else if (current_page == PAGE_LIST)
-        print_at(0, 23, "w/s:move enter:run del:back n/p:page");
+        print_at(0, 23, "w/s:move enter:run i:info del:back n/p:pg");
     else
-        print_at(0, 23, "type:search c=:cat enter:run del:back");
+        print_at(0, 23, "type:search c=:cat enter:run i:info del:bk");
 }
 
 void draw_settings(void)
@@ -945,7 +1011,27 @@ void draw_adv_results(void)
     }
 
     // Help line at row 23
-    print_at(0, 23, "w/s:move enter:run del:back");
+    print_at(0, 23, "w/s:move enter:run i:info del:back");
+}
+
+void draw_info(void)
+{
+    clear_screen();
+    print_at_color(0, 0, "entry info", 7);  // Yellow
+
+    // Draw all info fields with labels
+    for (int i = 0; i < info_line_count; i++)
+    {
+        byte y = 2 + i;
+        // Label in cyan
+        print_at_color(2, y, info_labels[i], 3);
+        print_at_color(2 + strlen(info_labels[i]), y, ":", 3);
+        // Value in white
+        print_at_color(10, y, info_values[i], 1);
+    }
+
+    // Help line
+    print_at(0, 23, "press any key to return");
 }
 
 //-----------------------------------------------------------------------------
@@ -1444,6 +1530,34 @@ int main(void)
                     if (new_offset < 0) new_offset = 0;
                     do_adv_search(new_offset);
                     draw_adv_results();
+                }
+                break;
+
+            case 'i':  // Info
+                if ((current_page == PAGE_LIST || current_page == PAGE_SEARCH ||
+                     current_page == PAGE_ADV_RESULTS) && item_count > 0)
+                {
+                    // Remember where to return
+                    info_return_page = current_page;
+                    // Fetch and display info
+                    if (fetch_info(item_ids[cursor]))
+                    {
+                        current_page = PAGE_INFO;
+                        draw_info();
+                    }
+                }
+                break;
+
+            case 'x':  // Exit info screen
+                if (current_page == PAGE_INFO)
+                {
+                    current_page = info_return_page;
+                    if (current_page == PAGE_LIST)
+                        draw_list(current_category);
+                    else if (current_page == PAGE_SEARCH)
+                        draw_list("assembly64 - search");
+                    else if (current_page == PAGE_ADV_RESULTS)
+                        draw_adv_results();
                 }
                 break;
 

@@ -256,13 +256,22 @@ The `a64browser` is a native C64 application located in the `c64client/` directo
 **Entry list:**
 - **W/S** or cursor keys - Navigate up/down
 - **Enter** - Run selected entry
+- **I** - View entry info (name, group, year, type, trainers)
 - **N/P** - Next/Previous page
 - **DEL** or left arrow - Back to categories
 
 **Search mode:**
 - Type to search (minimum 2 characters)
+- **C=** - Cycle category filter (All/Games/Demos/Music)
 - **Enter** - Run selected result
+- **I** - View entry info
 - **DEL** - Delete character or exit search
+
+**Advanced search (press `/` from categories):**
+- **W/S** - Navigate fields
+- **Space** - Toggle/cycle option fields
+- **Enter** - Edit text field or execute search
+- **DEL** - Delete character (in edit) or back to categories
 
 **Settings:**
 - **W/S** - Navigate

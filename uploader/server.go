@@ -348,9 +348,19 @@ func handleInfo(index *SearchIndex, id int) string {
 	b.WriteString(fmt.Sprintf("NAME|%s\n", entry.Name))
 	b.WriteString(fmt.Sprintf("GROUP|%s\n", entry.Group))
 	b.WriteString(fmt.Sprintf("YEAR|%s\n", entry.Year))
-	b.WriteString(fmt.Sprintf("CAT|%s\n", entry.Category))
+	b.WriteString(fmt.Sprintf("CAT|%s\n", entry.CategoryName))
 	b.WriteString(fmt.Sprintf("TYPE|%s\n", entry.FileType))
 	b.WriteString(fmt.Sprintf("PATH|%s\n", entry.Path))
+
+	// Games-specific: trainer info
+	if strings.EqualFold(entry.CategoryName, "Games") {
+		if entry.Crack != nil {
+			b.WriteString(fmt.Sprintf("TRAINER|%d\n", entry.Crack.Trainers))
+		} else {
+			b.WriteString("TRAINER|unknown\n")
+		}
+	}
+
 	b.WriteString(".\n")
 	return b.String()
 }
