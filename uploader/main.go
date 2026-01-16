@@ -148,11 +148,36 @@ func printUsage() {
 	fmt.Fprintf(os.Stderr, "Run 'c64uploader <command> -help' for command-specific options.\n")
 }
 
+// loadIndex loads the search index, trying JSON database first unless legacy mode is forced.
+func loadIndex(assembly64Path, dbPath string, forceLegacy bool) (*SearchIndex, error) {
+	// Expand ~ to home directory.
+	if strings.HasPrefix(assembly64Path, "~/") {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			return nil, fmt.Errorf("failed to get home directory: %w", err)
+		}
+		assembly64Path = filepath.Join(home, assembly64Path[2:])
+	}
+
+	// Try JSON database first (unless legacy mode forced).
+	if !forceLegacy && dbPath != "" {
+		if _, err := os.Stat(dbPath); err == nil {
+			return LoadIndexFromJSON(dbPath, assembly64Path)
+		}
+		slog.Info("JSON database not found, falling back to legacy loading", "path", dbPath)
+	}
+
+	// Fall back to legacy .releaselog.json loading.
+	return loadAssembly64Index(assembly64Path)
+}
+
 func runTUI(args []string) {
 	fs := flag.NewFlagSet("tui", flag.ExitOnError)
 	host := fs.String("host", "c64u", "C64 Ultimate hostname or IP address")
 	verbose := fs.Bool("v", false, "Enable verbose debug logging")
-	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 database")
+	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 data directory")
+	dbPath := fs.String("db", "games.json", "Path to JSON database file")
+	legacy := fs.Bool("legacy", false, "Force legacy .releaselog.json loading")
 	fs.Parse(args)
 
 	// Set log level.
@@ -163,18 +188,32 @@ func runTUI(args []string) {
 	// Disable slog output in TUI mode to avoid interfering with the display.
 	slog.SetDefault(slog.New(slog.NewTextHandler(io.Discard, nil)))
 
-	index, err := loadAssembly64Index(*assembly64Path)
+	index, err := loadIndex(*assembly64Path, *dbPath, *legacy)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error: Failed to load Assembly64 database from %s\n", *assembly64Path)
-		fmt.Fprintf(os.Stderr, "Make sure the path is correct and .releaselog.json files exist.\n")
+		fmt.Fprintf(os.Stderr, "Error: Failed to load index: %v\n", err)
 		os.Exit(1)
+	}
+
+	// Expand assembly64Path for TUI (needed for file operations).
+	a64Path := *assembly64Path
+	if strings.HasPrefix(a64Path, "~/") {
+		home, _ := os.UserHomeDir()
+		a64Path = filepath.Join(home, a64Path[2:])
+	}
+
+	// Determine if we're in legacy mode (JSON not found or -legacy flag).
+	legacyMode := *legacy
+	if !legacyMode {
+		if _, err := os.Stat(*dbPath); os.IsNotExist(err) {
+			legacyMode = true
+		}
 	}
 
 	// Create API client.
 	client := NewAPIClient(*host)
 
 	// Launch TUI.
-	p := tea.NewProgram(NewModel(index, client, *assembly64Path), tea.WithAltScreen())
+	p := tea.NewProgram(NewModel(index, client, a64Path, legacyMode), tea.WithAltScreen())
 	if _, err := p.Run(); err != nil {
 		fmt.Fprintf(os.Stderr, "TUI error: %v\n", err)
 		os.Exit(1)
@@ -354,7 +393,9 @@ func runServer(args []string) {
 	fs := flag.NewFlagSet("server", flag.ExitOnError)
 	host := fs.String("host", "c64u", "C64 Ultimate hostname or IP address")
 	verbose := fs.Bool("v", false, "Enable verbose debug logging")
-	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 database")
+	assembly64Path := fs.String("assembly64", "~/Downloads/assembly64", "Path to Assembly64 data directory")
+	dbPath := fs.String("db", "games.json", "Path to JSON database file")
+	legacy := fs.Bool("legacy", false, "Force legacy .releaselog.json loading")
 	port := fs.Int("port", 6465, "C64 protocol server port")
 	fs.Parse(args)
 
@@ -363,17 +404,24 @@ func runServer(args []string) {
 		slog.SetLogLoggerLevel(slog.LevelDebug)
 	}
 
-	index, err := loadAssembly64Index(*assembly64Path)
+	index, err := loadIndex(*assembly64Path, *dbPath, *legacy)
 	if err != nil {
-		slog.Error("Failed to load Assembly64 index", "error", err)
+		slog.Error("Failed to load index", "error", err)
 		os.Exit(1)
+	}
+
+	// Expand assembly64Path for server (needed for file operations).
+	a64Path := *assembly64Path
+	if strings.HasPrefix(a64Path, "~/") {
+		home, _ := os.UserHomeDir()
+		a64Path = filepath.Join(home, a64Path[2:])
 	}
 
 	// Create API client.
 	apiClient := NewAPIClient(*host)
 
 	// Start C64 protocol server (blocking).
-	if err := StartC64Server(*port, index, apiClient, *assembly64Path); err != nil {
+	if err := StartC64Server(*port, index, apiClient, a64Path); err != nil {
 		slog.Error("C64 server error", "error", err)
 		os.Exit(1)
 	}

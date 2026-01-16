@@ -63,14 +63,16 @@ type Model struct {
 	err              error
 	quitting         bool
 	assembly64Path   string
+	legacyMode       bool // True if using legacy .releaselog.json loading (enables refresh)
 }
 
 // NewModel creates a new TUI model.
-func NewModel(index *SearchIndex, apiClient *APIClient, assembly64Path string) Model {
+func NewModel(index *SearchIndex, apiClient *APIClient, assembly64Path string, legacyMode bool) Model {
 	m := Model{
 		index:            index,
 		apiClient:        apiClient,
 		assembly64Path:   assembly64Path,
+		legacyMode:       legacyMode,
 		selectedCategory: "All",
 		searchQuery:      "",
 		filteredResults:  make([]int, 0),
@@ -120,7 +122,11 @@ func (m Model) handleKeyMsg(msg tea.KeyMsg) (Model, tea.Cmd) {
 		return m, tea.Quit
 
 	case "ctrl+l":
-		return m, m.refreshIndex()
+		// Only allow refresh in legacy mode (JSON database is static).
+		if m.legacyMode {
+			return m, m.refreshIndex()
+		}
+		return m, nil
 
 	case "tab":
 		// Cycle through categories.
@@ -284,7 +290,11 @@ func (m Model) renderFooter() string {
 	}
 
 	// Help text.
-	b.WriteString(helpStyle.Render("↑/↓: Navigate  Tab: Category  Enter: Load  Ctrl+L: Refresh  Backspace: Clear  Esc/Q: Quit"))
+	helpText := "↑/↓: Navigate  Tab: Category  Enter: Load  Backspace: Clear  Esc/Q: Quit"
+	if m.legacyMode {
+		helpText = "↑/↓: Navigate  Tab: Category  Enter: Load  Ctrl+L: Refresh  Backspace: Clear  Esc/Q: Quit"
+	}
+	b.WriteString(helpStyle.Render(helpText))
 	b.WriteString("\n")
 
 	// Selected file path.
