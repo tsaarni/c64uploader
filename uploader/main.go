@@ -143,7 +143,8 @@ func printUsage() {
 	fmt.Fprintf(os.Stderr, "  load <filename>           Upload and run a file (PRG, CRT, D64, etc.)\n")
 	fmt.Fprintf(os.Stderr, "  ftp <filename> <dest>     Upload a file via FTP to C64 Ultimate\n")
 	fmt.Fprintf(os.Stderr, "  poke <address>,<value>    Issue a POKE command to C64 memory\n")
-	fmt.Fprintf(os.Stderr, "  server                    Start the C64 protocol server\n\n")
+	fmt.Fprintf(os.Stderr, "  server                    Start the C64 protocol server\n")
+	fmt.Fprintf(os.Stderr, "  dbgen                     Generate JSON database from Assembly64\n\n")
 	fmt.Fprintf(os.Stderr, "Run 'c64uploader <command> -help' for command-specific options.\n")
 }
 
@@ -381,6 +382,42 @@ func runServer(args []string) {
 	select {}
 }
 
+func runDBGen(args []string) {
+	fs := flag.NewFlagSet("dbgen", flag.ExitOnError)
+	assembly64Path := fs.String("assembly64", "", "Path to Assembly64 data directory (required)")
+	outputPath := fs.String("output", "games.json", "Output JSON file path")
+	fs.Parse(args)
+
+	if *assembly64Path == "" {
+		fmt.Fprintf(os.Stderr, "Error: -assembly64 path is required\n")
+		fmt.Fprintf(os.Stderr, "Usage: c64uploader dbgen -assembly64 <path> [-output <file>]\n")
+		fmt.Fprintf(os.Stderr, "Example: c64uploader dbgen -assembly64 /home/user/assembly64/Data -output games.json\n")
+		os.Exit(1)
+	}
+
+	// Expand ~ to home directory.
+	path := *assembly64Path
+	if strings.HasPrefix(path, "~/") {
+		home, err := os.UserHomeDir()
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Error: failed to get home directory: %v\n", err)
+			os.Exit(1)
+		}
+		path = filepath.Join(home, path[2:])
+	}
+
+	// Check if path exists.
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		fmt.Fprintf(os.Stderr, "Error: path does not exist: %s\n", path)
+		os.Exit(1)
+	}
+
+	if err := GenerateGamesDB(path, *outputPath); err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		printUsage()
@@ -400,6 +437,8 @@ func main() {
 		runPoke(os.Args[2:])
 	case "server":
 		runServer(os.Args[2:])
+	case "dbgen":
+		runDBGen(os.Args[2:])
 	case "-h", "-help", "--help", "help":
 		printUsage()
 	default:
