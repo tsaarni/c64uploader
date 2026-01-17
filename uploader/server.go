@@ -83,6 +83,9 @@ func handleC64Connection(conn net.Conn, index *SearchIndex, apiClient *APIClient
 			conn.Write([]byte("OK Goodbye\n"))
 			return
 		}
+		if strings.HasPrefix(response, "ERR") {
+			slog.Error("C64 client error", "remote", remoteAddr, "error", response, "command", line)
+		}
 		conn.Write([]byte(response))
 	}
 }

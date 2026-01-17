@@ -223,7 +223,10 @@ See `docs/json-database-format.md` for the complete database schema specificatio
 
 The `a64browser` is a native C64 application located in the `c64client/` directory. It runs directly on your C64 Ultimate and connects to the `c64uploader` server over the network, allowing you to browse and launch programs from your Assembly64 collection.
 
-**Prerequisites:** Network and FTP File Service must be enabled on your C64 Ultimate.
+**Prerequisites:**
+- **Command Interface** must be enabled in Ultimate settings (F2 + Cartridge and ROM Settings → Command Interface → Enabled)
+- **Network** must be enabled on your C64 Ultimate
+- **FTP File Service** must be enabled for file transfers
 
 
 ### Running a64browser on C64
